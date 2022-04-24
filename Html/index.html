@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Inicio</title>
+    <!--Metas-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="schönthal,librería,impresiones,fotocopias">
+    <meta name="description" content="Sitio Web de la Librería Schönthal">
+    <meta name="author" content="Matias Font, Maximiliano Fittipaldi, Fernando Hsiao y Ezequiel Milich">
+    <meta name="robots" content="index">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <!--Icon Pack-->
+    <script src="https://kit.fontawesome.com/8cc7a6ab0f.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="..\Media\Icon.png">
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="#r" class="extra-large active"><i class="fa-solid fa-address-card"></i> Registro</a>
+        <a href="#a" class="extra-large"><i class="fa-solid fa-arrow-right-to-bracket"></i> Acceso</a>
+      </nav>
+    </header>
+    <article>
+      <div class="register">
+        <p class="extra-large">Bienvenido</p>
+        <p class="medium">Librería SCH, la mejor experiencia.</p>
+        <form action="/path/to/auth" method="POST">
+          <p class="extra-large">Registro</p>
+          <p class="large">Mail:</p>
+          <input type="email" name="customer[email]" id="email" class="text-input">
+          <p class="large">Contraseña:</p>
+          <input type="password" name="customer[password]" class="text-input">
+          <p class="small">Al registrarse, acepta los <a href="#tyc">Términos y Condiciones</a></p>
+          <input type="submit" onsubmit="emailValidity()" value="Registrarse" class="large" id="button">
+        </form>
+      </div>
+    </article>
+    <footer>
+        <a href="#w" class="medium"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+        <a href="#f" class="medium"><i class="fab fa-facebook-f"></i>acebook</a>
+        <a href="#i" class="medium"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#t" class="medium"><i class="fab fa-telegram-plane"></i> Telegram</a>
+    </footer>
+    <script src="..\JS\index.js"></script>
+  </body>
+</html>
