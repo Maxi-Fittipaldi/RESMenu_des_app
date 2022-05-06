@@ -1,0 +1,5 @@
+tablas:
+Menu
+Las partes de la tabla:
+Comida;
+N° de mesa;
