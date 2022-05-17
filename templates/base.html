@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="schönthal,librería,impresiones,fotocopias">
+        <meta name="description" content="Sitio Web de la Librería Schönthal">
+        <meta name="author" content="Matias Font, Maximiliano Fittipaldi, Fernando Hsiao y Ezequiel Milich">
+        <meta name="robots" content="index">
+        <!--CSS-->
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/normalize.css')}}"> <!-- Resets CSS Styles-->
+        <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/index.css')}}">
+        <!--Font-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <!--Icon Pack-->
+        <script src="https://kit.fontawesome.com/8cc7a6ab0f.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="{{url_for('static',filename='Media/Icon.png')}}">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        <script src="{{url_for('static',filename='JS/index.js')}}"></script>
+    </body>
+</html>
