@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
+{% extends 'base.html' %}
+    {% block head %}
     <title>Acceso</title>
-    <!--Metas-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="schönthal,librería,impresiones,fotocopias">
-    <meta name="description" content="Sitio Web de la Librería Schönthal">
-    <meta name="author" content="Matias Font, Maximiliano Fittipaldi, Fernando Hsiao y Ezequiel Milich">
-    <meta name="robots" content="index">
-    <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="../CSS/normalize.css"> <!-- Resets CSS Styles-->
-    <link rel="stylesheet" type="text/css" href="../CSS/index.css">
-    <!--Font-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <!--Icon Pack-->
-    <script src="https://kit.fontawesome.com/8cc7a6ab0f.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="..\Media\Icon.png">
-  </head>
+    {% endblock %}
 
-  <body>
+  {% block body %}
     <header>
       <nav>
         <a href="#a" class="extra-large-txt active"><i class="fa-solid fa-arrow-right-to-bracket"></i> Acceso</a>
@@ -31,7 +14,7 @@
       <div class="register">
         <p class="extra-large-txt" style="line-height: 15px;">Bienvenido</h1> <!-- Quick Fix-->
         <p class="medium-txt">RESMenu, la mejor experiencia.</p>
-        <form action="/path/to/auth" method="POST">
+        <form action="/login" method="POST">
           <p class="extra-large-txt" style="text-align: center;">Ingresar</p> <!-- Quick Fix-->
           <p class="large-txt">Mail:</p>
           <input type="email" name="mail" class="text-input selectable">
@@ -41,7 +24,7 @@
             <input type="checkbox" id="TyC" value="HTML" class="regular-checkbox">
             <p for="TyC" class="small-txt" style="display: inline-block;">Mantener la sesión.</p> <!-- Quick Fix-->
           </div>
-          <div class=" button large-txt ripple"><p>Siguiente</p></div>
+          <input type="submit" name="" value="siguiente" class=" button large-txt ripple"/>
         </form>
       </div>
     </article>
@@ -51,6 +34,4 @@
         <a href="#i" class="medium-txt"><i class="fa-brands fa-instagram"></i> Instagram</a>
         <a href="#t" class="medium-txt"><i class="fa-brands fa-telegram"></i> Telegram</a>
     </footer>
-    <script src="..\JS\index.js"></script>
-  </body>
-</html>
+    {% endblock %}
