@@ -1,10 +1,8 @@
 from flask import Flask, render_template, request, url_for, redirect, send_from_directory, session
 from flask_sqlalchemy import SQLAlchemy
-import hashlib
+import encrypt
 
-userPassword = "Pepe123" # la contraseña debería estar en la base de datos
-encoded = userPassword.encode() # pasa la contraseña a binario
-userPasswordEncrypted = hashlib.sha256(encoded)
+userPasswordEncrypted = encrypt("Pepe123")
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -18,8 +16,7 @@ def login():
         mail = request.form["mail"]
         password = request.form["pwd"]
         session["mail"] = mail
-        passwordEnc = password.encode()
-        passwordEncrypted = hashlib.sha256(passwordEnc)
+        passwordEncrypted = encrypt(password)
         if passwordEncrypted.hexdigest() == userPasswordEncrypted.hexdigest():
                 return redirect("/profile")
         else:
