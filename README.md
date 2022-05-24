@@ -20,3 +20,9 @@ escriba lo siguiente para ejecutar la aplicación:
 >py -m flask run
 ```
 Si desea salir del ambiente virtual escriba **deactivate**.
+
+## SQL y DB's:
+La aplicación viene con un usuario de prueba. Asegúrese de
+cambiar el nombre, la contraseña (tanto en el archivo de creación
+de usuario como en el [archivo python](app.py)) 
+y, si lo encuentra necesario, cambiar los permisos.
