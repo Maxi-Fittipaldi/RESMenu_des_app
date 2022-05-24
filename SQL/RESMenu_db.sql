@@ -28,6 +28,12 @@ CREATE TABLE productos(
     nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(150) DEFAULT "Sin descripción",
     precio DOUBLE(11,2) NOT NULL,
+    disponibilidad_desde TIME(3) NOT NULL,
+    disponibilidad_hasta TIME(3) NOT NULL,
+    propietario INT(11) NOT NULL,
+    PRIMARY KEY(id),
+    CONSTRAINT fk_propietario FOREIGN KEY(propietario) 
+    REFERENCES usuarios(id)
 )ENGINE = InnoDB;
 
 CREATE TABLE detalleTRansaccion(
@@ -38,9 +44,27 @@ CREATE TABLE detalleTRansaccion(
     estado VARCHAR(10) NOT NULL,
     ranking INT(1) DEFAULT 5,
     comentarios VARCHAR(150) DEFAULT "No se ofrecieron comentarios",
-    PRIMARY KEY(cabecera_id,producto_id),
+    PRIMARY KEY(cabecera_id, producto_id),
     CONSTRAINT fk_cabecera_id FOREIGN KEY(cabecera_id)
     REFERENCES cabeceraTransaccion(id),
     CONSTRAINT fk_producto_id FOREIGN KEY(producto_id)
     REFERENCES productos(id)
+)ENGINE = InnoDB;
+
+CREATE TABLE locales(
+    id INT(11) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    domicilio VARCHAR(15) NOT NULL,
+    telefono INT(11) NOT NULL,
+)ENGINE = InnoDB;
+
+CREATE TABLE locales(
+    producto_id INT(11) NOT NULL,
+    local_id INT(11) NOT NULL,
+    estado VARCHAR(10) NOT NULL,
+    PRIMARY KEY (producto_id, local_id),
+    CONSTRAINT fk_producto_idl FOREIGN KEY(producto_id)
+    REFERENCES productos(id),
+    CONSTRAINT fk_local_id FOREIGN KEY(local_id)
+    REFERENCES locales(id)
 )ENGINE = InnoDB;
