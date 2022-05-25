@@ -17,7 +17,7 @@ def login():
         password = request.form["pwd"]
         session["mail"] = mail
         passwordEncrypted = encrypt(password)
-        if passwordEncrypted.hexdigest() == userPasswordEncrypted.hexdigest():
+        if passwordEncrypted == userPasswordEncrypted:
                 return redirect("/profile")
         else:
                 return redirect("/login")
