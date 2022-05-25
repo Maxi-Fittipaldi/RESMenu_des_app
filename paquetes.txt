@@ -4,6 +4,7 @@ Flask-SQLAlchemy==2.5.1
 greenlet==1.1.2
 itsdangerous==2.1.2
 Jinja2==3.1.2
+mariadb==1.0.11
 MarkupSafe==2.1.1
 SQLAlchemy==1.4.36
 Werkzeug==2.1.2

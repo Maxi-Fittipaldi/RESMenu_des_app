@@ -2,12 +2,19 @@ from flask import Flask, render_template, request, url_for, redirect, send_from_
 from flask_sqlalchemy import SQLAlchemy
 import encrypt
 
+app = Flask(__name__)
+#mysql
+#app.config['SQLALCHEMY_DATABASE_URI']="mysql://testing:12345@127.0.0.1:3306/RESMenu"
+#mariadb
+app.config['SQLALCHEMY_DATABASE_URI']="mariadb+mariadbconnector://testing:12345@127.0.0.1:3306/RESMenu"
+db = SQLAlchemy(app)
+
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 userPasswordEncrypted = encrypt("Pepe123")
 
-app = Flask(__name__)
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 @app.route("/")
 def root():
+        products = db.session.execute("SELECT * FROM productos") #sólo de testeo
         return "Welcome page"
 
 @app.route("/login", methods = ["GET","POST"])
