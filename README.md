@@ -22,7 +22,9 @@ escriba lo siguiente para ejecutar la aplicación:
 Si desea salir del ambiente virtual escriba **deactivate**.
 
 ## SQL y DB's:
-La aplicación viene con un usuario de prueba. Asegúrese de
-cambiar el nombre, la contraseña (tanto en el archivo de creación
-de usuario como en el [archivo python](app.py)) 
+La aplicación viene con un usuario de prueba y dos tipos de conexiones,
+elija una según si usa MySQL o MariaDB en el 
+[archivo python](app.py). Si desea correr la aplicación en
+un servidor público, asegúrese de cambiar el nombre, 
+la contraseña 
 y, si lo encuentra necesario, cambiar los permisos.

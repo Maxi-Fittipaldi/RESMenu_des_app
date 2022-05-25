@@ -1,21 +1,22 @@
 DROP DATABASE IF EXISTS RESMenu;
 CREATE DATABASE RESMenu;
 USE RESMenu;
-SET utf8;
+SET NAMES utf8;
 
-CREATE TABLE usuarios ( 
+CREATE TABLE usuarios (
     id INT(11) NOT NULL,
     gmail VARCHAR(100) NOT NULL,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
-    password VARCHAR(50) NOT NULL,
+    password VARCHAR(64) NOT NULL,
     estado VARCHAR(10) NOT NULL,
     PRIMARY KEY(id)
-)ENGINE = InnoDB;  
+)ENGINE = InnoDB;
 
 CREATE TABLE cabeceraTransaccion(
     id INT(11) NOT NULL,
     usuario_id INT(11) NOT NULL,
+    nro_mesa INT(3) NOT NULL,
     fecha date NOT NULL,
     estado VARCHAR(10) NOT NULL,
     PRIMARY KEY(id),
@@ -32,7 +33,7 @@ CREATE TABLE productos(
     disponibilidad_hasta TIME(3) NOT NULL,
     propietario INT(11) NOT NULL,
     PRIMARY KEY(id),
-    CONSTRAINT fk_propietario FOREIGN KEY(propietario) 
+    CONSTRAINT fk_propietario FOREIGN KEY(propietario)
     REFERENCES usuarios(id)
 )ENGINE = InnoDB;
 
@@ -56,9 +57,10 @@ CREATE TABLE locales(
     nombre VARCHAR(50) NOT NULL,
     domicilio VARCHAR(15) NOT NULL,
     telefono INT(11) NOT NULL,
+    PRIMARY KEY(id)
 )ENGINE = InnoDB;
 
-CREATE TABLE locales(
+CREATE TABLE localesProductos(
     producto_id INT(11) NOT NULL,
     local_id INT(11) NOT NULL,
     estado VARCHAR(10) NOT NULL,
