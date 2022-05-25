@@ -1,0 +1,198 @@
+/*
+┌──────────────────────────┐
+│ ί CSS Dictionary         │
+└──────────────────────────┘
+	[1] = LIBRARY:
+        [1.1] = Text
+        [1.2] = Animations
+        [1.3] = Body
+	[2] = STRUCTURE:
+        [2.1] = Header
+        ->  [2.1.1] = Navbar
+        [2.2] = Article
+        ->  [2.2.1] = Form
+        [2.3] = Footer
+*/
+/*
+┌──────────────────────────┐
+│ [1.1] Text               │
+└──────────────────────────┘ */
+    p {
+        margin: 10px;
+        /* margin-top 1em */ /* Ideal margin for paragraphs*/
+        line-height: calc(1.5em + .2vw);
+        font-weight: var(--TXT-Weight);
+        text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--Primary);
+        line-height: calc(1.5em + .2vw);
+        text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+    }
+
+    .extra-large-txt { /* For Navbar and Titles */
+        font-size: 20px;
+        color: var(--On-Surface-Large-TXT);
+    }
+
+    .large-txt { /* For Subtitles */
+        font-size: 16px;
+        color: var(--On-Surface-Large-TXT);
+    }
+
+    .medium-txt { /* For Paragraphs and Footer */
+        font-size: 14px;
+        color: var(--On-Surface-Medium-TXT);
+    }
+
+    .small-txt { /* For Notes and Aclarations */
+        font-size: 14px;
+        color: var(--On-Surface-Small-TXT);
+    }
+/*
+┌──────────────────────────┐
+│ [1.2] Animations         │
+└──────────────────────────┘ */
+.ripple {
+    background-position: center;
+    transition: background 0.4s;
+    &:hover {
+        background: var(--Primary) radial-gradient(circle, transparent 1%, var(--Primary) 1%) center/15000%;
+    }
+    &:active {
+        background-color: rgb(127, 127, 127);
+        background-size: 100%;
+        transition: background 0s;
+    }
+}
+/*
+┌──────────────────────────┐
+│ [1.3] Body               │
+└──────────────────────────┘ */
+    body {
+        background-color: var(--Background);
+        font-family: 'Roboto', sans-serif;
+    }
+/*
+┌──────────────────────────┐
+│ [2.1] Header             │
+└──────────────────────────┘ */
+    /* [2.1.1] ─── Navbar ───*/
+    nav {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 64px;
+        background-color: var(--Surface);
+        box-shadow: var(--Shadow-4DP)
+
+        a {
+            padding: 6px 18px;
+            line-height : 50px;
+        }
+        a:hover, i:hover {
+            color: var(--Primary);
+        }
+
+        .active { /* Current Section */
+            color: var(--Primary);
+            border-bottom: 2px solid var(--Primary);
+        }
+    }
+    .theme {
+        transform: rotate(90deg);
+        .down {
+            transform: rotate(-90deg);
+        }
+    }
+
+
+/*
+┌──────────────────────────┐
+│ [2.2] Article            │
+└──────────────────────────┘ */
+    article {
+        display: flex;
+        padding: 30px 30px 30px 30px;
+        min-height: calc(100vh - 97px);
+    }
+
+    /* [2.2.1] ──── Form ────*/
+    .register {
+        margin: auto;
+    }
+
+    form {
+        background-color: var(--Surface);
+        box-shadow: var(--Shadow-8DP);
+        padding: 44px 30px calc(42px + 45px) 30px;
+        border-radius: 12px;
+
+        .text-input {
+            width: 350px;
+            font-size: 16px;
+            line-height : 24px;
+            margin-bottom: 15px;
+            border-radius: 25px;
+            padding: 10px;
+            background-color: var(--Surface-L35);
+            color: var(--On-Surface);
+            border: 2px solid var(--Surface);
+
+            &:focus {
+                border: 2px solid var(--Primary);
+            }
+        }
+    }
+
+
+
+    .button {
+        display: block;
+        border-radius: 25px;
+        background-color: var(--Primary);
+        color: var(--On-Primary);
+        float: right;
+        box-shadow: var(--Shadow-1DP);
+        cursor: pointer;
+
+        p {
+            font-weight: var(--On-Color-TXT-Weight);
+        }
+        &:hover {
+            filter: brightness(var(--Active-Item));
+            box-shadow: var(--Shadow-2DP);
+        }
+    }
+
+
+
+    .regular-checkbox {
+        -webkit-appearance: none;
+        padding: 4px;
+        border-radius: 6px;
+        background-color: var(--On-Surface);
+        border: 2px solid var(--Primary);
+        &:checked {
+            background-color: var(--Primary);
+        }
+    }
+
+/*
+┌──────────────────────────┐
+│ [2.3] Footer             │
+└──────────────────────────┘ */
+    footer {
+        display: flex;
+        justify-content: center;
+        background-color: var(--Surface);
+        a {
+            padding: 6px 18px;
+            line-height : 21px;
+            &:hover {
+                color: var(--Primary);
+            }
+        }
+    }
