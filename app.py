@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, send_from_directory, session
 from flask_sqlalchemy import SQLAlchemy
-import encrypt
+from encrypt import *
 
 app = Flask(__name__)
 #mysql
