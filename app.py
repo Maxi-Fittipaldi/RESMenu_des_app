@@ -10,7 +10,6 @@ app.config['SQLALCHEMY_DATABASE_URI']="mariadb+mariadbconnector://testing:12345@
 db = SQLAlchemy(app)
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-userPasswordEncrypted = encrypt("Pepe123")
 
 @app.route("/")
 def root():
@@ -22,12 +21,18 @@ def login():
     if request.method == "POST":
         mail = request.form["mail"]
         password = request.form["pwd"]
-        session["mail"] = mail
         passwordEncrypted = encrypt(password)
-        if passwordEncrypted == userPasswordEncrypted:
-                return redirect("/profile")
-        else:
-                return redirect("/login")
+        query = db.session.execute("SELECT password, gmail FROM usuarios WHERE gmail = :mail",{"mail": mail})
+        for result in query:
+                dbGmail = result["gmail"]
+                dbPassword = result["password"]
+                if mail != dbGmail:
+                        return redirect("/login")
+                if passwordEncrypted != dbPassword:
+                        return redirect("/login")
+
+        session["mail"] = mail
+        return redirect("/profile")
     else:
         return render_template("login.html")
 @app.route("/profile")
