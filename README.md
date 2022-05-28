@@ -10,7 +10,7 @@ Esta acción se realizará por única vez.
 ``` 
 >cd RESMenu_des_app
 >py -3 -m venv venv
->venv\Sripts\activate
+>venv\Scripts\activate
 >pip -r paquetes.txt
 ```
 Una vez creado y configurado el ambiente virtual,
