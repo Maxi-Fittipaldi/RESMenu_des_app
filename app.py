@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, send_from_directory, session
+from flask import Flask, render_template, request, url_for, redirect, send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from encrypt import *
 
@@ -26,12 +26,15 @@ def login():
         for result in query:
                 dbGmail = result["gmail"]
                 dbPassword = result["password"]
-                if mail != dbGmail:
-                        return redirect("/login")
                 if passwordEncrypted != dbPassword:
+                        flash("La contraseña o el mail son incorrectos")
+                        return redirect("/login")
+                if mail != dbGmail:
+                        flash("La contraseña o el mail son incorrectos")
                         return redirect("/login")
 
         session["mail"] = mail
+        flash("Has iniciado sessión")
         return redirect("/profile")
     else:
         return render_template("login.html")
@@ -41,7 +44,7 @@ def signup():
 @app.route("/profile")
 def profile():
     if "mail" in session:
-        return f'iniciaste sesión como {session["mail"]}'
+        return render_template("profile.html")
     return "no iniciaste sesión"
 
 @app.route('/logout')

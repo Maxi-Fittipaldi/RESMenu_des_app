@@ -198,3 +198,7 @@
     footer a:hover, nav i:hover {
         color: var(--Primary);
     }
+
+    .flash{
+        color: var(--Primary);
+    }
