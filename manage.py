@@ -20,7 +20,7 @@ def select():
     db.session.commit()
     return redirect("/")
 
-@app.route("manage/insert/<int:id>", methods=['GET','POST'])
+@app.route("manage/insert>", methods=['GET','POST'])
 def insert(): 
     if request.method == "POST":
         productName = request.form["name"]
