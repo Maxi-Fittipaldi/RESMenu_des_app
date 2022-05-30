@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
     {% block head %}
-    <title>Acceso</title>
+    <title>Registro</title>
     {% endblock %}
 
   {% block body %}
     <header>
       <nav>
-        <a href="/login" class="extra-large-txt active"><i class="fa-solid fa-arrow-right-to-bracket"></i> Acceso</a>
-        <a href="/signup" class="extra-large-txt "><i class="fa-solid fa-address-card"></i> Registro</a>
+        <a href="/login" class="extra-large-txt "><i class="fa-solid fa-arrow-right-to-bracket"></i> Acceso</a>
+        <a href="/signup" class="extra-large-txt active"><i class="fa-solid fa-address-card"></i> Registro</a>
         <a href="#a" class="extra-large-txt theme"><i class="fa-solid fa-circle-half-stroke"></i></a>
       </nav>
     </header>
@@ -15,10 +15,14 @@
       <div class="register">
         <p class="extra-large-txt" style="line-height: 15px;">Bienvenido</h1> <!-- Quick Fix-->
         <p class="medium-txt">RESMenu, la mejor experiencia.</p>
-        <form action="/login" method="POST">
+        <form action="/signup" method="POST">
           <p class="extra-large-txt" style="text-align: center;">Ingresar</p> <!-- Quick Fix-->
           <p class="large-txt">Mail:</p>
           <input type="email" name="mail" class="text-input selectable">
+          <p class="large-txt">Nombre:</p>
+          <input type="text" name="nombre" class="text-input selectable">
+          <p class="large-txt">Apellido:</p>
+          <input type="text" name="apellido" class="text-input selectable">
           <p class="large-txt">Contraseña:</p>
           <input type="password" name="pwd" class="text-input selectable"></input>
           <div>
