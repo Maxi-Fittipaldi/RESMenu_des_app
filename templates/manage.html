@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+  {% block head %}
+    <title>Products</title>
+  {% endblock %}
+
+  {% block body %}
+    <header>
+        <nav>
+          <a href="#a" class="extra-large-txt active"><i class="fa-solid fa-arrow-right-to-bracket"></i> Productos</a>
+          <a href="#a" class="extra-large-txt theme"><i class="fa-solid fa-circle-half-stroke"></i></a>
+        </nav>
+      </header>
+      <article>
+        <div class="register">
+          <p class="extra-large-txt" style="line-height: 15px;">Bienvenido</h1>
+          <p class="medium-txt">RESMenu, la mejor experiencia.</p>
+          <form action="/search" method="POST">
+            <p class="large-txt">Nombre del producto: </p>
+            <input type="text" name="products" class="text-input selectable">
+              <button class=" button large-txt ripple" type="submit"><p>Buscar</p></button>
+          </form>
+        </div>
+      </article>
+      <footer>
+          <a href="#w" class="medium-txt"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+          <a href="#f" class="medium-txt"><i class="fa-brands fa-facebook-f"></i>Facebook</a>
+          <a href="#i" class="medium-txt"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="#t" class="medium-txt"><i class="fa-brands fa-telegram"></i> Telegram</a>
+      </footer>
+  {% endblock %}
+
