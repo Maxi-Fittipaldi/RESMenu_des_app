@@ -39,6 +39,30 @@ def login():
         return render_template("login.html")
 @app.route("/signup", methods = ["GET","POST"])
 def signup():
+        if request.method == "POST":
+               mail = request.form["mail"]
+               nombre = request.form["nombre"]
+               apellido = request.form["apellido"]
+               password = request.form["pwd"]
+               passwordEncrypted = encrypt(password)
+               query = db.session.execute("SELECT gmail FROM usuarios WHERE gmail = :mail",{"mail": mail})
+               dbGmail = None
+               for resutl in query:
+                       dbGmail = result["gmail"]
+               if mail == dbGmail:
+                       flash("Esta cuenta ya existe")
+                       return redirect("/signup")
+               db.session.execute(
+                """INSERT INTO usuarios
+               (gmail,nombre,apellido,password,estado)
+               VALUES(:mail,:nomb,:apel,:pass,'pendiente' )""",
+                {"mail": mail,
+                 "nomb": nombre,
+                 "apel": apellido,
+                 "pass": passwordEncrypted})
+               db.session.commit()
+               flash("usuario registrado")
+               return redirect("/profile")
         return render_template("signup.html")
 @app.route("/profile")
 def profile():
