@@ -76,15 +76,14 @@ def search():
         productoNombre = request.form["nombre"]
         db.session.execute("SELECT * FROM productos WHERE productonombre = :n",
                            {"n":productoNombre})
-        db.session.commit()
+        return redirect("manage/search")
     else:
-        return render_template("productos.html")
+        return render_template("buscar.html")
 
-@app.route("manage/select")
+@app.route("/manage")
 def select():
-    db.session.execute("SELECT * FROM productos")
-    db.session.commit()
-    return redirect("/")
+    productos = db.session.execute("SELECT * FROM productos")
+    return render_template("manage.html", productos=productos)
 
 @app.route("manage/insert/<int:id>", methods=['GET','POST'])
 def insert(): 
@@ -95,21 +94,17 @@ def insert():
         db.session.execute("INSERT INTO productos (nombre,precio,cantidad_en_stck) VALUES(:n,:p ,:s)",
                            {"n":productoNombre,"p":productoPrecio,"s":productoStock})
         db.session.commit()
-        return redirect("/")
+        return redirect("/manage")
     else:
         productos = db.session.execute("SELECT * FROM productos")
         return render_template('index.html',productos=productos)
 
 @app.route("manage/delete/<int:id>")
 def delete(id):
-    if request.method == "POST":
-        productoid = request.form["id"]
-        db.session.execute("DELETE FROM productos WHERE id = :id",{"id":productoid})
-        db.session.commit()
-        return redirect("/")
-    else:
-        productos = db.session.execute("SELECT * FROM productos")
-        return render_template('index.html',productos=productos)
+    productoid = id
+    db.session.execute("DELETE FROM productos WHERE id = :id",{"id":productoid})
+    db.session.commit()
+    return redirect("/manage")
 
 @app.route("manage/update/<int:id>", methods=["GET","POST"])
 def update(id):
