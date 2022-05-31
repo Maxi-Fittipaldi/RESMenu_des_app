@@ -4,7 +4,7 @@ USE RESMenu;
 SET NAMES utf8;
 
 CREATE TABLE usuarios (
-    id INT(11) NOT NULL,
+    id INT(11) NOT NULL AUTO_INCREMENT,
     gmail VARCHAR(100) NOT NULL,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE usuarios (
 )ENGINE = InnoDB;
 
 CREATE TABLE cabeceraTransaccion(
-    id INT(11) NOT NULL,
+    id INT(11) NOT NULL AUTO_INCREMENT,
     usuario_id INT(11) NOT NULL,
     nro_mesa INT(3) NOT NULL,
     fecha date NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE cabeceraTransaccion(
 ) ENGINE = InnoDB;
 
 CREATE TABLE productos(
-    id INT(11) NOT NULL,
+    id INT(11) NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(150) DEFAULT "Sin descripción",
     precio DOUBLE(11,2) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE locales(
 )ENGINE = InnoDB;
 
 CREATE TABLE localesProductos(
-    producto_id INT(11) NOT NULL,
+    producto_id INT(11) NOT NULL AUTO_INCREMENT,
     local_id INT(11) NOT NULL,
     estado VARCHAR(10) NOT NULL,
     PRIMARY KEY (producto_id, local_id),

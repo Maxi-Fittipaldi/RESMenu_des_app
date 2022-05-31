@@ -21,6 +21,13 @@
         {% block head %}{% endblock %}
     </head>
     <body>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p class="flash">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         {% block body %}{% endblock %}
         <script src="{{url_for('static',filename='JS/index.js')}}"></script>
     </body>
