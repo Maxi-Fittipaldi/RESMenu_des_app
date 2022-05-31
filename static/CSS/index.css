@@ -1,4 +1,5 @@
-/* 
+@charset "UTF-8";
+/*
 ┌──────────────────────────┐
 │ ί CSS Dictionary         │
 └──────────────────────────┘
@@ -12,193 +13,188 @@
         [2.2] = Article
         ->  [2.2.1] = Form
         [2.3] = Footer
-*/  
-/* 
+*/
+/*
 ┌──────────────────────────┐
 │ [1.1] Text               │
 └──────────────────────────┘ */
-    p {
-        margin: 10px; 
-        /* margin-top 1em */ /* Ideal margin for paragraphs*/
-        line-height: calc(1.5em + .2vw);
-        font-weight: var(--TXT-Weight);
-        text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
-    }
+p {
+  margin: 10px;
+  /* margin-top 1em */
+  /* Ideal margin for paragraphs*/
+  line-height: calc(1.5em + 0.2vw);
+  font-weight: var(--TXT-Weight);
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
 
-    a {
-        text-decoration: none;
-        color: var(--Primary);
-        line-height: calc(1.5em + .2vw);
-        text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
-    }
+a {
+  text-decoration: none;
+  color: var(--Primary);
+  line-height: calc(1.5em + 0.2vw);
+  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+}
 
-    .extra-large-txt { /* For Navbar and Titles */
-        font-size: 20px;
-        color: var(--On-Surface-Large-TXT);
-    }
+.extra-large-txt {
+  /* For Navbar and Titles */
+  font-size: 20px;
+  color: var(--On-Surface-Large-TXT);
+}
 
-    .large-txt { /* For Subtitles */
-        font-size: 16px;
-        color: var(--On-Surface-Large-TXT);
-    }
+.large-txt {
+  /* For Subtitles */
+  font-size: 16px;
+  color: var(--On-Surface-Large-TXT);
+}
 
-    .medium-txt { /* For Paragraphs and Footer */
-        font-size: 14px;
-        color: var(--On-Surface-Medium-TXT);
-    }
+.medium-txt {
+  /* For Paragraphs and Footer */
+  font-size: 14px;
+  color: var(--On-Surface-Medium-TXT);
+}
 
-    .small-txt { /* For Notes and Aclarations */
-        font-size: 14px;
-        color: var(--On-Surface-Small-TXT);
-    }
-/* 
+.small-txt {
+  /* For Notes and Aclarations */
+  font-size: 14px;
+  color: var(--On-Surface-Small-TXT);
+}
+
+/*
 ┌──────────────────────────┐
 │ [1.2] Animations         │
 └──────────────────────────┘ */
 .ripple {
-    background-position: center;
-    transition: background 0.4s;
+  background-position: center;
+  transition: background 0.4s;
 }
 .ripple:hover {
-    background: var(--Primary) radial-gradient(circle, transparent 1%, var(--Primary) 1%) center/15000%;
+  background: var(--Primary) radial-gradient(circle, transparent 1%, var(--Primary) 1%) center/15000%;
 }
 .ripple:active {
-    background-color: rgb(127, 127, 127);
-    background-size: 100%;
-    transition: background 0s;
-}  
-/* 
+  background-color: rgb(127, 127, 127);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/*
 ┌──────────────────────────┐
 │ [1.3] Body               │
 └──────────────────────────┘ */
-    body {
-        background-color: var(--Background);
-        font-family: 'Roboto', sans-serif;
-    } 
+body {
+  background-color: var(--Background);
+  font-family: "Roboto", sans-serif;
+}
+
 /*
 ┌──────────────────────────┐
 │ [2.1] Header             │
 └──────────────────────────┘ */
-    /* [2.1.1] ─── Navbar ───*/
-    nav {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 64px;
-        background-color: var(--Surface);
-        box-shadow: var(--Shadow-4DP)
-    } 
+/* [2.1.1] ─── Navbar ───*/
+nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 64px;
+  background-color: var(--Surface);
+}
+nav a {
+  padding: 6px 18px;
+  line-height: 50px;
+}
+nav a:hover, nav i:hover {
+  color: var(--Primary);
+}
+nav .active {
+  /* Current Section */
+  color: var(--Primary);
+  border-bottom: 2px solid var(--Primary);
+}
 
-    nav a {
-        padding: 6px 18px;
-        line-height : 50px;
-    }
+.theme {
+  transform: rotate(90deg);
+}
+.theme.down {
+  transform: rotate(-90deg);
+}
 
-    nav a:hover, nav i:hover {
-        color: var(--Primary);
-    }
-
-    nav .active { /* Current Section */
-        color: var(--Primary);
-        border-bottom: 2px solid var(--Primary);
-    }
-
-    .theme {
-        transform: rotate(90deg);
-    }
-    
-    .theme.down {
-        transform: rotate(-90deg);
-    }
-
-/* 
+/*
 ┌──────────────────────────┐
 │ [2.2] Article            │
 └──────────────────────────┘ */
-    article {
-        display: flex;
-        padding: 30px 30px 30px 30px;
-        min-height: calc(100vh - 97px);
-    }
+article {
+  display: flex;
+  padding: 30px 30px 30px 30px;
+  min-height: calc(100vh - 97px);
+}
 
-    /* [2.2.1] ──── Form ────*/
-    .register {
-        margin: auto;
-    }
+/* [2.2.1] ──── Form ────*/
+.register {
+  margin: auto;
+}
 
-    form {
-        background-color: var(--Surface);
-        box-shadow: var(--Shadow-8DP);
-        padding: 44px 30px calc(42px + 45px) 30px;
-        border-radius: 12px;
+form {
+  background-color: var(--Surface);
+  box-shadow: var(--Shadow-8DP);
+  padding: 44px 30px 87px 30px;
+  border-radius: 12px;
+}
+form .text-input {
+  width: 350px;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  padding: 10px;
+  background-color: var(--Surface-L35);
+  color: var(--On-Surface);
+  border: 2px solid var(--Surface);
+}
+form .text-input:focus {
+  border: 2px solid var(--Primary);
+}
 
-    }
+.button {
+  display: block;
+  border-radius: 25px;
+  background-color: var(--Primary);
+  color: var(--On-Primary);
+  float: right;
+  box-shadow: var(--Shadow-1DP);
+  cursor: pointer;
+}
+.button p {
+  font-weight: var(--On-Color-TXT-Weight);
+}
+.button:hover {
+  filter: brightness(var(--Active-Item));
+  box-shadow: var(--Shadow-2DP);
+}
 
-    form .text-input {
-        width: 350px;
-        font-size: 16px;
-        line-height : 24px;
-        margin-bottom: 15px;
-        border-radius: 25px;
-        padding: 10px;
-        background-color: var(--Surface-L35);
-        color: var(--On-Surface);
-        border: 2px solid var(--Surface);
-    }
+.regular-checkbox {
+  -webkit-appearance: none;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: var(--On-Surface);
+  border: 2px solid var(--Primary);
+}
+.regular-checkbox:checked {
+  background-color: var(--Primary);
+}
 
-    form .text-input:focus {
-        border: 2px solid var(--Primary);
-    }
-
-    .button {
-        display: block;
-        border-radius: 25px;
-        background-color: var(--Primary);
-        color: var(--On-Primary);
-        float: right;
-        box-shadow: var(--Shadow-1DP);
-        cursor: pointer;
-    }
-
-    .button p {
-        font-weight: var(--On-Color-TXT-Weight);
-    }
-
-    .button:hover {
-        filter: brightness(var(--Active-Item));
-        box-shadow: var(--Shadow-2DP);
-    }
-
-    .regular-checkbox {
-        -webkit-appearance: none;
-        padding: 4px;
-        border-radius: 6px;
-        background-color: var(--On-Surface);
-        border: 2px solid var(--Primary);
-    }
-
-    .regular-checkbox:checked {
-        background-color: var(--Primary);
-    }
-/* 
+/*
 ┌──────────────────────────┐
 │ [2.3] Footer             │
 └──────────────────────────┘ */
-    footer {
-        display: flex;
-        justify-content: center;
-        background-color: var(--Surface);
-    }
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: var(--Surface);
+}
+footer a {
+  padding: 6px 18px;
+  line-height: 21px;
+}
+footer a:hover {
+  color: var(--Primary);
+}
 
-    footer a {
-        padding: 6px 18px;
-        line-height : 21px;
-    }
-
-    footer a:hover, nav i:hover {
-        color: var(--Primary);
-    }
-
-    .flash{
-        color: var(--Primary);
-    }
+/*# sourceMappingURL=index.css.map */
