@@ -9,6 +9,14 @@
   <h1>{{ producto["nombre"] }}</h1>
   <p>{{producto.id }}</p>
   <a href="/manange/delete/{{producto.id}}"></a>
+  <form action="/manange/update/{{producto.id}}" method="post">
+    <p>
+      <input type="text" name="nombre" placeholder="Escribe el nombre del producto" id="producto">
+    </p>
+    <p>
+      
+    </p>
+  </form> 
   {% endfor %}
   {% endblock %}
 
