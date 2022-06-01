@@ -28,3 +28,11 @@ elija una según si usa MySQL o MariaDB en el
 un servidor público, asegúrese de cambiar el nombre, 
 la contraseña 
 y, si lo encuentra necesario, cambiar los permisos.
+
+## SASS (archivos .scss)
+Para reinterpretar el código SCSS a CSS, deberá
+instalarse la herramienta SASS y escribir en la carpeta
+principal:
+```
+sass --watch static/SASS/index.scss static/CSS/index.css
+```
