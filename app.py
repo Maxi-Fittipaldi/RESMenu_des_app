@@ -70,29 +70,37 @@ def profile():
         return render_template("profile.html")
     return "no iniciaste sesión"
 
-@app.route("manage/search", methods=['GET','POST'])
+@app.route("manage/search", methods=['GET'])
 def search():
-    if request.method == "POST":
+    if request.method == "GET":
         productoNombre = request.form["nombre"]
-        db.session.execute("SELECT * FROM productos WHERE productonombre = :n",
+        productos = db.session.execute("SELECT * FROM productos WHERE nombre = :n",
                            {"n":productoNombre})
-        return redirect("manage/search")
-    else:
-        return render_template("buscar.html")
+        return render_template("search_results.html", productos=productos)
 
 @app.route("/manage")
 def select():
     productos = db.session.execute("SELECT * FROM productos")
     return render_template("manage.html", productos=productos)
 
-@app.route("manage/insert/<int:id>", methods=['GET','POST'])
+@app.route("manage/insert", methods=['GET','POST'])
 def insert(): 
     if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]
-        productoStock = request.form["cantidad_en_stock"]
-        db.session.execute("INSERT INTO productos (nombre,precio,cantidad_en_stck) VALUES(:n,:p ,:s)",
-                           {"n":productoNombre,"p":productoPrecio,"s":productoStock})
+        productoDesc = request.form["descripcion"]
+        horariod = request.form["horariod"]
+        horarioh = request.form["horarioh"]
+        db.session.execute("""INSERT INTO productos 
+        (nombre,precio,descripcion, disponibilidad_desde, disponibilidad_hasta) 
+        VALUES(:n,:p ,:d, :dd,dh)""",
+        {
+        "n":productoNombre,
+        "p":productoPrecio,
+        "d": productoDesc,
+        "dd": horariod,
+        "dh": horarioh
+        })
         db.session.commit()
         return redirect("/manage")
     else:
@@ -111,11 +119,27 @@ def update(id):
     if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]
-        productoStock = request.form["cantidad_en_stock"]
-        db.session.execute("UPDATE productos SET nombre= :n ,precio= :p ,cantidad_en_stock= :s WHERE id= :id",
-                           {"n":productoNombre,"p":productoPrecio,"s":productoStock,"id":id})
+        productoDesc = request.form["descripcion"]
+        horariod = request.form["horariod"]
+        horarioh = request.form["horarioh"]
+        db.session.execute("""UPDATE productos 
+        SET nombre= :n ,
+        precio= :p ,
+        descripcion = :d 
+        disponibilidad_desde = :dd 
+        disponibilidad_hasta = :dh 
+        WHERE id= :id
+        """,
+        {
+        "n":productoNombre,
+        "p":productoPrecio,
+        "d": productoDesc,
+        "dd": horariod,
+        "dh": horarioh
+        "id":id
+        })
         db.session.commit()
-        return redirect("/")
+        return redirect("/manage")
 if __name__ == "__main__":
    app.run(debug=True)
 
