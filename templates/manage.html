@@ -14,9 +14,9 @@
   <p>{{producto.disponibilidad_desde}}</p>
   <p>{{producto.disponibilidad_hasta}}</p>
   <p>{{producto.precio}}</p>
-  <a href="/manange/delete/{{producto.id}}">Borrar producto</a>
+  <a href="/manage/delete/{{producto.id}}">Borrar producto</a>
   <h1>modificar el producto</h1>
-  <form action="/manange/update/{{producto.id}}" method="post">
+  <form action="/manage/update/{{producto.id}}" method="post">
       <input type="text" name="nombre" placeholder="nombre" >
       <input type="text" name="descripcion" placeholder="descripción" >
       <input type="number" name="precio" placeholder="precio" >
@@ -25,7 +25,7 @@
       <button type="submit">Confirmar</button>
   </form> 
   {% endfor %}
-  <form action="/manange/insert" method="post">
+  <form action="/manage/insert" method="post">
       <input type="text" name="nombre" placeholder="nombre" >
       <input type="text" name="descripcion" placeholder="descripción" >
       <input type="number" name="precio" placeholder="precio" >

@@ -70,12 +70,11 @@ def profile():
         return render_template("profile.html")
     return "no iniciaste sesión"
 
-@app.route("manage/search", methods=['GET'])
+@app.route("/manage/search", methods=['GET'])
 def search():
-    if request.method == "GET":
-        productoNombre = request.form["nombre"]
+        productoNombre = request.args.get("nombre",None)
         productos = db.session.execute("SELECT * FROM productos WHERE nombre = :n",
-                           {"n":productoNombre})
+                        {"n":productoNombre})
         return render_template("search_results.html", productos=productos)
 
 @app.route("/manage")
@@ -83,7 +82,7 @@ def select():
     productos = db.session.execute("SELECT * FROM productos")
     return render_template("manage.html", productos=productos)
 
-@app.route("manage/insert", methods=['GET','POST'])
+@app.route("/manage/insert", methods=['GET','POST'])
 def insert(): 
     if request.method == "POST":
         productoNombre = request.form["nombre"]
@@ -92,8 +91,8 @@ def insert():
         horariod = request.form["horariod"]
         horarioh = request.form["horarioh"]
         db.session.execute("""INSERT INTO productos 
-        (nombre,precio,descripcion, disponibilidad_desde, disponibilidad_hasta) 
-        VALUES(:n,:p ,:d, :dd,dh)""",
+        (nombre,precio,descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
+        VALUES(:n,:p ,:d, :dd,:dh,3)""",
         {
         "n":productoNombre,
         "p":productoPrecio,
@@ -107,14 +106,14 @@ def insert():
         productos = db.session.execute("SELECT * FROM productos")
         return render_template('index.html',productos=productos)
 
-@app.route("manage/delete/<int:id>")
+@app.route("/manage/delete/<int:id>")
 def delete(id):
     productoid = id
     db.session.execute("DELETE FROM productos WHERE id = :id",{"id":productoid})
     db.session.commit()
     return redirect("/manage")
 
-@app.route("manage/update/<int:id>", methods=["GET","POST"])
+@app.route("/manage/update/<int:id>", methods=["GET","POST"])
 def update(id):
     if request.method == "POST":
         productoNombre = request.form["nombre"]
@@ -135,7 +134,7 @@ def update(id):
         "p":productoPrecio,
         "d": productoDesc,
         "dd": horariod,
-        "dh": horarioh
+        "dh": horarioh,
         "id":id
         })
         db.session.commit()
