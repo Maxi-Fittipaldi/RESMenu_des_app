@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, send_from_directory, session, flash
+from flask import Flask, render_template, request, url_for, redirect, send_from_directory, session, flash, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from encrypt import *
 
@@ -73,8 +73,14 @@ def profile():
 @app.route("/manage/search", methods=['GET'])
 def search():
         productoNombre = request.args.get("nombre",None)
-        productos = db.session.execute("SELECT * FROM productos WHERE nombre = :n",
+        productosRaw = db.session.execute("SELECT * FROM productos WHERE nombre = :n",
                         {"n":productoNombre})
+        productos = []
+        for x in productosRaw:
+                productos.append(x)
+        if len(productos) == 0:
+                flash("Tu consulta no ha retornado resultados")
+                return redirect("/manage")
         return render_template("search_results.html", productos=productos)
 
 @app.route("/manage")

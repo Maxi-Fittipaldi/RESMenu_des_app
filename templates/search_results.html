@@ -4,14 +4,9 @@
   {% endblock %}
 
   {% block body %}
-  {% if producto in productos%}
-    {% for producto in productos%}
-    <h1>{{producto.nombre}}</h1>
-    <p>{{producto.precio}}</p>
-    <p>{{producto.descripcion}}</p>
-    {% endfor %}
-  {% else %}
-    <p>Tu búsqueda no ha retornado ningún resultado :(</p>
-  {% endif %}
-
+      {% for producto in productos%}
+      <h1>{{producto.nombre}}</h1>
+      <p>{{producto.precio}}</p>
+      <p>{{producto.descripcion}}</p>
+      {% endfor %}
   {% endblock %}
