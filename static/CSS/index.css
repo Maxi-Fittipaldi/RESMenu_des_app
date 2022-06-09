@@ -9,7 +9,8 @@
 	[2] = STRUCTURE:
         [2.1] = Header
         ->  [2.1.1] = Navbar
-        [2.2] = Article
+		[2.2] = Article
+	[10] = Experimental
 */  
 /* 
 ┌──────────────────────────┐
@@ -91,5 +92,11 @@ article {
 	width: 100%;
 	min-height: calc(100vh - 80px);
 	padding: 16px;
+	gap: 16px;
 	background-color: rgb(255, 0, 0);
 }
+
+/* 
+┌──────────────────────────┐
+│ [10] Experimental 	   │
+└──────────────────────────┘ */

@@ -6,7 +6,8 @@
         [1.1] = Color Palette
 		->  [2.1.1] = Light Theme
 		->  [2.1.1] = Dark Theme
-        [1.2] = Shadows
+		[1.2] = Shadows
+	[10] = Experimental
 */  
 var r = document.querySelector(':root');
 
@@ -113,3 +114,8 @@ function shadows() {
 
 dark_set()
 shadows()
+
+/* 
+┌──────────────────────────┐
+│ [10] Experimental 	   │
+└──────────────────────────┘ */
