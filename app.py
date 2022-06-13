@@ -4,9 +4,9 @@ from encrypt import *
 
 app = Flask(__name__)
 #mysql
-#app.config['SQLALCHEMY_DATABASE_URI']="mysql://testing:12345@127.0.0.1:3306/RESMenu"
+app.config['SQLALCHEMY_DATABASE_URI']="mysql://testing:12345@127.0.0.1:3306/RESMenu"
 #mariadb
-app.config['SQLALCHEMY_DATABASE_URI']="mariadb+mariadbconnector://testing:12345@127.0.0.1:3306/RESMenu"
+#app.config['SQLALCHEMY_DATABASE_URI']="mariadb+mariadbconnector://testing:12345@127.0.0.1:3306/RESMenu"
 db = SQLAlchemy(app)
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
@@ -62,7 +62,7 @@ def signup():
                  "pass": passwordEncrypted})
                db.session.commit()
                flash("usuario registrado")
-               return redirect("/profile")
+               return redirect("/login")
         return render_template("signup.html")
 @app.route("/profile")
 def profile():
@@ -98,7 +98,7 @@ def insert():
         horarioh = request.form["horarioh"]
         db.session.execute("""INSERT INTO productos 
         (nombre,precio,descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
-        VALUES(:n,:p ,:d, :dd,:dh,3)""",
+        VALUES(:n,:p ,:d, :dd,:dh,2)""",
         {
         "n":productoNombre,
         "p":productoPrecio,
@@ -129,10 +129,10 @@ def update(id):
         horarioh = request.form["horarioh"]
         db.session.execute("""UPDATE productos 
         SET nombre= :n ,
-        precio= :p ,
-        descripcion = :d 
-        disponibilidad_desde = :dd 
-        disponibilidad_hasta = :dh 
+        precio= :p,
+        descripcion = :d,
+        disponibilidad_desde = :dd, 
+        disponibilidad_hasta = :dh
         WHERE id= :id
         """,
         {
