@@ -22,17 +22,24 @@ def login():
         mail = request.form["mail"]
         password = request.form["pwd"]
         passwordEncrypted = encrypt(password)
-        query = db.session.execute("SELECT password, gmail FROM usuarios WHERE gmail = :mail",{"mail": mail})
+        query = db.session.execute("SELECT id,nombre, apellido, password, gmail FROM usuarios WHERE gmail = :mail",{"mail": mail})
         dbGmail = None
         dbPassword = None
+        dbId= None
+        dbName= None
+        dbSurname= None
         for result in query:
+                dbId = result["id"]
                 dbGmail = result["gmail"]
                 dbPassword = result["password"]
         if passwordEncrypted != dbPassword or mail != dbGmail:
                 flash("La contraseña o el mail son incorrectos")
                 return redirect("/login")
 
-        session["mail"] = mail
+        session["id"] = dbId
+        session["nombre"] = dbName
+        session["apellido"] = dbSurname
+        session["mail"] = dbGmail
         flash("Has iniciado sessión")
         return redirect("/profile")
     else:
@@ -66,8 +73,8 @@ def signup():
         return render_template("signup.html")
 @app.route("/profile")
 def profile():
-    if "mail" in session:
-        return render_template("profile.html")
+    if "id" in session:
+                return render_template("profile.html")
     return "no iniciaste sesión"
 
 @app.route("/manage/search", methods=['GET'])
@@ -150,7 +157,8 @@ if __name__ == "__main__":
 
 @app.route('/logout')
 def logout():
-    session.pop('mail', None)
+    session.pop("id",None) 
+    session.pop("mail",None) 
     return redirect("/login")
 if __name__ == "__main__":
    app.run(debug=True)
