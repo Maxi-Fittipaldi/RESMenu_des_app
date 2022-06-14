@@ -158,6 +158,8 @@ if __name__ == "__main__":
 @app.route('/logout')
 def logout():
     session.pop("id",None) 
+    session.pop("nombre",None) 
+    session.pop("apellido",None) 
     session.pop("mail",None) 
     return redirect("/login")
 if __name__ == "__main__":
