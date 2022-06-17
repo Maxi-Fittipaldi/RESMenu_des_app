@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+  {% block head %}
+    <title>Products</title>
+  {% endblock %}
+
+  {% block body %}
+  <form action="/manage/search" method="GET">
+    <h3>Buscar producto</h3>
+    <input type="text" name="nombre">
+    <button type="submit">Buscar</button>
+  </form>
+  {% for producto in productos%}
+  <h1>{{ producto.nombre }}</h1>
+  <p>{{producto.descripcion}}</p>
+  <p>{{producto.disponibilidad_desde}}</p>
+  <p>{{producto.disponibilidad_hasta}}</p>
+  <p>{{producto.precio}}</p>
+  <a href="/manage/delete/{{producto.id}}">Borrar producto</a>
+  <h1>modificar el producto</h1>
+  <form action="/manage/update/{{producto.id}}" method="post">
+      <input type="text" name="nombre" placeholder="nombre" >
+      <input type="text" name="descripcion" placeholder="descripción" >
+      <input type="number" name="precio" placeholder="precio" >
+      <input type="time" name="horariod" placeholder="horario desde " >
+      <input type="time" name="horarioh" placeholder="horario hasta" >
+      <button type="submit">Confirmar</button>
+  </form> 
+  {% endfor %}
+  <h2>Insertar un producto</h2>
+  <form action="/manage/insert" method="post">
+      <input type="text" name="nombre" placeholder="nombre" >
+      <input type="text" name="descripcion" placeholder="descripción" >
+      <input type="number" name="precio" placeholder="precio" >
+      <input type="time" name="horariod" placeholder="horario desde " >
+      <input type="time" name="horarioh" placeholder="horario hasta" >
+      <button type="submit">Confirmar</button>
+  </form> 
+  {% endblock %}
+
