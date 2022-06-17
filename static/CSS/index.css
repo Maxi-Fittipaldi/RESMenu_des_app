@@ -197,4 +197,12 @@ footer a:hover {
   color: var(--Primary);
 }
 
+/*
+┌──────────────────────────┐
+│ [2.4] Other              │
+└──────────────────────────┘ */
+body {
+  color: #fff;
+}
+
 /*# sourceMappingURL=index.css.map */
