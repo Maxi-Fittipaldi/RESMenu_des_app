@@ -1,6 +1,19 @@
 # RESMenu
 ## Descripción:
 Un proyecto de pedido de comidas en un restaurante.
+## Roadmap:
+* **v0.1**: La aplicación contiene un login/signup con
+encriptado de contraseña, sesiones incluidas y una ruta (manage)
+para gestionar los productos a publicar (de manera experimental).
+* **v0.5**: La ruta "manage" y derivadas están terminadas, hay otra ruta
+(menu) para poder elegir y ordenar comidas (sólo cliente)
+mediante un carrito de compras.
+* **v1.0**: Los cocineros pueden ver las órdenes y marcarlas como completadas.
+* **v1.1**: La aplicación envía un email a cada usuario que se registra.
+### Otras tags:
+Para arreglos importantes de errores, se utilizarán tags intermedias
+(ej: v1.01, v0.3, etc.) y para **la actualización de estilos** se utilizará
+el sufijo "-cssUp" (ej: v0.6-cssUp)
 ## Cómo ponerlo en marcha:
 Una vez clonado el repositorio, deberá crear un ambiente
 virtual e instalar las dependencias 
