@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+  {% block head %}
+    <title>Menu - Comprar</title>
+  {% endblock %}
+
+  {% block body %}
+      {% for producto in productos%}
+      <h1>{{producto.nombre}}</h1>
+      <p>{{producto.precio}}</p>
+      <p>{{producto.descripcion}}</p>
+      {% endfor %}
+  {% endblock %}

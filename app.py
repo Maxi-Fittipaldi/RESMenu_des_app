@@ -3,6 +3,7 @@ import login_reg
 import manage
 from profile import profile
 from indexpage import root
+import menu
 
 login_reg.login()
 login_reg.signup()
@@ -14,3 +15,4 @@ manage.update()
 manage.delete()
 profile()
 root()
+menu()
