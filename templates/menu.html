@@ -4,9 +4,22 @@
   {% endblock %}
 
   {% block body %}
-      {% for producto in productos%}
-      <h1>{{producto.nombre}}</h1>
-      <p>{{producto.precio}}</p>
-      <p>{{producto.descripcion}}</p>
+    <div class="products-container">
+      <h2>Listado de productos</h2>
+      {% for producto in productos %}
+      <div class="prodct" name="{{producto.id}}"></div>
+        <h1>{{producto.nombre}}</h1>
+        <p>{{producto.precio}}</p>
+        <p>{{producto.descripcion}}</p>
+        <button id="{{producto.id}}">Añadir al carro</button>
+      </div>
       {% endfor %}
+    </div>
+    <form action="/menu/commit">
+        <div class="products-in-cart">
+
+        </div>
+        <button type="submit">Comprar productos</button>
+    </form>
+    <script src="{{url_for('static',filename='JS/cart.js')}}"></script>
   {% endblock %}

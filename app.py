@@ -3,7 +3,7 @@ import login_reg
 import manage
 from profile import profile
 from indexpage import root
-import menu
+from menu import *
 
 login_reg.login()
 login_reg.signup()

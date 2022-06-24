@@ -1,7 +1,6 @@
 from head import *
-def buy():
-    @app.route("/menu/buy/<int:id>", methods=['GET'])
-    def buy(id):
-        productoid = id
-        
-        return redirect("/menu")
+def menu():
+    @app.route("/menu", methods=['GET'])
+    def menu():
+        productos = db.session.execute("SELECT * FROM productos")
+        return render_template("menu.html",productos=productos)
