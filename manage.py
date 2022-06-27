@@ -4,25 +4,32 @@ from head import *
 def search():
     @app.route("/manage/search", methods=['GET'])
     def search():
-            productoNombre = request.args.get("nombre",None)
-            productosRaw = db.session.execute("SELECT * FROM productos WHERE nombre = :n",
-                            {"n":productoNombre})
-            productos = []
-            for x in productosRaw:
-                    productos.append(x)
-            if len(productos) == 0:
-                    flash("Tu consulta no ha retornado resultados")
-                    return redirect("/manage")
-            return render_template("search_results.html", productos=productos)
+        if not "id" in session:
+            return redirect("/login")
+        productoNombre = request.args.get("nombre",None)
+        productosRaw = db.session.execute("SELECT * FROM productos WHERE nombre = :n",
+                        {"n":productoNombre})
+        productos = []
+        for x in productosRaw:
+                productos.append(x)
+        if len(productos) == 0:
+                flash("Tu consulta no ha retornado resultados")
+                return redirect("/manage")
+        return render_template("search_results.html", productos=productos)
 def select():
     @app.route("/manage")
     def select():
+        if not "id" in session:
+            return redirect("/login")
+        
         productos = db.session.execute("SELECT * FROM productos")
         return render_template("manage.html", productos=productos)
 
 def insert():
     @app.route("/manage/insert", methods=['GET','POST'])
     def insert():
+        if not "id" in session:
+            return redirect("/login")
         if request.method == "POST":
             productoNombre = request.form["nombre"]
             productoPrecio = request.form["precio"]
@@ -47,6 +54,8 @@ def insert():
 def delete():
     @app.route("/manage/delete/<int:id>")
     def delete(id):
+        if not "id" in session:
+            return redirect("/login")
         productoid = id
         db.session.execute("DELETE FROM productos WHERE id = :id",{"id":productoid})
         db.session.commit()
@@ -54,6 +63,8 @@ def delete():
 def update():
     @app.route("/manage/update/<int:id>", methods=["GET","POST"])
     def update(id):
+        if not "id" in session:
+            return redirect("/login")
         if request.method == "POST":
             productoNombre = request.form["nombre"]
             productoPrecio = request.form["precio"]
