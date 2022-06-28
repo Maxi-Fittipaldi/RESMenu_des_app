@@ -11,21 +11,17 @@ def menu_commit():
     def menu_commit():
         if not "id" in session:
             return redirect("/login")
-        if request.method=="POST": 
-            productoid=request.form["Productoid"]
-            Monto=request.form["Precio"]
-            Cantidad=request.form["Cantidad"]
-            
-        db.session.execute("""INSERT INTO productos
-                (Productoid, Cantidad, Monto)
-                VALUES(:n,:p ,:c)""",
-                {
-                "n":productoNombre,
-                "p":productoPrecio,
-                "c":productocantidad,
-                })
-        db.session.commit()
-        return render_template("menu.html",productos=productos)
-
-
-
+        if request.method=="POST":  
+            db.session.execute("""INSERT INTO cabeceraTransaccion
+            (Usuarioid, Fecha, Estado)
+            VALUES(:id, :f, :e)""", 
+            {
+            "id": session["id"],
+            "f":fecha,
+            "e":estado, 
+            })
+            db.session.commit()
+            return render_template("menu.html",productos=productos)
+        else:
+            productos = db.session.execute("SELECT * FROM cabeceraTransaccion")
+            return render_template('menu.html',productos=productos)
