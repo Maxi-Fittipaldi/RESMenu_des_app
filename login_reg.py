@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from head import *
 from encrypt import *
+from token import generate_confirmation_token, confirm_token
+from mail import send_email
 
 def login():
     @app.route("/login", methods = ["GET","POST"])
@@ -56,8 +58,18 @@ def signup():
                     "apel": apellido,
                     "pass": passwordEncrypted})
                 db.session.commit()
-                flash("usuario registrado")
-                return redirect("/login")
+                token = generate_confirmation_token(user.email)
+                confirm_url = url_for('user.confirm_email', token=token, _external=True)
+            html = render_template('user/activate.html', confirm_url=confirm_url)
+            subject = "confirme su mail."
+            send_email(user.email, subject, html)
+
+            login_user(user)
+
+            flash('La confirmacion ha sido mandada por mail', 'exito')
+            return redirect(url_for("login.html"))
+            flash("usuario registrado")
+            return redirect("/login")
             return render_template("signup.html")
 def logout():
     @app.route('/logout')
