@@ -58,17 +58,18 @@ def signup():
                     "apel": apellido,
                     "pass": passwordEncrypted})
                 db.session.commit()
-                token = generate_confirmation_token(user.email)
-                confirm_url = url_for('user.confirm_email', token=token, _external=True)
-            html = render_template('user/activate.html', confirm_url=confirm_url)
-            subject = "confirme su mail."
-            send_email(user.email, subject, html)
+                
+                token = generate_confirmation_token(id.mail)
+                confirm_url = url_for('id.confirm_mail', token=token, _external=True)
+                html = render_template('id/mail.html', confirm_url=confirm_url)
+                subject = "confirme su mail."
+                send_email(id.mail, subject, html)
 
-            login_user(user)
+                login_id(id)
 
             flash('La confirmacion ha sido mandada por mail', 'exito')
             return redirect(url_for("login.html"))
-            flash("usuario registrado")
+            flash("id registrado")
             return redirect("/login")
             return render_template("signup.html")
 def logout():

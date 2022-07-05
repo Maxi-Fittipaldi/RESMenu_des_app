@@ -2,8 +2,9 @@ class BaseConfig(object):
     """Base configuration."""
 
     # main config
-    SECRET_KEY = 'my_precious'
-    SECURITY_PASSWORD_SALT = 'my_precious_two'
+    SECRET_KEY = 'llave'
+    SECURITY_PASSWORD_SALT = 'llave_dos'
+    SQLALCHEMY_DATABASE_URI = "mariadb+mariadbconnector://testing:12345@127.0.0.1:3306/RESMenu"
     DEBUG = False
     BCRYPT_LOG_ROUNDS = 13
     WTF_CSRF_ENABLED = True
