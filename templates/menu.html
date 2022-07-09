@@ -1,25 +1,24 @@
-{% extends 'base.html' %}
-  {% block head %}
-    <title>Menu - Comprar</title>
-  {% endblock %}
-
-  {% block body %}
-    <div class="products-container">
-      <h2>Listado de productos</h2>
-      {% for producto in productos %}
-      <div class="product" name="{{producto.id}}"></div>
-        <h1>{{producto.nombre}}</h1>
-        <p>{{producto.precio}}</p>
-        <p>{{producto.descripcion}}</p>
-        <button id="{{producto.id}}">Añadir al carro</button>
-      </div>
-      {% endfor %}
+{% extends 'base.html'%}
+{% block head %}
+  <title>Ordenar</title>
+{% endblock %}
+{% block body %}
+  <div class="products-container">
+    <h1>Listado de productos</h1>
+    {% for producto in productos %}
+    <div class="product" name="{{producto.id}}">
+      <h5>{{producto.nombre}}</h5>
+      <p>{{producto.descripcion}}</p>
+      <p>{{producto.precio}}</p>
+      <button class="addToCart" id="btn" name="{{producto.id}}">Añadir al carro</button>
     </div>
-    <form action="/menu/commit">
-        <div class="products-in-cart">
-
-        </div>
-        <button type="submit">Comprar productos</button>
-    </form>
-    <script src="{{url_for('static',filename='JS/cart.js')}}"></script>
-  {% endblock %}
+    {% endfor %}
+  </div>
+  <h3>Productos en el carro</h3>
+  <form class="cart" action="/menu/commit" method="POST">
+    <div class="products-in-cart">
+    </div>
+    <button type="submit">Comprar productos</button>
+  </form>
+  <script src="{{url_for("static",filename="JS/cart.js")}}"></script>
+{% endblock %}
