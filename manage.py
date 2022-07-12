@@ -10,6 +10,8 @@ bp = Blueprint('manage',__name__, url_prefix='/')
 def search():
     if not "id" in session:
          return redirect("/login")
+    if not "rol" = "staff":
+            return redirect("/menu")
     productoNombre = request.args.get("nombre",None)
     productosRaw = db.session.execute("SELECT * FROM productos WHERE nombre = :n",
         {"n":productoNombre})
@@ -25,6 +27,8 @@ def search():
 def select():
     if not "id" in session:
             return redirect("/login")
+    if not "rol" = "staff":
+            return redirect("/menu")
     productos = db.session.execute("SELECT * FROM productos")
     return render_template("manage.html", productos=productos)
 
@@ -32,6 +36,8 @@ def select():
 def insert():
     if not "id" in session:
             return redirect("/login")
+    if session["rol"] != "staff":
+            return redirect("/menu")
     if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]
@@ -58,6 +64,8 @@ def insert():
 def delete(id):
     if not "id" in session:
             return redirect("/login")
+    if not "rol" = "staff":
+            return redirect("/menu")
     productoid = id
     db.session.execute("DELETE FROM productos WHERE id = :id",{"id":productoid})
     db.session.commit()
@@ -67,6 +75,8 @@ def delete(id):
 def update(id):
     if not "id" in session:
             return redirect("/login")
+    if not "rol" = "staff":
+            return redirect("/menu")
     if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]

@@ -9,6 +9,7 @@ CREATE TABLE usuarios (
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     password VARCHAR(64) NOT NULL,
+    rol VARCHAR(16) NOT NULL,
     estado VARCHAR(10) NOT NULL,
     PRIMARY KEY(id)
 )ENGINE = InnoDB;
@@ -70,3 +71,8 @@ CREATE TABLE localesProductos(
     CONSTRAINT fk_local_id FOREIGN KEY(local_id)
     REFERENCES locales(id)
 )ENGINE = InnoDB;
+
+INSERT INTO usuarios
+        (gmail, nombre, apellido, password, rol, estado)
+        VALUES( admin1@gmail, adminis ,trador, a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3, staff, activo)
+-- password: 123 --
