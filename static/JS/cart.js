@@ -1,6 +1,6 @@
 const cart = document.getElementsByClassName("products-in-cart")[0];
 const productsContainer = document.getElementsByClassName("products-container")[0];
-const confirmButton = document.querySelector("body > form.cart > button");
+const confirmButton = document.querySelector("body > button")
 const addToCartButton = document.querySelectorAll(".addToCart");
 let ids = [];
 console.log(addToCartButton);
@@ -19,12 +19,12 @@ for(let i = 0; i < addToCartButton.length; i++){
 }
 
 confirmButton.addEventListener("click", () => {
-    data.append("product", ids);
-    console.log(ids);
+    // data.append("product", ids);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/menu/commit');
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    xhr.send(JSON.stringify({product_ids: ids}));
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    data = JSON.stringify({"product_ids": ids});
+    console.log(data);
+    xhr.send(data);
+    location.reload();
 });
-//ver esto
-// https://code-maven.com/slides/python/flask-and-ajax-plain-javascript

@@ -15,10 +15,9 @@
     {% endfor %}
   </div>
   <h3>Productos en el carro</h3>
-  <form class="cart" action="/menu/commit" method="POST">
     <div class="products-in-cart">
     </div>
     <button type="submit">Comprar productos</button>
-  </form>
+
   <script src="{{url_for("static",filename="JS/cart.js")}}"></script>
 {% endblock %}

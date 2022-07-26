@@ -9,6 +9,7 @@ def menu():
 @bp.route("/menu/commit",methods=["POST"])
 def commit():
     content_type = request.headers.get("Content-Type")
-    json = request.json()
-    print(json["product_ids"])
+    json = request.json
+    for x in json["product_ids"]:
+        print(x)
     return redirect("/menu")
