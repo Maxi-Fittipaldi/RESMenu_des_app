@@ -19,18 +19,18 @@ Una vez clonado el repositorio, deberá crear un ambiente
 virtual e instalar las dependencias 
 especificadas en **paquetes.txt**. 
 Esta acción se realizará por única vez.
-(windows)
+(windows, git bash)
 ``` 
->cd RESMenu_des_app
->py -3 -m venv venv
->venv\Scripts\activate
->pip install -r paquetes.txt
+$cd RESMenu_des_app
+$python -m venv venv
+$. venv/Scripts/activate
+$pip install -r paquetes.txt
 ```
 Una vez creado y configurado el ambiente virtual,
 escriba lo siguiente para ejecutar la aplicación:
-(windows)
+(windows, git bash)
 ```
->py -m flask run
+$flask run
 ```
 Si desea salir del ambiente virtual escriba **deactivate**.
 
