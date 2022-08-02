@@ -15,6 +15,7 @@ Un proyecto de pedido de comidas en un restaurante.
 - [x] verificación por mail
 - [ ] ruta _orders_ (pedidos pendientes y marcarlos como completados)
 - [ ] SCSS (diseños exportados de figma)
+
 **nota**: cada casilla completada implica una nueva tag, exceptuando
 las ya completadas. 
 ### Otras tags:
