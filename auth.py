@@ -78,15 +78,20 @@ def confirm_email(token):
         email = confirm_token(token)
     except:
         flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo', 'warning')
+        return redirect("/profile")
     user = db.session.execute('SELECT * FROM usuarios WHERE gmail = :email', {'email': email})
     userStatus = None
     for result in user:
         userStatus = result["estado"]
     if userStatus == 'verificado':
-        flash('La cuenta ha sido verificada. Por favor, inicie sesión', 'info')
+        flash('La cuenta ha sido verificada previamente. Por favor, inicie sesión', 'info')
     else:
-        db.session.execute("UPDATE usuarios SET estado = 'verificado' WHERE gmail = :email ", {'email': email})
-        db.session.commit()
+        try:
+            db.session.execute("UPDATE usuarios SET estado = 'verificado' WHERE gmail = :email ", {'email': email})
+            db.session.commit()
+        except:
+            flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo', 'warning')
+            return redirect("/logout")
         flash('Has verificado la cuenta, gracias', 'info')
     return redirect("/logout")
 @bp.route("/resend")

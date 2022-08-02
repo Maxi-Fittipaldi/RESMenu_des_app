@@ -4,4 +4,4 @@ bp = Blueprint('profile', __name__, url_prefix='/')
 def profile():
     if "id" in session:
         return render_template("profile.html", state=session["state"])
-    return "no iniciaste sesión"
+    return redirect("/login")
