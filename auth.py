@@ -68,7 +68,7 @@ def signup():
             html = render_template("mail.html", confirm_url=confirm_url)
             subject = "Confirmación de email RESMenu"
             send_email(email, subject, html)
-            flash("usuario registrado, verifique la cuenta")
+            flash("Usuario registrado, verifique la cuenta.")
             return redirect("/login")
         return render_template("signup.html")
 
@@ -83,16 +83,19 @@ def confirm_email(token):
     userStatus = None
     for result in user:
         userStatus = result["estado"]
+        userEmail = result["gmail"]
+    if userEmail != email:
+        if "id" in session:
+            flash('El código ha expirado o es incorrecto, intenta reenviarlo.', 'warning')
+        else:
+            flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo.', 'warning')
+        return redirect("/profile")
     if userStatus == 'verificado':
-        flash('La cuenta ha sido verificada previamente. Por favor, inicie sesión', 'info')
+        flash('La cuenta ha sido verificada previamente. Por favor, inicie sesión.', 'info')
     else:
-        try:
-            db.session.execute("UPDATE usuarios SET estado = 'verificado' WHERE gmail = :email ", {'email': email})
-            db.session.commit()
-        except:
-            flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo', 'warning')
-            return redirect("/logout")
-        flash('Has verificado la cuenta, gracias', 'info')
+        db.session.execute("UPDATE usuarios SET estado = 'verificado' WHERE gmail = :email ", {'email': email})
+        db.session.commit()
+        flash('Has verificado la cuenta, gracias.', 'info')
     return redirect("/logout")
 @bp.route("/resend")
 def resend():
