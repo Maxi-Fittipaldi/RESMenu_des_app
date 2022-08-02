@@ -1,24 +1,30 @@
 # RESMenu
 ## Descripción:
 Un proyecto de pedido de comidas en un restaurante.
-## Roadmap:
-* **v0.1**: La aplicación contiene un login/signup con
-encriptado de contraseña, sesiones incluidas y una ruta (manage)
-para gestionar los productos a publicar (de manera experimental).
-* **v0.5**: La ruta "manage" y derivadas están terminadas, hay otra ruta
-(menu) para poder elegir y ordenar comidas (sólo cliente)
-mediante un carrito de compras.
-* **v1.0**: Los cocineros pueden ver las órdenes y marcarlas como completadas.
-* **v1.1**: La aplicación envía un email a cada usuario que se registra.
+## Task list:
+- [x] login (0.1)
+- [x] signup (0.1)
+- [x] logout (0.1)
+- [x] encriptado de contraseñas (0.1)
+- [x] sesiones (0.1)
+- [x] ruta _manage_ (gestión de productos, experimental) (0.1)
+- [ ] rutas derivadas de _manage_ terminadas
+- [ ] ruta menu (pedidos de comidas)
+- [ ] roles
+- [ ] carrito de compras
+- [x] verificación por mail
+- [ ] ruta _orders_ (pedidos pendientes y marcarlos como completados)
+- [ ] SCSS (diseños exportados de figma)
+**nota**: cada casilla completada implica una nueva tag, exceptuando
+las ya completadas. 
 ### Otras tags:
 Para arreglos importantes de errores, se utilizarán tags intermedias
-(ej: v1.01, v0.3, etc.) y para **la actualización de estilos** se utilizará
-el sufijo "-cssUp" (ej: v0.6-cssUp)
+(ej: v1.01, v0.3, etc.).
 ## Cómo ponerlo en marcha:
 Una vez clonado el repositorio, deberá crear un ambiente
 virtual e instalar las dependencias 
-especificadas en **paquetes.txt**. 
-Esta acción se realizará por única vez.
+especificadas en _paquetes.txt_. 
+Esta acción se realizará por única vez:
 (windows, git bash)
 ``` 
 $cd RESMenu_des_app
@@ -26,21 +32,39 @@ $python -m venv venv
 $. venv/Scripts/activate
 $pip install -r paquetes.txt
 ```
-Una vez creado y configurado el ambiente virtual,
+El siguiente paso consiste en declarar las variables temporales,
+estas deberán ser declaradas **cada vez** que ejecutes una nueva
+instancia de tu terminal:
+```
+$export FLASK_APP=__init__
+$export APP_MAIL_USERNAME=tu_gmail_de_verificación
+$export APP_MAIL_PASSWORD=string_de_la_app
+$export FLASK_ENV=development #sólo para pruebas
+```
+**importante**: El gmail que se encarga de validar debe tener
+habilitado el 2FA y deberás generar un string de 16 caracteres
+en el apartado _seguridad_ de la cuenta de google.
+
+Una vez hecho todo lo anterior,
 escriba lo siguiente para ejecutar la aplicación:
-(windows, git bash)
 ```
 $flask run
 ```
-Si desea salir del ambiente virtual escriba **deactivate**.
+Si desea salir del ambiente virtual escriba _deactivate_.
+No obstante, para utilizar las funciones SQL deberá crear una DB y un usuario.
 
 ## SQL y DB's:
-La aplicación viene con un usuario de prueba y dos tipos de conexiones,
-elija una según si usa MySQL o MariaDB en el 
-[archivo python](app.py). Si desea correr la aplicación en
+La aplicación viene con un script de creación usuario de 
+prueba y otro script de creación de la DB en la carpeta [SQL](/SQL).
+Hay dos tipos de conexiones,
+elija una según si usa MySQL o MariaDB en la
+[configuración](config.py).
+
+## Ambiente de producción:
+Si desea correr la aplicación en
 un servidor público, asegúrese de cambiar el nombre, 
 la contraseña 
-y, si lo encuentra necesario, cambiar los permisos.
+y, si lo encuentra necesario, cambiar los permisos del usuario de la DB.
 
 ## SASS (archivos .scss)
 Para reinterpretar el código SCSS a CSS, deberá
