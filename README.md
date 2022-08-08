@@ -12,14 +12,14 @@ Un proyecto de pedido de comidas en un restaurante.
 - [ ] ruta menu (pedidos de comidas)
 - [ ] roles
 - [ ] carrito de compras
-- [x] verificación por mail
+- [x] verificación por mail (0.2)
 - [ ] ruta _orders_ (pedidos pendientes y marcarlos como completados)
 - [ ] SCSS (diseños exportados de figma)
 
 **nota**: cada casilla completada implica una nueva tag, exceptuando
 las ya completadas. 
 ### Otras tags:
-Para arreglos importantes de errores, se utilizarán tags intermedias
+Para arreglos de errores importantes, se utilizarán tags intermedias
 (ej: v1.01, v0.3, etc.).
 ## Cómo ponerlo en marcha:
 Una vez clonado el repositorio, deberá crear un ambiente
@@ -56,7 +56,7 @@ No obstante, para utilizar las funciones SQL deberá crear una DB y un usuario.
 
 ## SQL y DB's:
 La aplicación viene con un script de creación usuario de 
-prueba y otro script de creación de la DB en la carpeta [SQL](/SQL).
+prueba y otro script de creación de la DB en la carpeta [SQL/scripts](/SQL/scripts).
 Hay dos tipos de conexiones,
 elija una según si usa MySQL o MariaDB en la
 [configuración](config.py).
