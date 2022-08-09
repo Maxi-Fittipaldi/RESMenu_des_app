@@ -19,7 +19,6 @@ for(let i = 0; i < addToCartButton.length; i++){
 }
 
 confirmButton.addEventListener("click", () => {
-    // data.append("product", ids);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/menu/commit');
     xhr.setRequestHeader('Content-Type', 'application/json');
