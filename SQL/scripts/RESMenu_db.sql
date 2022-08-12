@@ -9,7 +9,8 @@ CREATE TABLE usuarios (
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     password VARCHAR(64) NOT NULL,
-    estado VARCHAR(10) NOT NULL,
+    estado ENUM("pendiente","verificado","terminado") DEFAULT "pendiente",
+    rol ENUM("cliente","staff","admin") DEFAULT "cliente",
     PRIMARY KEY(id)
 )ENGINE = InnoDB;
 
@@ -18,7 +19,7 @@ CREATE TABLE cabeceraTransaccion(
     usuario_id INT(11) NOT NULL,
     nro_mesa INT(3) NOT NULL,
     fecha date NOT NULL,
-    estado VARCHAR(10) NOT NULL,
+    estado ENUM("completado","pendiente","cancelado") DEFAULT "pendiente",
     PRIMARY KEY(id),
     CONSTRAINT fk_usuario_id FOREIGN KEY (usuario_id)
     REFERENCES usuarios(id)
