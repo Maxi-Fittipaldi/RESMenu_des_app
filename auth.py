@@ -22,6 +22,8 @@ def login():
         dbState = None
         for result in query:
                 dbId = result["id"]
+                dbName = result["nombre"]
+                dbSurname = result["apellido"]
                 dbGmail = result["gmail"]
                 dbPassword = result["password"]
                 dbState = result["estado"]

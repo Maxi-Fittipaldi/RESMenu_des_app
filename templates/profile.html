@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
-{% block body %}
-<h1>Bienvenido</h1>
-{% if  state == "pendiente" %}
-<p>Por favor, verifica tu cuenta.</p>
-<p>¿No has recibido ningún email? <a href="/resend"> Volver a enviar</a></p>
-{% endif %}
-{% endblock %}
+ {% block body %}
+ <h1>Bienvenido</h1>
+ {% if  state == "pendiente" %}
+ <p>Por favor, verifica tu cuenta.</p>
+ <p>¿No has recibido ningún email? <a href="/resend"> Volver a enviar</a></p>
+ {% endif %}
+ <p>{{session}}</p>
+ <h1>modificar el usuario</h1>
+ <form action="/profile/upadate" method="post">
+     <input type="text" name="nombre" placeholder="nombre" >
+     <input type="text" name="apellido" placeholder="apellido" >
+     <input type="password" name="contraseña" placeholder="contraseña" >
+     <input type="email" name="gmail" placeholder="gmail" >
+     <button type="submit">Confirmar</button>
+ </form> 
+
+ {% endblock %}
+
