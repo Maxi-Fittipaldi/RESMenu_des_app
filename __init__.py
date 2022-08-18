@@ -14,10 +14,12 @@ from . import auth
 from . import indexpage
 from . import manage
 from . import profile
+from . import orders
 app.register_blueprint(auth.bp)
 app.register_blueprint(indexpage.bp)
 app.register_blueprint(manage.bp)
 app.register_blueprint(profile.bp)
+app.register_blueprint(orders.bp)
 
 
 
