@@ -13,13 +13,14 @@ def login():
         email = request.form["mail"]
         password = request.form["pwd"]
         passwordEncrypted = encrypt(password)
-        query = db.session.execute("SELECT id, nombre, apellido, password, gmail, estado FROM usuarios WHERE gmail = :email",{"email": email})
+        query = db.session.execute("SELECT * FROM usuarios WHERE gmail = :email",{"email": email})
         dbGmail = None
         dbPassword = None
         dbId = None
         dbName = None
         dbSurname = None
         dbState = None
+        dbRol = None
         for result in query:
                 dbId = result["id"]
                 dbName = result["nombre"]
@@ -27,6 +28,7 @@ def login():
                 dbGmail = result["gmail"]
                 dbPassword = result["password"]
                 dbState = result["estado"]
+                dbRol = result["rol"]
         if passwordEncrypted != dbPassword or email != dbGmail:
                 flash("La contraseña o el mail son incorrectos")
                 return redirect("/login")
@@ -35,6 +37,7 @@ def login():
         session["surname"] = dbSurname
         session["email"] = dbGmail
         session["state"] = dbState
+        session["rol"] = dbRol
         flash("Has iniciado sessión")
         return redirect("/profile")
     else:

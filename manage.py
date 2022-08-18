@@ -9,6 +9,8 @@ bp = Blueprint('manage',__name__, url_prefix='/')
 def search():
         if not "id" in session:
             return redirect("/login")
+        if session["rol"] != "staff":
+            return redirect("/profile")
         if session["state"] == "pendiente":
             return redirect("/profile")
         productoNombre = request.args.get("nombre",None)
@@ -25,6 +27,8 @@ def search():
 def select():
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] != "staff":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     productos = db.session.execute("SELECT * FROM productos")
@@ -34,6 +38,8 @@ def select():
 def insert():
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] != "staff":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     if request.method == "POST":
@@ -61,6 +67,8 @@ def insert():
 def delete(id):
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] != "staff":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     productoid = id
@@ -71,6 +79,8 @@ def delete(id):
 def update(id):
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] != "staff":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     if request.method == "POST":
