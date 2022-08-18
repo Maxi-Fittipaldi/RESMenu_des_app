@@ -10,7 +10,7 @@ Un proyecto de pedido de comidas en un restaurante.
 - [x] ruta _manage_ (gestión de productos, experimental) (0.1)
 - [ ] rutas derivadas de _manage_ terminadas
 - [ ] ruta menu (pedidos de comidas)
-- [ ] roles
+- [ ] roles (0.3)
 - [ ] carrito de compras
 - [x] modificar usuario (0.3)
 - [x] verificación por mail (0.2)
