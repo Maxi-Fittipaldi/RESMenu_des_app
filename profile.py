@@ -17,17 +17,18 @@ def update():
         nombre = request.form["nombre"]
         apellido = request.form["apellido"]
         password = request.form["password"]
-        email = request.form["email"]
         passwordEncrypted = encrypt(password)
+        if len(nombre) < 2 or len(apellido) < 2 or len(password) == 0:
+            flash("Tus datos son inválidos")
+            return redirect("/profile")
         db.session.execute("""UPDATE `usuarios`
-        SET gmail= :g,
+        SET
         nombre= :n,
         apellido= :a,
         password= :pw
         WHERE id= :id
         """,
         {
-        "g":email,
         "n":nombre,
         "a":apellido,
         "pw": passwordEncrypted,
@@ -36,7 +37,6 @@ def update():
         db.session.commit()
         session["name"] = nombre
         session["surname"] = apellido
-        session["email"] = email
         flash("Has modificado tu usuario")
         return redirect("/profile")
 
