@@ -1,4 +1,24 @@
 {% extends 'base.html' %}
   {% block head %}
-    <title>Orders</title>
+    <h1>Orders</h1>
+  {% endblock %}
+  {% block body %}
+  {% for cab_trans in cabeceras_transaccion %}
+  <a>Cabecera de Transaccion</a>
+  <p>ID: {{cab_trans.id}}</p>
+  <p>Cliente: {{cab_trans.usuario_id}}</p>
+  <p>Fecha: {{cab_trans.fecha}}</p>
+  <p>Mesa: {{cab_trans.nro_mesa}}</p>
+  <p>Estado: {{cab_trans.estado}}</p>
+  <h4>Modificar estado:</h4>
+  <form action="/orders/update/{{cab_trans.id}}" method="post">
+    <select name="estado">
+      <option >Completado</option>
+      <option  selected>Pendiente</option>
+      <option >Cancelado</option>
+    </select>
+      <button type="submit">Confirmar</button>
+  </form> 
+  {% endfor %}
+
   {% endblock %}
