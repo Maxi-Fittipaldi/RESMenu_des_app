@@ -35,6 +35,7 @@ def login():
         session["email"] = dbGmail
         session["state"] = dbState
         session["nTable"] = nTable
+        session["order?"] = False
         flash("Has iniciado sessión")
         return redirect("/profile")
     else:

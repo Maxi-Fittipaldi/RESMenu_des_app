@@ -3,6 +3,7 @@
   <title>Ordenar</title>
 {% endblock %}
 {% block body %}
+{%if session["order?"] == False%}
   <div class="products-container">
     <h1>Listado de productos</h1>
     {% for producto in productos %}
@@ -20,4 +21,7 @@
     <button type="submit">Comprar productos</button>
 
   <script src="{{url_for("static",filename="JS/cart.js")}}"></script>
+{%else%}
+<p>Tu orden está siendo procesada</p>
+<a href="">Cancelar?</a>
 {% endblock %}

@@ -5,7 +5,7 @@ bp = Blueprint('menu', __name__, url_prefix='/')
 @bp.route("/menu", methods=['GET'])
 def menu():
     productos = db.session.execute("SELECT * FROM productos")
-    return render_template("menu.html",productos=productos)
+    return render_template("menu.html",productos=productos, session=session)
 @bp.route("/menu/commit",methods=["POST"])
 def commit():
     content_type = request.headers.get("Content-Type")
@@ -22,4 +22,5 @@ def commit():
     db.session.execute("""
     
     """)
+    session["order?"] = True
     return redirect("/menu")
