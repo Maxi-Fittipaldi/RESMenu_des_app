@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
 {% block body %}
-<h1>Iniciaste sesión</h1>
+<h1>Bienvenido</h1>
+{% if  state == "pendiente" %}
+<p>Por favor, verifica tu cuenta.</p>
+<p>¿No has recibido ningún email? <a href="/resend"> Volver a enviar</a></p>
+{% endif %}
 {% endblock %}
