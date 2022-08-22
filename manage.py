@@ -9,7 +9,7 @@ bp = Blueprint('manage',__name__, url_prefix='/')
 def search():
         if not "id" in session:
             return redirect("/login")
-        if session["rol"] != "staff":
+        if session["rol"] == "cliente":
             return redirect("/profile")
         if session["state"] == "pendiente":
             return redirect("/profile")
@@ -27,7 +27,7 @@ def search():
 def select():
     if not "id" in session:
         return redirect("/login")
-    if session["rol"] != "staff":
+    if session["rol"] == "cliente":
         return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
@@ -38,7 +38,7 @@ def select():
 def insert():
     if not "id" in session:
         return redirect("/login")
-    if session["rol"] != "staff":
+    if session["rol"] == "cliente":
         return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
@@ -67,7 +67,7 @@ def insert():
 def delete(id):
     if not "id" in session:
         return redirect("/login")
-    if session["rol"] != "staff":
+    if session["rol"] == "cliente":
         return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
@@ -79,7 +79,7 @@ def delete(id):
 def update(id):
     if not "id" in session:
         return redirect("/login")
-    if session["rol"] != "staff":
+    if session["rol"] == "cliente":
         return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
