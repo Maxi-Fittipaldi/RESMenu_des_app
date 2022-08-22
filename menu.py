@@ -12,4 +12,14 @@ def commit():
     json = request.json
     for x in json["product_ids"]:
         print(x)
+    db.session.execute(
+        """INSERT INTO 
+        cabeceraTransaccion (usuario_id,nro_mesa,estado)
+        VALUES(:uid, :nm, :e)""",
+    {"uid": session["id"],
+    "nm":session["nTable"],
+    "e": "pendiente"})
+    db.session.execute("""
+    
+    """)
     return redirect("/menu")

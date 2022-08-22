@@ -12,6 +12,7 @@ def login():
     if request.method == "POST":
         email = request.form["mail"]
         password = request.form["pwd"]
+        nTable = request.form["nTable"]
         passwordEncrypted = encrypt(password)
         query = db.session.execute("SELECT id, nombre, apellido, password, gmail, estado FROM usuarios WHERE gmail = :email",{"email": email})
         dbGmail = None
@@ -33,6 +34,7 @@ def login():
         session["surname"] = dbSurname
         session["email"] = dbGmail
         session["state"] = dbState
+        session["nTable"] = nTable
         flash("Has iniciado sessión")
         return redirect("/profile")
     else:
@@ -113,4 +115,5 @@ def logout():
     session.pop("surname",None)
     session.pop("email",None)
     session.pop("state",None)
+    session.pop("nTable",None)
     return redirect("/login")

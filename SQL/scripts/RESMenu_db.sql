@@ -18,8 +18,8 @@ CREATE TABLE cabeceraTransaccion(
     id INT(11) NOT NULL AUTO_INCREMENT,
     usuario_id INT(11) NOT NULL,
     nro_mesa INT(3) NOT NULL,
-    fecha date NOT NULL,
     estado ENUM("completado","pendiente","cancelado") DEFAULT "pendiente",
+    fecha datetime DEFAULT current_timestamp,
     PRIMARY KEY(id),
     CONSTRAINT fk_usuario_id FOREIGN KEY (usuario_id)
     REFERENCES usuarios(id)
