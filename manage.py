@@ -50,13 +50,14 @@ def insert():
         horarioh = request.form["horarioh"]
         db.session.execute("""INSERT INTO productos
         (nombre,precio,descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
-        VALUES(:n,:p ,:d, :dd,:dh,2)""",
+        VALUES(:n,:p ,:d, :dd,:dh,:prop)""",
         {
         "n":productoNombre,
         "p":productoPrecio,
         "d": productoDesc,
         "dd": horariod,
-        "dh": horarioh
+        "dh": horarioh,
+        "prop": session["id"]
         })
         db.session.commit()
         return redirect("/manage")
