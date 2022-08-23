@@ -8,6 +8,8 @@ bp = Blueprint('orders',__name__, url_prefix='/')
 def orders():
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] == "cliente":
+            return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     orders = db.session.execute("""SELECT * FROM cabeceraTransaccion""")
@@ -17,6 +19,8 @@ def orders():
 def update(id):
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] == "cliente":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     if request.method == "POST":
