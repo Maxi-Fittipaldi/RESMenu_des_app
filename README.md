@@ -8,7 +8,7 @@ Un proyecto de pedido de comidas en un restaurante.
 - [x] encriptado de contraseñas (0.1)
 - [x] sesiones (0.1)
 - [x] ruta _manage_ (gestión de productos, experimental) (0.1)
-- [ ] rutas derivadas de _manage_ terminadas
+- [x] rutas derivadas de _manage_ terminadas (0.3)
 - [ ] ruta menu (pedidos de comidas)
 - [x] roles (0.3)
 - [ ] carrito de compras
