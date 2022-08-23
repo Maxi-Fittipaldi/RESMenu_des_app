@@ -14,7 +14,7 @@ Un proyecto de pedido de comidas en un restaurante.
 - [ ] carrito de compras
 - [x] modificar usuario (0.3)
 - [x] verificación por mail (0.2)
-- [ ] ruta _orders_ (pedidos pendientes y marcarlos como completados)
+- [x] ruta _orders_ (pedidos pendientes y marcarlos como completados) (0.4)
 - [ ] SCSS (diseños exportados de figma)
 
 ### Otras tags:
