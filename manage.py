@@ -9,6 +9,8 @@ bp = Blueprint('manage',__name__, url_prefix='/')
 def search():
         if not "id" in session:
             return redirect("/login")
+        if session["rol"] == "cliente":
+            return redirect("/profile")
         if session["state"] == "pendiente":
             return redirect("/profile")
         productoNombre = request.args.get("nombre",None)
@@ -25,6 +27,8 @@ def search():
 def select():
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] == "cliente":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     productos = db.session.execute("SELECT * FROM productos")
@@ -34,6 +38,8 @@ def select():
 def insert():
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] == "cliente":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     if request.method == "POST":
@@ -44,13 +50,14 @@ def insert():
         horarioh = request.form["horarioh"]
         db.session.execute("""INSERT INTO productos
         (nombre,precio,descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
-        VALUES(:n,:p ,:d, :dd,:dh,2)""",
+        VALUES(:n,:p ,:d, :dd,:dh,:prop)""",
         {
         "n":productoNombre,
         "p":productoPrecio,
         "d": productoDesc,
         "dd": horariod,
-        "dh": horarioh
+        "dh": horarioh,
+        "prop": session["id"]
         })
         db.session.commit()
         return redirect("/manage")
@@ -61,6 +68,8 @@ def insert():
 def delete(id):
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] == "cliente":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     productoid = id
@@ -71,6 +80,8 @@ def delete(id):
 def update(id):
     if not "id" in session:
         return redirect("/login")
+    if session["rol"] == "cliente":
+        return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
     if request.method == "POST":
