@@ -11,31 +11,30 @@ def commit():
     content_type = request.headers.get("Content-Type")
     json = request.json
     db.session.execute("""
-    INSERT INTO 
+    INSERT INTO
     cabeceraTransaccion (usuario_id,nro_mesa,estado)
     VALUES(:uid, :nm, :e)""",
     {"uid": session["id"],
     "nm":session["nTable"],
     "e": "pendiente"})
-    for x in json["product_ids"]:
-        db.session.execute("""
-        INSERT INTO detalleTransaccion
-        VALUES((SELECT id 
-        FROM cabeceraTransaccion 
-        WHERE usuario_id = :uid AND estado = "pendiente"),
-        :producto_id,
-        :cantidad,
-        (SELECT precio FROM productos WHERE id = :producto_id),
-        "pendiente",
-        3,
-        "Sin comentarios",
-        )
-        """,
-        {
-        "uid": session["id"],
-        "producto_id": x["product_id"],
-        "cantidad": x["quantity"],
-        })
+    db.session.commit()
+    db.session.execute("""
+    INSERT INTO detalleTransaccion
+    VALUES((SELECT id
+    FROM cabeceraTransaccion
+    WHERE usuario_id = :uid AND estado = "pendiente"),
+    :producto_id,
+    :cantidad,
+    (SELECT precio FROM productos WHERE id = :producto_id),
+    "pendiente",
+    3,
+    "Sin comentarios"
+    )
+    """,
+    [{"producto_id": val["product_id"],
+     "cantidad": val["quantity"],
+     "uid": session["id"]}
+        for val in json["product_ids"]])
     db.session.commit()
     session["order?"] = True
     return redirect("/menu")

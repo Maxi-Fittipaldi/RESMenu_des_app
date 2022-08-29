@@ -39,7 +39,7 @@ CREATE TABLE productos(
     REFERENCES usuarios(id)
 )ENGINE = InnoDB;
 
-CREATE TABLE detalleTRansaccion(
+CREATE TABLE detalleTransaccion(
     cabecera_id INT(11) NOT NULL,
     producto_id INT(11) NOT NULL,
     cantidad INT(2) NOT NULL,
