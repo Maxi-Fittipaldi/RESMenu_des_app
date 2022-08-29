@@ -2,8 +2,8 @@ import os
 # main config
 SECRET_KEY = '_5#y2L"F4Q8z\n\xec]/'
 SECURITY_PASSWORD_SALT = '3%h#3h74fas@@sdHHAS-'
-#SQLALCHEMY_DATABASE_URI = "mariadb+mariadbconnector://testing:12345@127.0.0.1:3306/RESMenu"
-SQLALCHEMY_DATABASE_URI = "mysql://testing:12345@127.0.0.1:3306/RESMenu"
+SQLALCHEMY_DATABASE_URI = "mariadb+mariadbconnector://testing:12345@127.0.0.1:3306/RESMenu"
+#SQLALCHEMY_DATABASE_URI = "mysql://testing:12345@127.0.0.1:3306/RESMenu"
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 BCRYPT_LOG_ROUNDS = 13
 WTF_CSRF_ENABLED = True

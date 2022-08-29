@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
  {% block body %}
  <h1>Bienvenido</h1>
- {% if  state == "pendiente" %}
+ {% if  session.state == "pendiente" %}
  <p>Por favor, verifica tu cuenta.</p>
  <p>¿No has recibido ningún email? <a href="/resend"> Volver a enviar</a></p>
- {% endif %}
+ {% else %}
  <p>ID: {{session.id}}</p>
  <p>Nombre: {{session.name}}</p>
  <p>Apellido: {{session.surname}}</p>
@@ -17,5 +17,6 @@
      <button type="submit">Confirmar</button>
  </form> 
 
+ {% endif %}
  {% endblock %}
 
