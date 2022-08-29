@@ -29,6 +29,7 @@ CREATE TABLE productos(
     id INT(11) NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(50) NOT NULL,
     descripcion VARCHAR(150) DEFAULT "Sin descripción",
+    cantidad INT(5) NOT NULL,
     precio DOUBLE(11,2) NOT NULL,
     disponibilidad_desde TIME(3) NOT NULL,
     disponibilidad_hasta TIME(3) NOT NULL,

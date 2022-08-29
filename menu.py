@@ -10,17 +10,36 @@ def menu():
 def commit():
     content_type = request.headers.get("Content-Type")
     json = request.json
-    for x in json["product_ids"]:
-        print(x)
-    db.session.execute(
-        """INSERT INTO 
-        cabeceraTransaccion (usuario_id,nro_mesa,estado)
-        VALUES(:uid, :nm, :e)""",
+    db.session.execute("""
+    INSERT INTO 
+    cabeceraTransaccion (usuario_id,nro_mesa,estado)
+    VALUES(:uid, :nm, :e)""",
     {"uid": session["id"],
     "nm":session["nTable"],
     "e": "pendiente"})
-    db.session.execute("""
-    
-    """)
+    for x in json["product_ids"]:
+        db.session.execute("""
+        INSERT INTO detalleTransaccion
+        VALUES((SELECT id 
+        FROM cabeceraTransaccion 
+        WHERE usuario_id = :uid AND estado = "pendiente"),
+        :producto_id,
+        :cantidad,
+        (SELECT precio FROM productos WHERE id = :producto_id),
+        "pendiente",
+        3,
+        "Sin comentarios",
+        )
+        """,
+        {
+        "uid": session["id"],
+        "producto_id": x["product_id"],
+        "cantidad": x["quantity"],
+        })
+    db.session.commit()
     session["order?"] = True
+    return redirect("/menu")
+@bp.route("/menu/cancel", methods=["GET"])
+def cancel():
+    session["order?"] = False
     return redirect("/menu")

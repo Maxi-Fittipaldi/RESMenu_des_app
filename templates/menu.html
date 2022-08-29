@@ -11,6 +11,7 @@
       <h5>{{producto.nombre}}</h5>
       <p>{{producto.descripcion}}</p>
       <p>{{producto.precio}}</p>
+      <input type="number">
       <button class="addToCart" id="btn" name="{{producto.id}}">Añadir al carro</button>
     </div>
     {% endfor %}
@@ -23,6 +24,6 @@
   <script src="{{url_for("static",filename="JS/cart.js")}}"></script>
 {%else%}
 <p>Tu orden está siendo procesada</p>
-<a href="">Cancelar?</a>
+<a href="/menu/cancel">Cancelar?</a>
 {% endif %}
 {% endblock %}

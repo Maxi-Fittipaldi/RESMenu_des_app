@@ -7,14 +7,18 @@ console.log(addToCartButton);
 for(let i = 0; i < addToCartButton.length; i++){
     addToCartButton[i].addEventListener("click",() =>{
         let productId = addToCartButton[i].name;
-        ids.push(productId);
-        console.log(productId);
         const product = productsContainer.querySelector("[name='"+productId+"']");
+        const quantity = product.getElementsByTagName("input")[0];
+        const AddButton = product.getElementsByTagName("button")[0];
+        ids.push({"product_id":productId, "quantity":quantity.value});
+        quantity.remove()
         const clonedProd = product.cloneNode(true);
         addToCartButtonNew = clonedProd.getElementsByTagName("button")[0];
         addToCartButtonNew.remove();
         console.log(clonedProd)
+        clonedProd.innerHTML += "<p>"+quantity.value+"</p>" 
         cart.appendChild(clonedProd);
+        AddButton.remove()
     });
 }
 
