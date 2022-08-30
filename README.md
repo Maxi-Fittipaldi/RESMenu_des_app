@@ -73,3 +73,4 @@ principal:
 ```
 sass --watch static/SASS/index.scss static/CSS/index.css
 ```
+# resmenu_des_app
