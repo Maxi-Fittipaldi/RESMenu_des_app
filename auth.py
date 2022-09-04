@@ -33,13 +33,18 @@ def login():
         if passwordEncrypted != dbPassword or email != dbGmail:
                 flash("La contraseña o el mail son incorrectos")
                 return redirect("/login")
+        pendingOrder = db.session.execute("""SELECT * FROM cabeceraTransaccion
+        WHERE usuario_id = :uid AND estado = "pendiente" LIMIT 1""",{"uid": dbId}).scalar()
+        if pendingOrder == None:
+            session["order?"] = False
+        else:
+            session["order?"] = True
         session["id"] = dbId
         session["name"] = dbName
         session["surname"] = dbSurname
         session["email"] = dbGmail
         session["state"] = dbState
         session["nTable"] = nTable
-        session["order?"] = False
         session["rol"] = dbRol
         flash("Has iniciado sessión")
         return redirect("/profile")
@@ -122,4 +127,5 @@ def logout():
     session.pop("email",None)
     session.pop("state",None)
     session.pop("nTable",None)
+    session.pop("order?",None)
     return redirect("/login")

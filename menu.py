@@ -8,7 +8,6 @@ def menu():
     return render_template("menu.html",productos=productos, session=session)
 @bp.route("/menu/commit",methods=["POST"])
 def commit():
-    content_type = request.headers.get("Content-Type")
     json = request.json
     db.session.execute("""
     INSERT INTO
@@ -31,10 +30,12 @@ def commit():
     "Sin comentarios"
     )
     """,
-    [{"producto_id": val["product_id"],
+    [
+    {"producto_id": val["product_id"],
      "cantidad": val["quantity"],
      "uid": session["id"]}
-        for val in json["product_ids"]])
+        for val in json["product_ids"]
+     ])
     db.session.commit()
     session["order?"] = True
     return redirect("/menu")

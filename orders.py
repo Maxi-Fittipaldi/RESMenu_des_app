@@ -12,7 +12,7 @@ def orders():
             return redirect("/profile")
     if session["state"] == "pendiente":
         return redirect("/profile")
-    orders = db.session.execute("""SELECT * FROM cabeceraTransaccion""")
+    orders = db.session.execute("""SELECT * FROM cabeceraTransaccion WHERE estado = "pendiente" """)
     return render_template("orders.html", cabeceras_transaccion=orders)
 
 @bp.route("/orders/update/<int:id>", methods=["POST"])
