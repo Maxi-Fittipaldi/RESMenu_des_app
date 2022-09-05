@@ -9,6 +9,7 @@
  <p>Nombre: {{session.name}}</p>
  <p>Apellido: {{session.surname}}</p>
  <p>Email: {{session.email}}</p>
+ <p>order?: {{session["order?"]}}</p>
  <h1>modificar el usuario</h1>
  <form action="/profile/update" method="POST">
      <input type="text" name="nombre" placeholder="nombre" >

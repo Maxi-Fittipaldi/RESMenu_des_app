@@ -4,6 +4,9 @@ const confirmButton = document.querySelector("body > button")
 const addToCartButton = document.querySelectorAll(".addToCart");
 let ids = [];
 console.log(addToCartButton);
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 for(let i = 0; i < addToCartButton.length; i++){
     addToCartButton[i].addEventListener("click",() =>{
         let productId = addToCartButton[i].name;
@@ -22,7 +25,7 @@ for(let i = 0; i < addToCartButton.length; i++){
     });
 }
 
-confirmButton.addEventListener("click", () => {
+confirmButton.addEventListener("click", async () => {
     // data.append("product", ids);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/menu/commit');
@@ -30,5 +33,6 @@ confirmButton.addEventListener("click", () => {
     data = JSON.stringify({"product_ids": ids});
     console.log(data);
     xhr.send(data);
-    location.reload();
+    await sleep(1000)
+    window.location.reload();
 });

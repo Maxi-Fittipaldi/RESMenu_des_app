@@ -38,8 +38,16 @@ def commit():
      ])
     db.session.commit()
     session["order?"] = True
-    return redirect("/menu")
+    return ("",204)
 @bp.route("/menu/cancel", methods=["GET"])
 def cancel():
+    # db.session.execute("""UPDATE cabeceraTransaccion
+    #     SET estado=:e
+    #     WHERE id = :id
+    #     """,
+    #     {
+    #     "e" :estado,
+    #     "id" :id
+    #     })
     session["order?"] = False
     return redirect("/menu")
