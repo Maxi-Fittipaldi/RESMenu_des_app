@@ -25,14 +25,21 @@ for(let i = 0; i < addToCartButton.length; i++){
     });
 }
 
-confirmButton.addEventListener("click", async () => {
-    // data.append("product", ids);
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/menu/commit');
-    xhr.setRequestHeader('Content-Type', 'application/json');
+confirmButton.addEventListener("click", () => {
     data = JSON.stringify({"product_ids": ids});
-    console.log(data);
-    xhr.send(data);
-    await sleep(1000)
-    window.location.reload();
+    fetch('/menu/commit', {
+    method: 'POST', // or 'PUT'
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: data,
+    })
+    .then((response) => console.log(response))
+    .then(() => {
+        console.log('Success');
+        window.location.reload();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });

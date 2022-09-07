@@ -4,15 +4,13 @@ from flask import(Blueprint,
 render_template, request, url_for, redirect,
 send_from_directory, session, flash)
 from RESMenu_des_app import db
+from .login import *
 bp = Blueprint('manage',__name__, url_prefix='/')
 @bp.route("/manage/search", methods=['GET'])
+@login_required
+@verif_required
+@staff_required
 def search():
-        if not "id" in session:
-            return redirect("/login")
-        if session["rol"] == "cliente":
-            return redirect("/profile")
-        if session["state"] == "pendiente":
-            return redirect("/profile")
         productoNombre = request.args.get("nombre",None)
         productosRaw = db.session.execute("SELECT * FROM productos WHERE nombre = :n",
                         {"n":productoNombre})
@@ -24,24 +22,18 @@ def search():
                 return redirect("/manage")
         return render_template("search_results.html", productos=productos)
 @bp.route("/manage")
+@login_required
+@verif_required
+@staff_required
 def select():
-    if not "id" in session:
-        return redirect("/login")
-    if session["rol"] == "cliente":
-        return redirect("/profile")
-    if session["state"] == "pendiente":
-        return redirect("/profile")
     productos = db.session.execute("SELECT * FROM productos")
     return render_template("manage.html", productos=productos)
 
 @bp.route("/manage/insert", methods=['GET','POST'])
+@login_required
+@verif_required
+@staff_required
 def insert():
-    if not "id" in session:
-        return redirect("/login")
-    if session["rol"] == "cliente":
-        return redirect("/profile")
-    if session["state"] == "pendiente":
-        return redirect("/profile")
     if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]
@@ -65,25 +57,18 @@ def insert():
         productos = db.session.execute("SELECT * FROM productos")
         return render_template('index.html',productos=productos)
 @bp.route("/manage/delete/<int:id>")
+@login_required
+@verif_required
+@staff_required
 def delete(id):
-    if not "id" in session:
-        return redirect("/login")
-    if session["rol"] == "cliente":
-        return redirect("/profile")
-    if session["state"] == "pendiente":
-        return redirect("/profile")
-    productoid = id
-    db.session.execute("DELETE FROM productos WHERE id = :id",{"id":productoid})
+    db.session.execute("DELETE FROM productos WHERE id = :id",{"id":id})
     db.session.commit()
     return redirect("/manage")
 @bp.route("/manage/update/<int:id>", methods=["GET","POST"])
+@login_required
+@verif_required
+@staff_required
 def update(id):
-    if not "id" in session:
-        return redirect("/login")
-    if session["rol"] == "cliente":
-        return redirect("/profile")
-    if session["state"] == "pendiente":
-        return redirect("/profile")
     if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]

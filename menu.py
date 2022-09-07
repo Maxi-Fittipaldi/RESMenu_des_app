@@ -1,8 +1,11 @@
 from flask import Blueprint, render_template, request, url_for, redirect, send_from_directory, session, flash
 from RESMenu_des_app import db
+from .login import *
 bp = Blueprint('menu', __name__, url_prefix='/')
 
 @bp.route("/menu", methods=['GET'])
+@login_required
+@verif_required
 def menu():
     productos = db.session.execute("SELECT * FROM productos")
     return render_template("menu.html",productos=productos, session=session)
@@ -38,16 +41,18 @@ def commit():
      ])
     db.session.commit()
     session["order?"] = True
-    return ("",204)
+    return ("Success",204)
 @bp.route("/menu/cancel", methods=["GET"])
+@login_required
+@verif_required
 def cancel():
-    # db.session.execute("""UPDATE cabeceraTransaccion
-    #     SET estado=:e
-    #     WHERE id = :id
-    #     """,
-    #     {
-    #     "e" :estado,
-    #     "id" :id
-    #     })
+    db.session.execute("""UPDATE cabeceraTransaccion
+        SET estado="cancelado"
+        WHERE usuario_id = :id AND estado="pendiente"
+        """,
+        {
+        "id" :session["id"]
+        })
+    db.session.commit()
     session["order?"] = False
     return redirect("/menu")

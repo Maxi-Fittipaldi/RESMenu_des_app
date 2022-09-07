@@ -8,7 +8,6 @@ mail = Mail(app)
 #db
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy(app)
-
 #blueprints
 from . import auth
 from . import indexpage
