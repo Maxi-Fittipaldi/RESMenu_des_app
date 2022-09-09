@@ -3,25 +3,28 @@ const productsContainer = document.getElementsByClassName("products-container")[
 const confirmButton = document.querySelector("body > button")
 const addToCartButton = document.querySelectorAll(".addToCart");
 let ids = [];
-console.log(addToCartButton);
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 for(let i = 0; i < addToCartButton.length; i++){
     addToCartButton[i].addEventListener("click",() =>{
         let productId = addToCartButton[i].name;
         const product = productsContainer.querySelector("[name='"+productId+"']");
         const quantity = product.getElementsByTagName("input")[0];
-        const AddButton = product.getElementsByTagName("button")[0];
+        const addButton = product.getElementsByTagName("button")[0];
         ids.push({"product_id":productId, "quantity":quantity.value});
         quantity.remove()
         const clonedProd = product.cloneNode(true);
         addToCartButtonNew = clonedProd.getElementsByTagName("button")[0];
         addToCartButtonNew.remove();
         console.log(clonedProd)
-        clonedProd.innerHTML += "<p>"+quantity.value+"</p>" 
+        clonedProd.innerHTML += "<p>"+quantity.value+"</p>"
+        clonedProd.innerHTML += `<button class="removeFromCart" name="${productId}">Remove from cart</button>`
+        const removeFromCartBtn = clonedProd.querySelector(`button[name= "${productId}"]`)
+        removeFromCartBtn.addEventListener("click", () => {
+            cart.removeChild(clonedProd);
+            product.appendChild(quantity)
+            product.appendChild(addButton)
+        })
         cart.appendChild(clonedProd);
-        AddButton.remove()
+        addButton.remove()
     });
 }
 
