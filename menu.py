@@ -7,9 +7,21 @@ bp = Blueprint('menu', __name__, url_prefix='/')
 @login_required
 @verif_required
 def menu():
+    pendingOrder = db.session.execute("""
+    SELECT * FROM cabeceraTransaccion
+    WHERE usuario_id = :uid 
+    AND 
+    estado = "pendiente" LIMIT 1""",{"uid": session["id"]}).scalar()
+    if pendingOrder == None:
+        session["order?"] = False
+    else:
+        session["order?"] = True
     productos = db.session.execute("SELECT * FROM productos")
     return render_template("menu.html",productos=productos, session=session)
+
 @bp.route("/menu/commit",methods=["POST"])
+@login_required
+@verif_required
 def commit():
     json = request.json
     db.session.execute("""

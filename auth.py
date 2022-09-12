@@ -34,12 +34,7 @@ def login():
         if passwordEncrypted != dbPassword or email != dbGmail:
                 flash("La contraseña o el mail son incorrectos")
                 return redirect("/login")
-        pendingOrder = db.session.execute("""SELECT * FROM cabeceraTransaccion
-        WHERE usuario_id = :uid AND estado = "pendiente" LIMIT 1""",{"uid": dbId}).scalar()
-        if pendingOrder == None:
-            session["order?"] = False
-        else:
-            session["order?"] = True
+        session["order?"] = False
         session["id"] = dbId
         session["name"] = dbName
         session["surname"] = dbSurname
@@ -87,13 +82,12 @@ def signup():
         return render_template("signup.html")
 
 @bp.route("/confirm/<token>")
-@login_required
 def confirm_email(token):
     try:
         email = confirm_token(token)
     except:
         flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo', 'warning')
-        return redirect("/profile")
+        return redirect("/login")
     user = db.session.execute('SELECT * FROM usuarios WHERE gmail = :email', {'email': email})
     userStatus = None
     for result in user:
@@ -102,9 +96,10 @@ def confirm_email(token):
     if userEmail != email:
         if "id" in session:
             flash('El código ha expirado o es incorrecto, intenta reenviarlo.', 'warning')
+            return redirect("/profile")
         else:
             flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo.', 'warning')
-        return redirect("/profile")
+            return redirect("/login")
     if userStatus == 'verificado':
         flash('La cuenta ha sido verificada previamente. Por favor, inicie sesión.', 'info')
     else:
