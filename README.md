@@ -19,18 +19,26 @@ Un proyecto de pedido de comidas en un restaurante.
 
 ### Otras tags:
 Para arreglos de errores importantes, se utilizarán tags intermedias
-(ej: v1.01, v0.3, etc.).
+(ej: v1.0.1, v0.3.1, etc.).
 ## Cómo ponerlo en marcha:
 Primero, se debe clonar (es decir, descargar) el repositorio:
 ``` 
 git clone https://github.com/Maxi-Fittipaldi/RESMenu_des_app.git
 ``` 
-### _Setup_ con scripts:
+### _Setup_ con scripts (sólo apto para desarrollo):
 Simplemente, siga los siguientes comandos:
 ``` 
 cd RESMenu_des_app
-. setup/bash/venv_setup.sh #
+. setup/bash/venv_setup.sh #por única vez
+. setup/bash/env_vars.sh "_mail_" "_contraseña_" "_tipoDB_"#por instancia de terminal
+flask run #correr el proyecto
 ``` 
+Para salir del ambiente virtual, escriba _deactivate_.
+Si desea volver a entrar, simplemente ejecute:
+```
+. setup/bash/run_setup.sh "_mail_" "_contraseña_" "_tipoDB_"
+```
+### _Setup_ manual:
 Una vez clonado el repositorio, deberá crear un ambiente
 virtual e instalar las dependencias 
 especificadas en _paquetes.txt_. 
@@ -42,6 +50,9 @@ python -m venv venv
 . venv/Scripts/activate
 pip install -r paquetes.txt
 ```
+**nota**: Temporalmente, se deberá crear el _venv_ fuera del proyecto para,
+luego, introducirlo en éste. De lo contrario, se producirá un error.
+
 El siguiente paso consiste en declarar las variables temporales,
 estas deberán ser declaradas **cada vez** que ejecutes una nueva
 instancia de tu terminal:
