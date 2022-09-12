@@ -7,7 +7,7 @@
   <div class="products-container">
     <h1>Listado de productos</h1>
     {% for producto in productos %}
-    <div class="product" name="{{producto.id}}">
+    <div class="product" id="{{producto.id}}">
       <h5>{{producto.nombre}}</h5>
       <p>{{producto.descripcion}}</p>
       <p>{{producto.precio}}</p>

@@ -6,29 +6,40 @@ let ids = [];
 for(let i = 0; i < addToCartButton.length; i++){
     addToCartButton[i].addEventListener("click",() =>{
         let productId = addToCartButton[i].name;
-        const product = productsContainer.querySelector("[name='"+productId+"']");
+        console.log(productId)
+        const product = productsContainer.querySelector("[id='"+productId+"']");
         const quantity = product.getElementsByTagName("input")[0];
         const addButton = product.getElementsByTagName("button")[0];
-        ids.push({"product_id":productId, "quantity":quantity.value});
         quantity.remove()
         const clonedProd = product.cloneNode(true);
         addToCartButtonNew = clonedProd.getElementsByTagName("button")[0];
         addToCartButtonNew.remove();
         console.log(clonedProd)
-        clonedProd.innerHTML += "<p>"+quantity.value+"</p>"
+        clonedProd.innerHTML += `<p class="price">${quantity.value}</p>`
         clonedProd.innerHTML += `<button class="removeFromCart" name="${productId}">Remove from cart</button>`
         const removeFromCartBtn = clonedProd.querySelector(`button[name= "${productId}"]`)
         removeFromCartBtn.addEventListener("click", () => {
             cart.removeChild(clonedProd);
-            product.appendChild(quantity)
-            product.appendChild(addButton)
-        })
+            product.appendChild(quantity);
+            product.appendChild(addButton);
+        });
         cart.appendChild(clonedProd);
-        addButton.remove()
+        addButton.remove();
     });
 }
 
 confirmButton.addEventListener("click", () => {
+    const products = document.querySelectorAll("body > div.products-in-cart > div.product");
+    console.log(products)
+    for(let i = 0; i < products.length; i++){
+        let product = products[i];
+        let productId = product.id;
+        console.log(product);
+        console.log(productId);
+        let quantity = product.querySelector(".price");
+        ids.push({"product_id":productId, "quantity":quantity.textContent});
+    }
+    console.log(ids);
     data = JSON.stringify({"product_ids": ids});
     fetch('/menu/commit', {
     method: 'POST', // or 'PUT'
