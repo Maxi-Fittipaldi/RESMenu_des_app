@@ -1,18 +1,18 @@
 from flask import Blueprint, render_template, request, url_for, redirect, send_from_directory, session, flash
 from RESMenu_des_app.encrypt import *
 from RESMenu_des_app import db
+from .login import *
 bp = Blueprint('profile', __name__, url_prefix='/')
 @bp.route("/profile")
+@login_required
 def profile():
-    if "id" in session:
-        return render_template("profile.html", session=session)
-    return redirect("/login")
+    return render_template("profile.html", session=session)
 
 
 @bp.route("/profile/update",  methods=['POST'])
+@login_required
+@verif_required
 def update():
-    if not "id" in session:
-        return redirect("/login")
     if request.method == "POST":
         nombre = request.form["nombre"]
         apellido = request.form["apellido"]
