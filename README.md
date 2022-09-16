@@ -9,9 +9,9 @@ Un proyecto de pedido de comidas en un restaurante.
 - [x] sesiones (0.1)
 - [x] ruta _manage_ (gestión de productos, experimental) (0.1)
 - [x] rutas derivadas de _manage_ terminadas (0.3)
-- [x] ruta menu (pedidos de comidas)
+- [x] ruta menu (pedidos de comidas) (0.5)
 - [x] roles (0.3)
-- [x] carrito de compras
+- [x] carrito de compras (0.5)
 - [x] modificar usuario (0.3)
 - [x] verificación por mail (0.2)
 - [x] ruta _orders_ (pedidos pendientes y marcarlos como completados) (0.4)
