@@ -15,8 +15,8 @@ def login():
         password = request.form["pwd"]
         nTable = request.form["nTable"]
         passwordEncrypted = encrypt(password)
-        query = db.session.execute("SELECT * FROM usuarios WHERE gmail = :email",{"email": email})
-        dbGmail = None
+        query = db.session.execute("SELECT * FROM usuarios WHERE email = :email",{"email": email})
+        dbEmail = None
         dbPassword = None
         dbId = None
         dbName = None
@@ -27,18 +27,18 @@ def login():
                 dbId = result["id"]
                 dbName = result["nombre"]
                 dbSurname = result["apellido"]
-                dbGmail = result["gmail"]
+                dbEmail = result["email"]
                 dbPassword = result["password"]
                 dbState = result["estado"]
                 dbRol = result["rol"]
-        if passwordEncrypted != dbPassword or email != dbGmail:
+        if passwordEncrypted != dbPassword or email != dbEmail:
                 flash("La contraseña o el mail son incorrectos")
                 return redirect("/login")
         session["order?"] = False
         session["id"] = dbId
         session["name"] = dbName
         session["surname"] = dbSurname
-        session["email"] = dbGmail
+        session["email"] = dbEmail
         session["state"] = dbState
         session["nTable"] = nTable
         session["rol"] = dbRol
@@ -56,16 +56,16 @@ def signup():
             apellido = request.form["apellido"]
             password = request.form["pwd"]
             passwordEncrypted = encrypt(password)
-            query = db.session.execute("SELECT gmail FROM usuarios WHERE gmail = :email",{"email": email})
-            dbGmail = None
+            query = db.session.execute("SELECT email FROM usuarios WHERE email = :email",{"email": email})
+            dbEmail = None
             for result in query:
-                    dbGmail = result["gmail"]
-            if email == dbGmail:
+                    dbEmail = result["email"]
+            if email == dbEmail:
                     flash("Esta cuenta ya existe")
                     return redirect("/signup")
             db.session.execute(
                 """INSERT INTO usuarios
-            (gmail,nombre,apellido,password,estado)
+            (email,nombre,apellido,password,estado)
             VALUES(:email,:nomb,:apel,:pass,'pendiente' )""",
                 {"email": email,
                 "nomb": nombre,
@@ -88,11 +88,11 @@ def confirm_email(token):
     except:
         flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo', 'warning')
         return redirect("/login")
-    user = db.session.execute('SELECT * FROM usuarios WHERE gmail = :email', {'email': email})
+    user = db.session.execute('SELECT * FROM usuarios WHERE email = :email', {'email': email})
     userStatus = None
     for result in user:
         userStatus = result["estado"]
-        userEmail = result["gmail"]
+        userEmail = result["email"]
     if userEmail != email:
         if "id" in session:
             flash('El código ha expirado o es incorrecto, intenta reenviarlo.', 'warning')
@@ -103,7 +103,7 @@ def confirm_email(token):
     if userStatus == 'verificado':
         flash('La cuenta ha sido verificada previamente. Por favor, inicie sesión.', 'info')
     else:
-        db.session.execute("UPDATE usuarios SET estado = 'verificado' WHERE gmail = :email ", {'email': email})
+        db.session.execute("UPDATE usuarios SET estado = 'verificado' WHERE email = :email ", {'email': email})
         db.session.commit()
         flash('Has verificado la cuenta, gracias.', 'info')
     return redirect("/logout")

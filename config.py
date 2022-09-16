@@ -1,5 +1,5 @@
 import os
-# main config
+# security
 SECRET_KEY = '_5#y2L"F4Q8z\n\xec]/'
 SECURITY_PASSWORD_SALT = '3%h#3h74fas@@sdHHAS-'
 

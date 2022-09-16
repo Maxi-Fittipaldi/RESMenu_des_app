@@ -23,7 +23,15 @@ def menu():
 @login_required
 @verif_required
 def commit():
-    json = request.json
+    try:
+        json = request.json
+        product_ids = json["product_ids"]
+        for x in product_ids:
+            assert int(x["quantity"]) > 0
+            assert int(x["product_id"]) > 0
+    except ValueError:
+        flash("Transacción inválida")
+        return redirect("bp.menu")
     db.session.execute("""
     INSERT INTO
     cabeceraTransaccion (usuario_id,nro_mesa,estado)
@@ -47,13 +55,14 @@ def commit():
     """,
     [
     {"producto_id": val["product_id"],
-     "cantidad": val["quantity"],
-     "uid": session["id"]}
+    "cantidad": val["quantity"],
+    "uid": session["id"]}
         for val in json["product_ids"]
-     ])
+    ])
     db.session.commit()
     session["order?"] = True
     return ("Success",204)
+
 @bp.route("/menu/cancel", methods=["GET"])
 @login_required
 @verif_required
@@ -67,4 +76,4 @@ def cancel():
         })
     db.session.commit()
     session["order?"] = False
-    return redirect("/menu")
+    return redirect("bp.menu")

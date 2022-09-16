@@ -10,12 +10,6 @@ bp = Blueprint('orders',__name__, url_prefix='/')
 @verif_required
 @staff_required
 def orders():
-    if not "id" in session:
-        return redirect("/login")
-    if session["rol"] == "cliente":
-            return redirect("/profile")
-    if session["state"] == "pendiente":
-        return redirect("/profile")
     orders = db.session.execute("""SELECT * FROM cabeceraTransaccion WHERE estado = "pendiente" """)
     return render_template("orders.html", cabeceras_transaccion=orders)
 

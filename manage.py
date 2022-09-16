@@ -37,15 +37,17 @@ def insert():
     if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]
+        productoCantidad = request.form["cantidad"]
         productoDesc = request.form["descripcion"]
         horariod = request.form["horariod"]
         horarioh = request.form["horarioh"]
         db.session.execute("""INSERT INTO productos
-        (nombre,precio,descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
-        VALUES(:n,:p ,:d, :dd,:dh,:prop)""",
+        (nombre,precio,cantidad, descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
+        VALUES(:n,:p ,:c, :d, :dd,:dh,:prop)""",
         {
         "n":productoNombre,
         "p":productoPrecio,
+        "c":productoCantidad,
         "d": productoDesc,
         "dd": horariod,
         "dh": horarioh,
@@ -56,12 +58,29 @@ def insert():
     else:
         productos = db.session.execute("SELECT * FROM productos")
         return render_template('index.html',productos=productos)
+@bp.route("/manage/remove/<int:id>")
+@login_required
+@verif_required
+@staff_required
+def remove(id):
+    db.session.execute("UPDATE productos SET estado='oculto' WHERE id = :id",{"id":id})
+    db.session.commit()
+    return redirect("/manage")
+
+@bp.route("/manage/recover/<int:id>")
+@login_required
+@verif_required
+@staff_required
+def recover(id):
+    db.session.execute("UPDATE productos SET estado='visible' WHERE id = :id",{"id":id})
+    db.session.commit()
+    return redirect("/manage")
 @bp.route("/manage/delete/<int:id>")
 @login_required
 @verif_required
 @staff_required
 def delete(id):
-    db.session.execute("DELETE FROM productos WHERE id = :id",{"id":id})
+    db.session.execute("DELETE FROM productos WHERE estado='oculto' AND id = :id",{"id":id})
     db.session.commit()
     return redirect("/manage")
 @bp.route("/manage/update/<int:id>", methods=["GET","POST"])
@@ -72,6 +91,7 @@ def update(id):
     if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]
+        productoCantidad = request.form["cantidad"]
         productoDesc = request.form["descripcion"]
         horariod = request.form["horariod"]
         horarioh = request.form["horarioh"]
@@ -79,6 +99,7 @@ def update(id):
         SET nombre= :n ,
         precio= :p,
         descripcion = :d,
+        cantidad = :c,
         disponibilidad_desde = :dd,
         disponibilidad_hasta = :dh
         WHERE id= :id
@@ -86,6 +107,7 @@ def update(id):
         {
         "n":productoNombre,
         "p":productoPrecio,
+        "c":productoCantidad,
         "d": productoDesc,
         "dd": horariod,
         "dh": horarioh,
