@@ -16,7 +16,7 @@ def menu():
         session["order?"] = False
     else:
         session["order?"] = True
-    productos = db.session.execute("SELECT * FROM productos")
+    productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
     return render_template("menu.html",productos=productos, session=session)
 
 @bp.route("/menu/commit",methods=["POST"])
@@ -31,7 +31,7 @@ def commit():
             assert int(x["product_id"]) > 0
     except ValueError:
         flash("Transacción inválida")
-        return redirect("bp.menu")
+        return redirect("/menu")
     db.session.execute("""
     INSERT INTO
     cabeceraTransaccion (usuario_id,nro_mesa,estado)
@@ -76,4 +76,4 @@ def cancel():
         })
     db.session.commit()
     session["order?"] = False
-    return redirect("bp.menu")
+    return redirect("/menu")
