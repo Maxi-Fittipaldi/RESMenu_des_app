@@ -34,7 +34,7 @@ CREATE TABLE productos(
     disponibilidad_desde TIME(3) NOT NULL,
     disponibilidad_hasta TIME(3) NOT NULL,
     propietario INT(11) NOT NULL,
-    estado ENUM("visible","oculto") DEFAULT "activo",
+    estado ENUM("visible","oculto") DEFAULT "visible",
     PRIMARY KEY(id),
     CONSTRAINT fk_propietario FOREIGN KEY(propietario)
     REFERENCES usuarios(id)
