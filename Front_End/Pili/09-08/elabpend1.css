@@ -1,0 +1,278 @@
+/* 
+┌──────────────────────────┐
+│ ί CSS Dictionary         │
+└──────────────────────────┘
+	[1] = LIBRARY:
+        [1.1] = Text
+        [1.2] = Animations
+        [1.3] = Body
+	[2] = STRUCTURE:
+        [2.1] = Header
+        ->  [2.1.1] = Navbar
+		[2.2] = Article
+	[10] = Experimental
+*/  
+/* 
+┌──────────────────────────┐
+│ [1.1] Text               │
+└──────────────────────────┘ */
+p {
+	margin: 10px; 
+	/* margin-top 1em */ /* Ideal margin for paragraphs*/
+	line-height: calc(1.5em + .2vw);
+	font-weight: var(--TXT-Weight);
+	text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+}
+
+a {
+	text-decoration: none;
+	color: var(--Primary);
+	line-height: calc(1.5em + .2vw);
+	text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+}
+
+i {
+	size: 32px;
+	color: var(--On-Surface-Large-TXT)
+}
+
+.extra-large-txt { /* For Navbar and Titles */
+	font-size: 20px;
+	color: var(--On-Surface-Large-TXT);
+}
+
+.large-txt { /* For Subtitles */
+	font-size: 16px;
+	color: var(--On-Surface-Large-TXT);
+}
+
+.medium-txt { /* For Paragraphs and Footer */
+	font-size: 14px;
+	color: var(--On-Surface-Medium-TXT);
+}
+
+.small-txt { /* For Notes and Aclarations */
+	font-size: 14px;
+	color: var(--On-Surface-Small-TXT);
+}
+/* 
+┌──────────────────────────┐
+│ [1.2] Animations         │
+└──────────────────────────┘ */
+
+
+/* 
+┌──────────────────────────┐
+│ [1.3] Body               │
+└──────────────────────────┘ */
+body {
+	background-color: white;
+	font-family: 'Roboto', sans-serif;
+} 
+
+/*
+┌──────────────────────────┐
+│ [2.1] Header             │
+└──────────────────────────┘ */
+/* [2.1.1] ─── Navbar ───*/
+.navigation_menu {
+	padding-left: 32px;
+	padding-right: 32px;
+	display:flex;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+	height: 80px;
+	background-color: var(--Surface);
+}
+
+.inactive-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 100px;
+	width: 80px;
+	align-items: center;
+	min-height: 80px;
+}
+
+/* 
+┌──────────────────────────┐
+│ [2.2] Article            │
+└──────────────────────────┘ */
+article {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	min-height: calc(100vh - 80px);
+	padding: 16px;
+	gap: 16px;
+	background-color: var(--Background);
+}
+
+/* 
+┌──────────────────────────┐
+│ [10] Experimental 	   │
+└──────────────────────────┘ */
+
+/* EMPIEZA POP UP----------------------------------------------------------- */
+
+.info {
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 16px 0px;
+    gap: 6px;
+
+    width: 412px;
+    height: 115px;
+
+    /* M3/sys/dark/surface-variant */
+
+    background: #49454F;
+    /* M3/Elevation Dark/3 */
+
+    box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 25px 25px 0px 0px;
+
+	/* Inherated from article */
+
+	flex: none;
+	order: 1;
+	align-self: stretch;
+	flex-grow: 1;
+
+}
+
+/* Inside auto layout 
+
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0; */
+
+.label_a {
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 16px;
+	gap: 12px;
+
+	width: 380px;
+	height: 52px;
+
+	background-color: rgba(74, 68, 88, 0.75);
+
+} 
+
+/* Inside auto layout 
+
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0; */
+
+.label_b {
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 16px;
+	gap: 12px;
+
+	width: 380px;
+	height: 52px;
+
+	background: rgba(74, 68, 88, 0.5);
+
+}
+
+
+/* Inside auto layout 
+
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0; */
+
+.vector_1 {
+
+	/* Vector */
+
+
+	width: 20px;
+	height: 20px;
+
+	background: #E8DEF8;
+
+}
+
+/* Inside auto layout 
+
+flex: none;
+order: 0;
+flex-grow: 0; */
+
+.texto_1 {
+
+	/* Auto layout */
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px;
+	gap: 70px;
+
+	width: 316px;
+	height: 20px;
+
+}
+
+/* Inside auto layout 
+
+flex: none;
+order: 1;
+flex-grow: 1; */
+
+.texto_2 {
+
+	/* Metadata */
+
+	width: 28px;
+	height: 20px;
+
+	/* M3/label/large */
+
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 20px;
+	/* identical to box height, or 143% */
+
+	letter-spacing: 0.1px;
+
+	/* M3/sys/dark/on-secondary-container */
+
+	color: #E8DEF8;
+
+}
+
+/* Inside auto layout 
+
+flex: none;
+order: 1;
+flex-grow: 0; */
+
+/* FINALIZA POP UP ----------------------------------------- */
+
