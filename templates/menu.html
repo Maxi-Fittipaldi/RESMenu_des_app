@@ -7,12 +7,32 @@
   <div class="products-container">
     <h1>Listado de productos</h1>
     {% for producto in productos %}
+    <div class=" product food-dropdown_content_cards" id="{{producto.id}}">
+      <div class="ver-card disabled" id="card">
+        <img src="../Media/def_image.png" alt="Default Image">
+        <div class="ver-card_headline">
+          <p class="large-body">
+            {{producto.nombre}}
+          </p>
+          <p class="medium-body">
+            $ {{producto.precio}} ARS
+          </p>
+          <p class="medium-body">
+           {{prdocuto.descripcion}}
+          </p>
+          <input type="number">
+        </div>
+        <div class="ver-card_actions">
+          <div class="text-button disabled" id="text-button"> <!-- Remove "active" class to unselect it -->
+          <button class="buttton addToCart" id="btn" name="{{producto.id}}">Añadir al carro</button>
+          </div>  
+          <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
+            <span class="material-icons-round">favorite</span> 
+          </div>
+        </div>
+      </div>
     <div class="product" id="{{producto.id}}">
-      <h5>{{producto.nombre}}</h5>
-      <p>{{producto.descripcion}}</p>
-      <p>{{producto.precio}}</p>
-      <input type="number">
-      <button class="addToCart" id="btn" name="{{producto.id}}">Añadir al carro</button>
+      
     </div>
     {% endfor %}
   </div>
