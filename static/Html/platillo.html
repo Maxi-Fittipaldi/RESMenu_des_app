@@ -1,0 +1,84 @@
+<!-- platillo.html | DLM: 20/9/2022 | No License
+     Replicated from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=51196%3A4675 -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Platillo</title>
+  <!-- Metas -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="resmenu,menú,restaurante">
+  <meta name="description" content="Sitio Web para un Restaurante">
+  <meta name="author" content="BACK-END: Maximiliano Fittipaldi, Nicolas Lopez y Ezequiel Milich.
+  FRONT-END: Matias Font, Rosario Hernandez, Pilar Costa, Fernando Hsiao, Julieta Orda y Sol Corbelini.">
+  <meta name="robots" content="index">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../CSS/normalize.css"> <!-- Resets CSS styles-->
+  <link rel="stylesheet" type="text/css" href="../CSS/lib.css"> <!-- Imports the basics (Theme + Foundation + Components) -->
+  <!-- Font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Icon pack from Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Page .ico -->
+  <link rel="icon" href="..\Media\icon.ico">
+</head>
+
+<body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body-->
+  <article>
+    <div class="exp-card">
+      <img src="../Media/def_image.png">
+      <div class="exp-card_content">
+        <div class="exp-card_content_headline">
+          <p class="small-headline">Ensalada Marina</p>
+          <p class="large-body">$ 900,00 ARS</p>
+        </div>
+        <p class="large-body">
+          Una liviana pero rica ensalada para 1.
+          Ingredientes: Langostino, Choclo, Tomate Cherry, Palta, Lechuga y Lima.
+        </p> 
+        <div class="exp-card_content_info">
+          <div class="exp-card_content_info_diets">
+            <div class="exp-card_content_info_category">
+              <span class="material-icons-round">check_circle</span>
+              <p class="large-body">Vegetariano</p>
+            </div>
+          </div>
+          <div class="exp-card_content_info_intolerances">
+            <div class="exp-card_content_info_category">      
+              <span class="material-icons-round">cancel</span>
+              <p class="large-body">TACC</p>
+            </div>
+            <div class="exp-card_content_info_category">
+              <span class="material-icons-round">cancel</span>
+              <p class="large-body">Lactosa</p>
+            </div>
+          </div>  
+        </div>        
+      </div>
+      <div class="exp-card_action-box">
+        <div class="text-button" id="add-cart">
+          <p class="button">
+            Añadir al Carrito
+          </p>
+        </div>  
+        <div class="big-icon-button" id="add-fav">
+          <span class="material-icons-round">favorite</span> 
+        </div>
+      </div>
+    </div>
+  </article>
+  <header>
+    <nav class="down-nav back" id="down-nav">
+      <div class="down-nav_item">
+        <span class="material-icons-round">arrow_back_ios_new</span> 
+        <p class="large-label">
+          Volver
+        </p>
+      </div>
+    </nav>
+  </header>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!-- elaboracion.html | DLM: 20/9/2022 | No License
+     Replicated from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=51196%3A4675 -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Elaboración</title>
+  <!-- Metas -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="resmenu,menú,restaurante">
+  <meta name="description" content="Sitio Web para un Restaurante">
+  <meta name="author" content="BACK-END: Maximiliano Fittipaldi, Nicolas Lopez y Ezequiel Milich.
+  FRONT-END: Matias Font, Rosario Hernandez, Pilar Costa, Fernando Hsiao, Julieta Orda y Sol Corbelini.">
+  <meta name="robots" content="index">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../CSS/normalize.css"> <!-- Resets CSS styles-->
+  <link rel="stylesheet" type="text/css" href="../CSS/lib.css"> <!-- Imports the library (Theme + Foundation + Components) -->
+  <link rel="stylesheet" type="text/css" href="../CSS/elaboracion.css"> <!-- Imports webpage CSS -->
+  <!-- Font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Icon pack from Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Page .ico -->
+  <link rel="icon" href="..\Media\icon.ico">
+</head>
+
+<body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body -->
+  <article>
+    <div class="list">
+      <div class="state-popup">
+        <p class="small-headline" > Elaboración </p>
+        <p class="medium-body"> Muchas gracias por su compra.
+          Su pedido esta siendo elaborado, puede presentarse a la caja si tiene algun inconviente. </p>
+      </div>
+      <div class="list-dropdown">
+        <div class="list-dropdown_button">
+          <span class="material-icons-round">list_alt</span>
+          <p class="list-dropdown_button_text-area large-body"> Orden </p>
+          <span class="material-icons-round rotary">expand_more</span>
+        </div>
+        <div class="list-dropdown_content">
+          <div class="list-dropdown_content_item">
+            <p class="medium-body grow"> Ensalada Marina </p>
+            <p class="medium-body"> x2 </p>
+            <p class="medium-body"> $1800. </p>
+          </div> 
+          <div class="list-dropdown_content_item">
+            <p class="medium-body grow"> Agua Mineral Sin Gas </p>
+            <p class="medium-body"> x1 </p>
+            <p class="medium-body"> $200. </p>
+          </div>
+          <div class="list-dropdown_content_item">
+            <p class="medium-body grow"> Producto </p>
+            <p class="medium-body"> Cant </p>
+            <p class="medium-body"> Precio. </p>
+          </div>
+          <div class="list-dropdown_content_item">
+            <p class="medium-body grow"> Producto </p>
+            <p class="medium-body"> Cant </p>
+            <p class="medium-body"> Precio. </p>
+          </div>
+          <div class="list-dropdown_content_item">
+            <p class="medium-body grow"> Producto </p>
+            <p class="medium-body"> Cant </p>
+            <p class="medium-body"> Precio. </p>
+          </div>
+          <div class="list-dropdown_content_item">
+            <p class="medium-body grow"> Producto </p>
+            <p class="medium-body"> Cant </p>
+            <p class="medium-body"> Precio. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <div class="activity-popup"> <!-- add "collapsed" class to close it -->
+    <div class="activity-popup_action">
+      <span class="material-icons-round rotary">expand_more</span> 
+    </div>
+    <div class="activity-popup_item" id="Gift">
+        <span class="material-icons-round">redeem</span> 
+        <div class="activity-popup_item_text">
+            <p class="large-label">¡Un regalito!</p>
+            <p class="large-label">10% dto para tu próximo pedido.</p>
+        </div>
+    </div>
+    <div class="activity-popup_item" id="orderID">
+      <span class="material-icons-round">tag</span> 
+      <div class="activity-popup_item_text">
+          <p class="large-label">Número de Orden</p>
+          <p class="large-label">0930-01</p>
+      </div>
+    </div>
+    <div class="activity-popup_item" id="DeliveryTime">
+        <span class="material-icons-round">hourglass_top</span> 
+        <div class="activity-popup_item_text">
+            <p class="large-label">Hora de Entrega Aproximada </p>
+            <p class="large-label">9:55</p>
+        </div>
+    </div>
+  </div>
+  <header>
+    <nav class="down-nav back" id="down-nav">
+      <div class="down-nav_item">
+        <span class="material-icons-round">arrow_back_ios_new</span>
+        <p class="large-label">
+          Volver
+        </p>
+      </div>
+    </nav>
+  </header>
+  <script src="../JS/index.js"></script>
+</body>
+</html>

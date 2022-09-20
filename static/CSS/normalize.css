@@ -1,4 +1,5 @@
-/* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Normalize.css v8.0.1 CUSTOM | DLM: 15/8/2022 | MIT License | github.com/necolas/normalize.css 
+   This CSS File changes some CSS values to make a clean start. */
 
 /* Custom Configs
 	========================================================================== */
@@ -9,36 +10,38 @@
 
 ::-webkit-scrollbar {
 	display: none;
-	}
-	
-	/**
-	* Formats almost everything.
-	*/
-	
-	* {
-		margin: 0;
-		border: 0;
-		padding: 0;
-		outline: 0;
-		box-sizing: border-box;
-	} 
-	
-	/**
-	* 1. Blocks all text selection except for the "selectable" class.
-	* 2. Changes selectable text to a palette color.
-	*/
-	
-	h1, p, a, div {
-		user-select: none; /* 1 */
-	}
-	
-	.selectable {
-		user-select: text; /* 1 */
-	}
-	
-	.selectable::selection {
-		background-color: var(--TXT-Selection); /* 2 */
-	}
+} 
+
+/**
+* 1. Formats basic css properties from everything.
+* 2. For less sizing issues with small devices.
+*/
+
+* {
+	margin: 0; /* 1 */
+	border: 0; /* 1 */
+	padding: 0; /* 1 */
+	outline: 0; /* 1 */
+	box-sizing: border-box; /* 1 */
+	overflow-x: hidden; /* 2 */
+} 
+
+/**
+* 1. Blocks all text selection except for the "selectable" class.
+* 2. Changes selectable text to a palette color.
+*/
+
+h1, p, a, div {
+	user-select: none; /* 1 */
+}
+
+.selectable-text {
+	user-select: text; /* 1 */
+}
+
+.selectable-text::selection {
+	background-color: var(--md-sys-color-text-selection); /* 2 */
+}
 
 /* Document
 	========================================================================== */

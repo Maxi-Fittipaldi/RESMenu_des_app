@@ -1,0 +1,309 @@
+<!-- index.html | DLM: 20/9/2022 | No License
+     Replicated from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=51196%3A4675 -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Inicio</title>
+  <!-- Metas -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="resmenu,menú,restaurante">
+  <meta name="description" content="Sitio Web para un Restaurante">
+  <meta name="author" content="BACK-END: Maximiliano Fittipaldi, Nicolas Lopez y Ezequiel Milich.
+  FRONT-END: Matias Font, Rosario Hernandez, Pilar Costa, Fernando Hsiao, Julieta Orda y Sol Corbelini.">
+  <meta name="robots" content="index">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../CSS/normalize.css"> <!-- Resets CSS styles-->
+  <link rel="stylesheet" type="text/css" href="../CSS/lib.css"> <!-- Imports the library (Theme + Foundation + Components) -->
+  <link rel="stylesheet" type="text/css" href="../CSS/index.css"> <!-- Imports webpage CSS -->
+  <!-- Font from Google Fronts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Icon pack from Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Page .ico -->
+  <link rel="icon" href="..\Media\icon.ico">
+</head>
+
+<body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body -->
+  <article>
+    <div class="filters-section">
+      <div class="filter" id="filter"> <!-- Remove "open" class to hide the filter´s options -->
+        <div class="filter_button" id="filter_button">
+          <span class="material-icons-round">filter_alt</span> 
+          <div class="filter_button_text-area">
+            <p class="medium-label">
+              Intolerancia
+            </p>
+            <p class="large-body">
+              Lactosa
+            </p>
+          </div>
+          <span class="material-icons-round rotary">expand_more</span> 
+        </div>
+        <div class="filter_content">
+          <div class="filter_content_text-field">
+              <p class="large-body">Azúcar</p>
+          </div>
+          <div class="filter_content_text-field active"> <!-- Remove "active" class to unselect it -->
+              <p class="large-body">Lactosa</p>
+          </div>
+          <div class="filter_content_text-field">
+              <p class="large-body">Gluten</p>
+          </div>
+        </div>
+      </div>
+      <div class="filter disabled" id="filter"> <!-- Remove "open" class to hide the filter´s options -->
+        <div class="filter_button" id="filter_button">
+          <span class="material-icons-round">filter_alt</span> 
+          <div class="filter_button_text-area">
+            <p class="medium-label">
+              Intolerancia
+            </p>
+            <p class="large-body">
+              Lactosa
+            </p>
+          </div>
+          <span class="material-icons-round rotary">expand_more</span> 
+        </div>
+        <div class="filter_content">
+          <div class="filter_content_text-field">
+              <p class="large-body">Azúcar</p>
+          </div>
+          <div class="filter_content_text-field active"> <!-- Remove "active" class to unselect it -->
+              <p class="large-body">Lactosa</p>
+          </div>
+          <div class="filter_content_text-field">
+              <p class="large-body">Gluten</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="products-list">
+      <div class="food-dropdown" id="food-dropdown"> <!-- Remove "open" class to collapse the dropdown -->
+        <div class="food-dropdown_button" id="food-dropdown_button">
+          <span class="material-icons-outlined">brunch_dining</span>     
+          <p class="filter_button_text-area large-body">
+            Platos Principales
+          </p>
+          <span class="material-icons-round rotary">expand_more</span> 
+        </div>
+        <div class="food-dropdown_content">
+          <div class="food-dropdown_content_cards">
+            <div class="ver-card disabled" id="card">
+              <img src="../Media/def_image.png" alt="Default Image">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  Ensalada Marina (D)
+                </p>
+                <p class="medium-body">
+                  $ 900 ARS
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button disabled" id="text-button"> <!-- Remove "active" class to unselect it -->
+                  <p class="button">
+                    s/Stock
+                  </p>
+                </div>  
+                <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
+                  <span class="material-icons-round">favorite</span> 
+                </div>
+              </div>
+            </div>
+            <div class="ver-card hvr" id="card">
+              <img src="../Media/def_image.png" alt="Default Image">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  Ensalada Marina (H)
+                </p>
+                <p class="medium-body">
+                  $ 900 ARS
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button hvr" id="text-button"> <!-- Remove "active" class to unselect it -->
+                  <p class="button">
+                    Añadir
+                  </p>
+                </div>  
+                <div class="big-icon-button" id="add-fav">
+                  <span class="material-icons-round">favorite</span> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="food-dropdown_content_cards">
+            <div class="ver-card" id="card">
+              <img src="../Media/def_image.png" alt="Default Image">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  Ensalada Marina (0)
+                </p>
+                <p class="medium-body">
+                  $ 900 ARS
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button" id="text-button"> <!-- Remove "active" class to unselect it -->
+                  <p class="button">
+                    Añadir
+                  </p>
+                </div>  
+                <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
+                  <span class="material-icons-round">favorite</span> 
+                </div>
+              </div>
+            </div>
+            <div class="ver-card click" id="card">
+              <img src="../Media/def_image.png" alt="Default Image">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  Ensalada Marina (C)
+                </p>
+                <p class="medium-body">
+                  $ 900 ARS
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button active" id="text-button">
+                  <p class="button">
+                    Añadir
+                  </p>
+                </div>  
+                <div class="big-icon-button" id="add-fav">
+                  <span class="material-icons-round">favorite</span> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="food-dropdown disabled" id="food-dropdown"> <!-- Remove "open" class to collapse the dropdown -->
+        <div class="food-dropdown_button" id="food-dropdown_button">
+          <span class="material-icons-outlined">brunch_dining</span>     
+          <p class="filter_button_text-area large-body">
+            Platos Principales
+          </p>
+          <span class="material-icons-round rotary">expand_more</span> 
+        </div>
+        <div class="food-dropdown_content">
+          <div class="food-dropdown_content_cards">
+            <div class="ver-card disabled" id="card">
+              <img src="../Media/def_image.png" alt="Default Image">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  Ensalada Marina (D)
+                </p>
+                <p class="medium-body">
+                  $ 900 ARS
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button disabled" id="text-button"> <!-- Remove "active" class to unselect it -->
+                  <p class="button">
+                    s/Stock
+                  </p>
+                </div>  
+                <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
+                  <span class="material-icons-round">favorite</span> 
+                </div>
+              </div>
+            </div>
+            <div class="ver-card hvr" id="card">
+              <img src="../Media/def_image.png" alt="Default Image">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  Ensalada Marina (H)
+                </p>
+                <p class="medium-body">
+                  $ 900 ARS
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button hvr" id="text-button"> <!-- Remove "active" class to unselect it -->
+                  <p class="button">
+                    Añadir
+                  </p>
+                </div>  
+                <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
+                  <span class="material-icons-round">favorite</span> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="food-dropdown_content_cards">
+            <div class="ver-card" id="card">
+              <img src="../Media/def_image.png" alt="Default Image">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  Ensalada Marina (0)
+                </p>
+                <p class="medium-body">
+                  $ 900 ARS
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button" id="text-button"> <!-- Remove "active" class to unselect it -->
+                  <p class="button">
+                    Añadir
+                  </p>
+                </div>  
+                <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
+                  <span class="material-icons-round">favorite</span> 
+                </div>
+              </div>
+            </div>
+            <div class="ver-card click" id="card">
+              <img src="../Media/def_image.png" alt="Default Image">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  Ensalada Marina (C)
+                </p>
+                <p class="medium-body">
+                  $ 900 ARS
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button active" id="text-button">
+                  <p class="button">
+                    Añadir
+                  </p>
+                </div>  
+                <div class="big-icon-button" id="add-fav">
+                  <span class="material-icons-round">favorite</span> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+  <header>
+    <nav class="down-nav" id="down-nav">
+      <div class="down-nav_item">
+        <span class="material-icons-round">favorite</span> 
+        <p class="large-label">
+          Favoritos
+        </p>
+      </div>
+      <div class="down-nav_item active"> <!-- Remove "active" class to hide special box -->
+        <span class="material-icons-round">restaurant_menu</span>
+        <p class="large-label">
+          Menú
+        </p>
+      </div>
+      <div class="down-nav_item">
+        <span class="material-icons-round">shopping_cart</span>
+        <p class="large-label">
+          Pedir
+        </p>
+      </div>
+    </nav>
+  </header>
+  <script src="../JS/index.js"></script>
+</body>
+</html>

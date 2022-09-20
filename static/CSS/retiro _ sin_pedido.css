@@ -1,4 +1,4 @@
-/* index.css | DLM: 15/8/2022 | No License
+/* retiro & sin_pedido.css | DLM: 19/9/2022 | No License
    Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=51196%3A4675
    This file includes a specific sub-page Structure and Overlays */
 
@@ -23,39 +23,27 @@
 └────────────────────────────────────────────────────────────────────────────────────────────────┘
 */
 
-	.filters-section {
-		/* background-color: beige !important; */
-		/* Auto layout */
-		display: flex;
-		flex-direction: row;
-		gap: 16px;
-
-		width: 100%;
-		height: fit-content;
-
-		/* Inside auto layout */
-		flex: none;
-		order: 0;
-		align-self: stretch;
-		flex-grow: 0;
-	}
-
-	.products-list {
-		/* background-color: red !important; */
-		/* Auto layout of frame "List" */
+	.list{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		gap: 16px;
 
 		width: 100%;
-		height: fit-content;
+		height: 100%;
+		overflow-y: scroll;
 
-		/* Inside auto layout */
+		/*inherited from Article (usable-content)*/
 		flex: none;
 		order: 1;
 		align-self: stretch;
-		flex-grow: 0;
+		flex-grow: 1;
+	}
+
+	.wide-img {
+		height: auto;
+		width: 100%;
+		max-height: 800px;
 	}
 
 
