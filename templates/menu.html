@@ -1,46 +1,72 @@
 {% extends 'base.html'%}
 {% block head %}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/index.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/lib.css')}}">
+  <!-- Font from Google Fronts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Icon pack from Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Ordenar</title>
 {% endblock %}
 {% block body %}
 {%if session["order?"] == False%}
-  <div class="products-container">
-    <h1>Listado de productos</h1>
-    {% for producto in productos %}
-    <div class=" product food-dropdown_content_cards" id="{{producto.id}}">
-      <div class="ver-card disabled" id="card">
-        <img src="../Media/def_image.png" alt="Default Image">
-        <div class="ver-card_headline">
-          <p class="large-body">
-            {{producto.nombre}}
+    <article>
+    <div class="products-list">
+      <div class="food-dropdown open" id="food-dropdown"> <!-- Remove "open" class to collapse the dropdown -->
+        <div class="food-dropdown_button" id="food-dropdown_button">
+          <span class="material-icons-outlined">brunch_dining</span>
+          <p class="filter_button_text-area large-body">
+            Platos Principales
           </p>
-          <p class="medium-body">
-            $ {{producto.precio}} ARS
-          </p>
-          <p class="medium-body">
-           {{prdocuto.descripcion}}
-          </p>
-          <input type="number">
+          <span class="material-icons-round rotary">expand_more</span>
         </div>
-        <div class="ver-card_actions">
-          <div class="text-button disabled" id="text-button"> <!-- Remove "active" class to unselect it -->
-          <button class="buttton addToCart" id="btn" name="{{producto.id}}">Añadir al carro</button>
-          </div>  
-          <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
-            <span class="material-icons-round">favorite</span> 
+        <div class="food-dropdown_content">
+          {% for producto in productos %}
+          <div class="food-dropdown_content_cards">
+                <div class="ver-card disabled" id="card">
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  {{producto.nombre}}
+                </p>
+                <p class="medium-body">
+                  $ {{producto.precio}} ARS
+                </p>
+                <p class="medium-body">
+                  Horario disponible:
+                 {{producto.disponibilidad_desde}} -
+                 {{producto.disponibilidad_hasta}}
+                </p>
+                <p class="medium-body">
+                  Descripción:
+                 {{producto.descripcion}}
+                </p>
+              </div>
+              <div class="ver-card_actions">
+                <div class="text-button hvr" id="text-button"> <!-- Remove "active" class to unselect it -->
+                  <p class="button">
+                    Añadir
+                  </p>
+                </div>
+                <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
+                  <span class="material-icons-round">favorite</span>
+                </div>
+              </div>
+            </div>
           </div>
+          {% endfor %}
         </div>
       </div>
-    <div class="product" id="{{producto.id}}">
-      
+      <h3 class="large-body">Productos en el carro</h3>
+        <div class="products-in-cart">
+        </div>
+        <div class="text-button hvr" id="text-button"> <!-- Remove "active" class to unselect it -->
+          <p class="button" type="submit">Comprar productos</p>
+        </div>
     </div>
-    {% endfor %}
-  </div>
-  <h3>Productos en el carro</h3>
-    <div class="products-in-cart">
-    </div>
-    <button type="submit">Comprar productos</button>
-
+    </article>
+    {%block nav%} {{super()}} {% endblock %}
   <script src="{{url_for("static",filename="JS/cart.js")}}"></script>
 {%else%}
 <p>Tu orden está siendo procesada</p>
