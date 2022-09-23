@@ -4,7 +4,6 @@ from RESMenu_des_app.encrypt import *
 from RESMenu_des_app import db
 from RESMenu_des_app.token import *
 from RESMenu_des_app.mail import send_email
-from .login import login_required
 bp = Blueprint('auth', __name__, url_prefix='/')
 @bp.route("/login", methods = ["GET","POST"])
 def login():

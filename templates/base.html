@@ -29,28 +29,30 @@
         {% endwith %}
         {% block body %}{% endblock %}
         {% block nav %}
+        {% if  request.endpoint != "auth.signup" and request.endpoint != "auth.login" %}
         <header>
-        <nav class="down-nav" id="down-nav">
-        <div class="down-nav_item">
-                <span class="material-icons-round">favorite</span>
-                <p class="large-label">
-                Favoritos
-                </p>
-        </div>
-        <div class="down-nav_item active"> <!-- Remove "active" class to hide special box -->
-                <span class="material-icons-round">restaurant_menu</span>
-                <p class="large-label">
-                Menú
-                </p>
-        </div>
-        <div class="down-nav_item">
-                <span class="material-icons-round">shopping_cart</span>
-                <p class="large-label">
-                Pedir
-                </p>
-        </div>
-        </nav>
+                <nav class="down-nav" id="down-nav">
+                        <div class="down-nav_item">
+                                <span class="material-icons-round">favorite</span>
+                                <p class="large-label">
+                                Favoritos
+                                </p>
+                        </div>
+                        <div class="down-nav_item active"> <!-- Remove "active" class to hide special box -->
+                                <span class="material-icons-round">restaurant_menu</span>
+                                <p class="large-label">
+                                Menú
+                                </p>
+                        </div>
+                        <div class="down-nav_item">
+                                <span class="material-icons-round">shopping_cart</span>
+                                <p class="large-label">
+                                Pedir
+                                </p>
+                        </div>
+                </nav>
         </header>
+        {% endif %}
         {% endblock %}
 
         <script src="{{url_for('static',filename='JS/index.js')}}"></script>
