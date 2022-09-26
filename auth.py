@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, url_for, redirect, send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
-from RESMenu_des_app.encrypt import *
+from RESMenu_des_app.misc.encrypt import *
 from RESMenu_des_app import db
 from RESMenu_des_app.token import *
 from RESMenu_des_app.mail import send_email

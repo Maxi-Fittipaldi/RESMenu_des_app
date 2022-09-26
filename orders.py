@@ -10,6 +10,9 @@ bp = Blueprint('orders',__name__, url_prefix='/')
 @verif_required
 @staff_required
 def orders():
+# hacer dos queries:
+# detalleTransaccion unión con productos
+# cabecera transaccion
     query = db.session.execute("""
 SELECT 
 ct.id,
@@ -37,7 +40,7 @@ p.estado AS pEstado
         JOIN productos p
         ON p.id = dt.producto_id
         WHERE ct.estado = 'pendiente'
-        """)
+        """).all()
     return render_template("orders.html", query=query)
 
 @bp.route("/orders/update/<int:id>", methods=["POST"])

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, url_for, redirect, send_from_directory, session, flash
-from RESMenu_des_app.encrypt import *
+from RESMenu_des_app.misc.encrypt import *
 from RESMenu_des_app import db
 from .login import *
 bp = Blueprint('profile', __name__, url_prefix='/')
