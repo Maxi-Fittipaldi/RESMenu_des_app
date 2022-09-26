@@ -2,6 +2,7 @@
 {% block head %}
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/index.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/lib.css')}}">
+  <link rel="stylesheet" type="text/css" href="/static/CSS/elaboracion.css"> 
   <!-- Font from Google Fronts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +69,38 @@
     </article>
   <script src="{{url_for("static",filename="JS/cart.js")}}"></script>
 {%else%}
-<p>Tu orden está siendo procesada</p>
-<a href="/menu/cancel">Cancelar?</a>
+<article>
+  <div class="list">
+    <div class="state-popup">
+      <p class="small-headline" > Elaboración </p>
+      <p class="medium-body"> Muchas gracias por su compra.
+        Su pedido esta siendo elaborado, puede presentarse a la caja si tiene algun inconviente. </p>
+        <div class="text-button hvr" id="text-button">
+          <p class="button">
+            <a href="/menu/cancel">Cancelar</a>
+          </p>
+          
+        </div>
+    </div>
+    <div class="list-dropdown open">
+      <div class="list-dropdown_button">
+        <span class="material-icons-round">list_alt</span>
+        <p class="list-dropdown_button_text-area large-body"> Tu orden </p>
+        <span class="material-icons-round rotary">expand_more</span>
+      </div>
+      
+      <div class="list-dropdown_content">
+        {% for producto in productos %}
+        <div class="list-dropdown_content_item">
+          <p class="medium-body grow">{{producto.nombre}}</p>
+          <p class="medium-body grow ">Desc: {{producto.descripcion}}</p>
+          <p class="medium-body">x{{producto.cantidad}}</p>
+          <p class="medium-body">${{producto.precio}} ARS</p>
+        </div> 
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</article>
 {% endif %}
 {% endblock %}

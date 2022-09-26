@@ -29,69 +29,36 @@
      
      <body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body-->
       <article>
-        {% for cab_trans in cabeceras_transaccion %}
+        {% for row in query %}
            <div class="list-item">
              <div class="hor-card">
                <div class="hor-card_content">
                  <div class="hor-card_content_text">
-                   <p class="medium-title">ID: {{cab_trans.id}}</p>
-                   <p class="medium-body">Estado: {{cab_trans.estado}}</p>
-                   <p class="medium-body">Mesa: {{cab_trans.nro_mesa}}</p>
-                    <p class="medium-body">Fecha: {{cab_trans.fecha}}</p>
-                   <p class="medium-body">Cliente: {{cab_trans.usuario_id}}</p> 
+                   <p class="medium-title">ID: {{row.id}}</p>
+                   <p class="medium-body">Estado: {{row.ctEstado}}</p>
+                   <p class="medium-body">Mesa: {{row.nro_mesa}}</p>
+                    <p class="medium-body">Fecha: {{row.fecha}}</p>
+                   <p class="medium-body">Cliente: {{row.usuario_id}}</p> 
                  </div>
                </div>
+               {% if row.id == row.cabecera_id%}
+               <p>{{row.nombre}}</p>
+               {% endif %}
                <div class="hor-card_media"></div>
              </div>
              <div class="big-icon-button">
                <span class="material-icons-round"><a href="/orders">close</a> </span> 
              </div>
            </div>
+        {% endfor %}
+       
        </article>
-       {% endfor %}
-       <div class="activity-popup"> <!-- add "collapsed" class to close it -->
-         <div class="activity-popup_action">
-             <span class="material-icons-round rotary">expand_more</span> 
-         </div>
-         <div class="activity-popup_item" id="DeliveryTime">
-             <span class="material-icons-round">hourglass_top</span> 
-             <div class="activity-popup_item_text">
-                 <p class="large-label">Hora de Entrega Aproximada </p>
-                 <p class="large-label">9:55</p> 
-             </div>
-         </div>
-         <div class="activity-popup_item" id="Discount">
-             <span class="material-icons-round">sell</span> 
-             <div class="activity-popup_item_text">
-                 <p class="large-label"p>Descuento</p>
-                 <p class="large-label"p>15%</p>
-             </div>
-         </div>
-         <div class="activity-popup_item" id="Cost">
-             <span class="material-icons-round">payments</span> 
-             <div class="activity-popup_item_text">
-                 <p class="large-label">Costo Total del Pedido</p>
-                 <p class="large-label">$2450</p>
-             </div>
-         </div>
-         <div class="activity-popup_buttons">
-             <button class="text-button" id="Cancel">
-                 <p class="button">
-                   Borrar
-                 </p>
-             </button>
-             <button class="text-button" id="Cancel">
-               <p class="button">
-                   Continuar
-               </p>
-           </button>
-         </div>
-       </div>
+       
        <header>
          <nav class="down-nav back" id="down-nav">
            <div class="down-nav_item">
              <span class="material-icons-round">arrow_back_ios_new</span>
-             <a href="/menu">Volver</a>
+             <a class="button" href="/menu">Volver</a>
            </div>
          </nav>
        </header>

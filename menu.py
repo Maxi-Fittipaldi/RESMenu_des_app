@@ -13,10 +13,37 @@ def menu():
     AND 
     estado = "pendiente" LIMIT 1""",{"uid": session["id"]}).scalar()
     if pendingOrder == None:
+        productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
         session["order?"] = False
     else:
+        productos = db.session.execute("""
+        SELECT 
+ct.id,
+ct.usuario_id,
+ct.nro_mesa,
+ct.fecha,
+ct.estado AS ctEstado,
+dt.producto_id,
+dt.cantidad,
+dt.monto,
+dt.ranking,
+dt.comentarios,
+dt.estado AS dtEstado,
+p.nombre,
+p.descripcion,
+p.disponibilidad_desde,
+p.disponibilidad_hasta,
+p.precio,
+p.propietario,
+p.estado AS pEstado
+        FROM cabeceraTransaccion ct
+        JOIN detalleTransaccion dt
+        ON dt.cabecera_id = ct.id
+        JOIN productos p
+        ON p.id = dt.producto_id
+        WHERE ct.usuario_id = :uid AND ct.estado = 'pendiente'
+        """,{"uid":session["id"]})
         session["order?"] = True
-    productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
     return render_template("menu.html",productos=productos, session=session)
 
 @bp.route("/menu/commit",methods=["POST"])

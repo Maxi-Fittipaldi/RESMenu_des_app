@@ -10,8 +10,35 @@ bp = Blueprint('orders',__name__, url_prefix='/')
 @verif_required
 @staff_required
 def orders():
-    orders = db.session.execute("""SELECT * FROM cabeceraTransaccion WHERE estado = "pendiente" """)
-    return render_template("orders.html", cabeceras_transaccion=orders)
+    query = db.session.execute("""
+SELECT 
+ct.id,
+ct.usuario_id,
+ct.nro_mesa,
+ct.fecha,
+ct.estado AS ctEstado,
+dt.producto_id,
+dt.cabecera_id,
+dt.cantidad,
+dt.monto,
+dt.ranking,
+dt.comentarios,
+dt.estado AS dtEstado,
+p.nombre,
+p.descripcion,
+p.disponibilidad_desde,
+p.disponibilidad_hasta,
+p.precio,
+p.propietario,
+p.estado AS pEstado
+        FROM cabeceraTransaccion ct
+        JOIN detalleTransaccion dt
+        ON dt.cabecera_id = ct.id
+        JOIN productos p
+        ON p.id = dt.producto_id
+        WHERE ct.estado = 'pendiente'
+        """)
+    return render_template("orders.html", query=query)
 
 @bp.route("/orders/update/<int:id>", methods=["POST"])
 @login_required
