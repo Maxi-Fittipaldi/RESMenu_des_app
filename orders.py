@@ -13,35 +13,25 @@ def orders():
 # hacer dos queries:
 # detalleTransaccion unión con productos
 # cabecera transaccion
-    query = db.session.execute("""
+    dTrans = db.session.execute("""
 SELECT 
-ct.id,
-ct.usuario_id,
-ct.nro_mesa,
-ct.fecha,
-ct.estado AS ctEstado,
 dt.producto_id,
 dt.cabecera_id,
 dt.cantidad,
 dt.monto,
-dt.ranking,
-dt.comentarios,
 dt.estado AS dtEstado,
 p.nombre,
 p.descripcion,
-p.disponibilidad_desde,
-p.disponibilidad_hasta,
-p.precio,
-p.propietario,
-p.estado AS pEstado
-        FROM cabeceraTransaccion ct
-        JOIN detalleTransaccion dt
-        ON dt.cabecera_id = ct.id
+p.precio
+        FROM detalleTransaccion dt
         JOIN productos p
         ON p.id = dt.producto_id
-        WHERE ct.estado = 'pendiente'
+        WHERE p.id = dt.producto_id
         """).all()
-    return render_template("orders.html", query=query)
+    cTrans = db.session.execute("""
+    SELECT * FROM cabeceraTransaccion WHERE estado = "pendiente"
+    """).all()
+    return render_template("orders.html", dTrans=dTrans, cTrans=cTrans)
 
 @bp.route("/orders/update/<int:id>", methods=["POST"])
 @login_required
