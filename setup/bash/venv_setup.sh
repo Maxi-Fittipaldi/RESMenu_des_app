@@ -9,4 +9,4 @@ cd $mainDir;
 . venv/Scripts/activate; 
 echo "Corriendo venv";
 pip install -r paquetes.txt;
-echo "Scripts concluido";
+echo "Script concluido";
