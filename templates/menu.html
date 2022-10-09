@@ -3,6 +3,7 @@
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/index.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/lib.css')}}">
   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/elaboracion.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/menu.css')}}">
   <!-- Font from Google Fronts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,10 +24,11 @@
           </p>
           <span class="material-icons-round rotary">expand_more</span>
         </div>
-        <div class="food-dropdown_content">
-          {% for producto in productos %}
+        <div class="food-dropdown_content" id="products-container">
           <div class="food-dropdown_content_cards">
-                <div class="ver-card disabled" id="card">
+          {% for producto in productos %}
+            <div class="ver-card disabled" id="card {{producto.id}}">
+              <p class="product-id" id="{{producto.id}}"></p>
               <div class="ver-card_headline">
                 <p class="large-body">
                   {{producto.nombre}}
@@ -43,28 +45,33 @@
                   Descripción:
                  {{producto.descripcion}}
                 </p>
+                <input type="number" class="medium-body">
+                </input>
               </div>
               <div class="ver-card_actions">
-                <div class="text-button hvr" id="text-button"> <!-- Remove "active" class to unselect it -->
+                <button class="text-button addToCart hvr" name="{{producto.id}}" id="text-button"> <!-- Remove "active" class to unselect it -->
                   <p class="button">
                     Añadir
                   </p>
-                </div>
+                </button>
                 <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
                   <span class="material-icons-round">favorite</span>
                 </div>
               </div>
             </div>
-          </div>
           {% endfor %}
+          </div>
         </div>
       </div>
-      <h3 class="large-body">Productos en el carro</h3>
-        <div class="products-in-cart">
+      <h3 class="large-body ">Productos en el carro</h3>
+      <div class="food-dropdown open">
+        <div class="cart" id="cart">
+
         </div>
-        <div class="text-button hvr" id="text-button"> <!-- Remove "active" class to unselect it -->
-          <p class="button" type="submit">Comprar productos</p>
-        </div>
+      </div>
+        <button class="text-button hvr" id="text-button confirmButton" type="submit"> <!-- Remove "active" class to unselect it -->
+          <p class="button">Comprar productos</p>
+        </button>
     </div>
     </article>
   <script src="{{url_for("static",filename="JS/cart.js")}}"></script>

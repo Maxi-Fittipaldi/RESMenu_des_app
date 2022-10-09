@@ -5,6 +5,7 @@
  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/lib.css')}}">
  {%endblock%}
  {% block body %}
+<article>
  <h1>Bienvenido</h1>
  {% if  session.state == "pendiente" %}
  <p>Por favor, verifica tu cuenta.</p>
@@ -19,13 +20,14 @@
  <div class="profile-input"> <h1>Modificar el usuario</h1> 
 
  </div>
- <form action="/profile/update" class="profile"method="POST">
-     <input class="profile-input" placeholder="Nombre"></input>
-     <span class="">Apellido</span>
-     <span class="">Contraseña</span>
-     <button type="button" class="btn btn-primary">Confirmar</button>
+ <form action="/profile/update" class="profile" method="POST">
+     <input class="profile-input" name="nombre" placeholder="Nombre"></input>
+     <input class="profile-input" name="apellido" placeholder="Apellido"></input>
+     <input class="profile-input" name="password" placeholder="contraseña"></input>
+     <button type="submit" class="btn btn-primary">Confirmar</button>
  </form> 
 
+</article>
  {% endif %}
  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='JS/bootstrap.js')}}">
  {% endblock %}
