@@ -1,87 +1,48 @@
 {% extends 'base.html' %}
   {% block head %}
-  <!-- Metas -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="resmenu,menú,restaurante">
-  <meta name="description" content="Sitio Web para un Restaurante">
-  <meta name="author" content="BACK-END: Maximiliano Fittipaldi, Nicolas Lopez y Ezequiel Milich.
-  FRONT-END: Matias Font, Rosario Hernandez, Pilar Costa, Fernando Hsiao, Julieta Orda y Sol Corbelini.">
-  <meta name="robots" content="index">
-  <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="/static/CSS/normalize.css"> <!-- Resets CSS styles-->
-  <link rel="stylesheet" type="text/css" href="/static/CSS/lib.css"> <!-- Imports the basics (Theme + Foundation + Components) -->
-  <!-- Font from Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <!-- Icon pack from Google Fonts -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Page .ico -->
-  <link rel="icon" href="..\Media\icon.ico">
-  <title>Products</title>
+    <title>Products</title>
   {% endblock %}
+
   {% block body %}
-  <body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body-->
-    <article>
-      <form action="/manage/search" method="GET">
-        <h3>Buscar producto</h3>
-        <input type="text" name="nombre">
-        <button type="submit">Buscar</button>
-      </form>
-      {% for producto in productos%}
-        {% if producto.estado == 'visible'%}
-      <div class="exp-card">
-        <img src="../Media/def_image.png">
-        <div class="exp-card_content">
-          <div class="exp-card_content_headline">
-            <p class="small-headline">{{ producto.nombre }}</p>
-            <p class="large-body">$ {{producto.precio}} ARS</p>
-          </div>
-          <p class="large-body">
-            {{producto.descripcion}}
-          </p> 
-          <div class="exp-card_content_info">
-            <div class="exp-card_content_info_diets">
-              <div class="exp-card_content_info_category">
-                <span class="material-icons-round">check_circle</span>
-                <p class="large-body">Vegetariano</p>
-              </div>
-            </div>
-            <div class="exp-card_content_info_intolerances">
-              <div class="exp-card_content_info_category">      
-                <span class="material-icons-round">cancel</span>
-                <p class="large-body">TACC</p>
-              </div>
-              <div class="exp-card_content_info_category">
-                <span class="material-icons-round">cancel</span>
-                <p class="large-body">Lactosa</p>
-              </div>
-            </div>  
-          </div>        
-        </div>
-        <div class="exp-card_action-box">
-          <div class="text-button" id="add-cart">
-            <p class="button">
-              <a href="/menu">Añadir al carrito</a>
-            </p>
-          </div>  
-          <div class="big-icon-button" id="add-fav">
-            <span class="material-icons-round">favorite</span> 
-          </div>
-        </div>
-      </div>
-    </article>
+  <form action="/manage/search" method="GET">
+    <h3>Buscar producto</h3>
+    <input type="text" name="nombre">
+    <button type="submit">Buscar</button>
+  </form>
+  {% for producto in productos%}
+    {% if producto.estado == 'visible'%}
+  <h2>{{ producto.nombre }}</h2>
+  <p>Desc: {{producto.descripcion}}</p>
+  <p>Cantidad: {{producto.cantidad}}</p>
+  <p>Disponible entre: {{producto.disponibilidad_desde}} - {{producto.disponibilidad_hasta}}</p>
+  <p>Precio: {{producto.precio}}</p>
+  <a href="/manage/remove/{{producto.id}}">Remover producto</a>
+  <h1>modificar el producto</h1>
+  <form action="/manage/update/{{producto.id}}" method="post">
+      <input type="text" name="nombre" placeholder="nombre" >
+      <input type="text" name="descripcion" placeholder="descripción" >
+      <input type="number" name="cantidad" placeholder="cantidad" >
+      <input type="number" name="precio" placeholder="precio" >
+      <input type="time" name="horariod" placeholder="horario desde " >
+      <input type="time" name="horarioh" placeholder="horario hasta" >
+      <button type="submit">Confirmar</button>
+  </form>
+    {% else %}
+  <h2>{{ producto.nombre }}</h2>
+  <h3>{{ producto.estado }}</h3>
+  <a href="/manage/recover/{{producto.id}}">Recuperar producto</a><br/>
+  <a href="/manage/delete/{{producto.id}}">Borrar</a>
     {% endif %}
   {% endfor %}
-    <header>
-      <nav class="down-nav back" id="down-nav">
-        <div class="down-nav_item">
-          <span class="material-icons-round">arrow_back_ios_new</span> 
-          <p class="large-label">
-            Volver
-          </p>
-        </div>
-      </nav>
-    </header>
-{% endblock %}
+  <h2>Insertar un producto</h2>
+  <form action="/manage/insert" method="post">
+      <input type="text" name="nombre" placeholder="nombre" >
+      <input type="text" name="descripcion" placeholder="descripción" >
+      <input type="number" name="cantidad" placeholder="cantidad" >
+      <input type="number" name="precio" placeholder="precio" >
+      <input type="time" name="horariod" placeholder="horario desde " >
+      <input type="time" name="horarioh" placeholder="horario hasta" >
+      <button type="submit">Confirmar</button>
+  </form> 
+  {% endblock %}
+
