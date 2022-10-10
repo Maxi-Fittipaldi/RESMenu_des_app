@@ -124,4 +124,5 @@ def logout():
     session.pop("state",None)
     session.pop("nTable",None)
     session.pop("order?",None)
+    session.pop("rol",None)
     return redirect("/login")

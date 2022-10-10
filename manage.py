@@ -41,19 +41,22 @@ def insert():
         productoDesc = request.form["descripcion"]
         horariod = request.form["horariod"]
         horarioh = request.form["horarioh"]
-        db.session.execute("""INSERT INTO productos
-        (nombre,precio,cantidad, descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
-        VALUES(:n,:p ,:c, :d, :dd,:dh,:prop)""",
-        {
-        "n":productoNombre,
-        "p":productoPrecio,
-        "c":productoCantidad,
-        "d": productoDesc,
-        "dd": horariod,
-        "dh": horarioh,
-        "prop": session["id"]
-        })
-        db.session.commit()
+        try:
+                db.session.execute("""INSERT INTO productos
+                (nombre,precio,cantidad, descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
+                VALUES(:n,:p ,:c, :d, :dd,:dh,:prop)""",
+                {
+                "n":productoNombre,
+                "p":productoPrecio,
+                "c":productoCantidad,
+                "d": productoDesc,
+                "dd": horariod,
+                "dh": horarioh,
+                "prop": session["id"]
+                })
+                db.session.commit()
+        except:
+                flash("Ocurrió un error en la inserción")
         return redirect("/manage")
     else:
         productos = db.session.execute("SELECT * FROM productos")

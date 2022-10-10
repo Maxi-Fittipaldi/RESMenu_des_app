@@ -51,9 +51,6 @@
 	article {
 		height: calc(100% - 80px - 337px);
 	}
-    .profile{
-        background-color: var(--Primary)
-    }
     .profile-input{
         color: var(--Primary)
     }
@@ -72,7 +69,12 @@ Nonclassifiable CSS CSS */
 │                                       [10] Experimental                                        │
 └────────────────────────────────────────────────────────────────────────────────────────────────┘
 Testing Code */
-
+* {
+font-family: 'Roboto', sans-serif;
+}
+h1 {
+    color: white;
+}
 /* No content at the moment. */
 
 

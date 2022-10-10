@@ -1,6 +1,9 @@
 .cart{
     width: 100%;
 }
+.cart-title{
+    color: white;
+}
 .cart > .ver-card {
     display: inline-block;
     /* min-width: 30%; */

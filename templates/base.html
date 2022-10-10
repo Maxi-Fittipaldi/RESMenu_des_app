@@ -29,25 +29,28 @@
         {% endwith %}
         {% block body %}{% endblock %}
         {% block nav %}
-        {% if  request.endpoint != "auth.signup" and request.endpoint != "auth.login" %}
+        {% if  request.endpoint != "auth.signup" and
+        request.endpoint != "auth.login" and
+        request.endpoint != "manage.select" and
+        request.endpoint != "orders.orders" %}
         <header>
                 <nav class="down-nav" id="down-nav">
                         <div class="down-nav_item">
-                                <span class="material-icons-round">favorite</span>
+                                <span class="material-icons-round"><i class="fa-solid fa-user"></i></span>
                                 <p class="large-label">
-                                Favoritos
+                                        <a href="/profile">Perfil</a>
                                 </p>
                         </div>
-                        <div class="down-nav_item active"> <!-- Remove "active" class to hide special box -->
+                        <div class="down-nav_item "> <!-- Remove "active" class to hide special box -->
                                 <span class="material-icons-round">restaurant_menu</span>
                                 <p class="large-label">
-                                Menú
+                                        <a href="/menu">Menú </a>
                                 </p>
                         </div>
                         <div class="down-nav_item">
-                                <span class="material-icons-round">shopping_cart</span>
+                                <span class="material-icons-round"><i class="fa-solid fa-right-from-bracket"></i></span>
                                 <p class="large-label">
-                                Pedir
+                                        <a href="/logout">Salir</a>
                                 </p>
                         </div>
                 </nav>
