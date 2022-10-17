@@ -5,14 +5,13 @@ from RESMenu_des_app import db
 from RESMenu_des_app.token import *
 from RESMenu_des_app.mail import send_email
 bp = Blueprint('auth', __name__, url_prefix='/')
-@bp.route("/login", methods = ["GET","POST"])
-def login():
+@bp.route("/staff/login", methods = ["GET","POST"])
+def staff_login():
     if "id" in session:
         return redirect("/profile")
     if request.method == "POST":
         email = request.form["mail"]
         password = request.form["pwd"]
-        nTable = request.form["nTable"]
         passwordEncrypted = encrypt(password)
         query = db.session.execute("SELECT * FROM usuarios WHERE email = :email",{"email": email})
         dbEmail = None
@@ -39,7 +38,6 @@ def login():
         session["surname"] = dbSurname
         session["email"] = dbEmail
         session["state"] = dbState
-        session["nTable"] = nTable
         session["rol"] = dbRol
         flash("Has iniciado sessión")
         return redirect("/profile")
@@ -122,7 +120,6 @@ def logout():
     session.pop("surname",None)
     session.pop("email",None)
     session.pop("state",None)
-    session.pop("nTable",None)
     session.pop("order?",None)
     session.pop("rol",None)
     return redirect("/login")

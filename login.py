@@ -9,6 +9,14 @@ def login_required(func):
             return redirect("/login")
         return func(*args, **kwargs)
     return wrapper
+def staff_required(func):
+    @wraps(func)
+    def wrapper(*args,**kwargs):
+        if session["rol"] == "cashier" or session["rol"] == "chef":
+            flash("No tienes los permisos necesarios")
+            return redirect("/profile")
+        return func(*args,**kwargs)
+    return wrapper
 def verif_required(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
@@ -17,10 +25,18 @@ def verif_required(func):
             return redirect("/profile")
         return func(*args, **kwargs)
     return wrapper
-def staff_required(func):
+def chef_required(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
-        if session["rol"] == "cliente":
+        if session["rol"] != "chef":
+            flash("No tienes los permisos necesarios")
+            return redirect("/profile")
+        return func(*args,**kwargs)
+    return wrapper
+def cashier_required(func):
+    @wraps(func)
+    def wrapper(*args,**kwargs):
+        if session["rol"] != "cashier":
             flash("No tienes los permisos necesarios")
             return redirect("/profile")
         return func(*args,**kwargs)

@@ -10,15 +10,14 @@ CREATE TABLE usuarios (
     apellido VARCHAR(50) NOT NULL,
     password VARCHAR(64) NOT NULL,
     estado ENUM("pendiente","verificado","terminado") DEFAULT "pendiente",
-    rol ENUM("cliente","staff","admin") DEFAULT "cliente",
+    rol ENUM("cliente","chef","cajero","admin") DEFAULT "cliente",
     PRIMARY KEY(id)
 )ENGINE = InnoDB;
 
 CREATE TABLE cabeceraTransaccion(
     id INT(11) NOT NULL AUTO_INCREMENT,
     usuario_id INT(11) NOT NULL,
-    nro_mesa INT(3) NOT NULL,
-    estado ENUM("completado","pendiente","cancelado") DEFAULT "pendiente",
+    estado ENUM("completado","en_proceso","pendiente","expirado") DEFAULT "pendiente",
     fecha datetime DEFAULT current_timestamp,
     PRIMARY KEY(id),
     CONSTRAINT fk_usuario_id FOREIGN KEY (usuario_id)
@@ -46,8 +45,6 @@ CREATE TABLE detalleTransaccion(
     cantidad INT(2) DEFAULT 1,
     monto DOUBLE(11,2) NOT NULL,
     estado VARCHAR(10) NOT NULL,
-    ranking INT(1) DEFAULT 5,
-    comentarios VARCHAR(150) DEFAULT "No se ofrecieron comentarios",
     PRIMARY KEY(cabecera_id, producto_id),
     CONSTRAINT fk_cabecera_id FOREIGN KEY(cabecera_id)
     REFERENCES cabeceraTransaccion(id),

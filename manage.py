@@ -32,7 +32,7 @@ def select():
 @bp.route("/manage/insert", methods=['GET','POST'])
 @login_required
 @verif_required
-@staff_required
+@admin_required
 def insert():
     if request.method == "POST":
         productoNombre = request.form["nombre"]
@@ -64,7 +64,7 @@ def insert():
 @bp.route("/manage/remove/<int:id>")
 @login_required
 @verif_required
-@staff_required
+@chef_required
 def remove(id):
     db.session.execute("UPDATE productos SET estado='oculto' WHERE id = :id",{"id":id})
     db.session.commit()
@@ -73,7 +73,7 @@ def remove(id):
 @bp.route("/manage/recover/<int:id>")
 @login_required
 @verif_required
-@staff_required
+@chef_required
 def recover(id):
     db.session.execute("UPDATE productos SET estado='visible' WHERE id = :id",{"id":id})
     db.session.commit()
@@ -81,7 +81,7 @@ def recover(id):
 @bp.route("/manage/delete/<int:id>")
 @login_required
 @verif_required
-@staff_required
+@admin_required
 def delete(id):
     db.session.execute("DELETE FROM productos WHERE estado='oculto' AND id = :id",{"id":id})
     db.session.commit()
@@ -89,7 +89,7 @@ def delete(id):
 @bp.route("/manage/update/<int:id>", methods=["GET","POST"])
 @login_required
 @verif_required
-@staff_required
+@admin_required
 def update(id):
     if request.method == "POST":
         productoNombre = request.form["nombre"]
