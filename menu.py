@@ -5,7 +5,6 @@ bp = Blueprint('menu', __name__, url_prefix='/')
 
 @bp.route("/menu", methods=['GET'])
 @login_required
-@verif_required
 def menu():
     pendingOrder = db.session.execute("""
     SELECT * FROM cabeceraTransaccion
@@ -48,7 +47,6 @@ p.estado AS pEstado
 
 @bp.route("/menu/commit",methods=["POST"])
 @login_required
-@verif_required
 def commit():
     try:
         json = request.json
@@ -92,7 +90,6 @@ def commit():
 
 @bp.route("/menu/cancel", methods=["GET"])
 @login_required
-@verif_required
 def cancel():
     db.session.execute("""UPDATE cabeceraTransaccion
         SET estado="cancelado"

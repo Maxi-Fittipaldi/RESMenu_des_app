@@ -5,9 +5,19 @@ from RESMenu_des_app import db
 from RESMenu_des_app.token import *
 from RESMenu_des_app.mail import send_email
 bp = Blueprint('auth', __name__, url_prefix='/')
+@bp.route("/login", methods = ["GET","POST"])
+def login():
+    if "name" in session:
+        return redirect("/profile")
+    if request.method == "POST":
+        name = request.form["name"]
+        session["name"] = name
+        return redirect(url_for("menu.menu"))
+    return render_template("login.html")
+
 @bp.route("/staff/login", methods = ["GET","POST"])
 def staff_login():
-    if "id" in session:
+    if "name" in session:
         return redirect("/profile")
     if request.method == "POST":
         email = request.form["mail"]
@@ -42,10 +52,10 @@ def staff_login():
         flash("Has iniciado sessión")
         return redirect("/profile")
     else:
-        return render_template("login.html")
+        return render_template("staff_login.html")
 @bp.route("/signup", methods = ["GET","POST"])
 def signup():
-        if "id" in session:
+        if "name" in session:
             return redirect("/profile")
         if request.method == "POST":
             email = request.form["mail"]
