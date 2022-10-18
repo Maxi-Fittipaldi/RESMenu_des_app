@@ -16,7 +16,7 @@ CREATE TABLE usuarios (
 
 CREATE TABLE cabeceraTransaccion(
     id INT(11) NOT NULL AUTO_INCREMENT,
-    cliente_nombre VARCHAR(50) NOT NULL,
+    cliente_id VARCHAR(64) NOT NULL,
     estado ENUM("completado","en_proceso","pendiente","expirado") DEFAULT "pendiente",
     fecha datetime DEFAULT current_timestamp,
     PRIMARY KEY(id),

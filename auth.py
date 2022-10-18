@@ -3,21 +3,24 @@ from flask_sqlalchemy import SQLAlchemy
 from RESMenu_des_app.misc.encrypt import *
 from RESMenu_des_app import db
 from RESMenu_des_app.token import *
+from .login import *
 from RESMenu_des_app.mail import send_email
+from datetime import datetime
+from random import random
+from .misc import encrypt
 bp = Blueprint('auth', __name__, url_prefix='/')
 @bp.route("/login", methods = ["GET","POST"])
 def login():
-    if "name" in session:
+    if "id" in session:
         return redirect("/profile")
-    if request.method == "POST":
-        name = request.form["name"]
-        session["name"] = name
-        return redirect(url_for("menu.menu"))
-    return render_template("login.html")
+    id = encrypt(f"{datetime.now()} {random()}")
+    session["id"] = id 
+    session["rol"] = "client"
+    return redirect(url_for("menu.menu"))
 
 @bp.route("/staff/login", methods = ["GET","POST"])
 def staff_login():
-    if "name" in session:
+    if "id" in session:
         return redirect("/profile")
     if request.method == "POST":
         email = request.form["mail"]
@@ -55,7 +58,7 @@ def staff_login():
         return render_template("staff_login.html")
 @bp.route("/signup", methods = ["GET","POST"])
 def signup():
-        if "name" in session:
+        if "id" in session:
             return redirect("/profile")
         if request.method == "POST":
             email = request.form["mail"]
@@ -124,6 +127,7 @@ def resend():
     send_email(email, subject, html)
     return redirect("/profile")
 @bp.route("/logout")
+@staff_required
 def logout():
     session.pop("id",None)
     session.pop("name",None)

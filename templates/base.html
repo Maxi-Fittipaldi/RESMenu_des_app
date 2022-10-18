@@ -32,7 +32,8 @@
         {% if  request.endpoint != "auth.signup" and
         request.endpoint != "auth.login" and
         request.endpoint != "manage.select" and
-        request.endpoint != "orders.orders" %}
+        request.endpoint != "orders.orders" and
+        request.endpoint != "auth.staff_login" %}
         <header>
                 <nav class="down-nav" id="down-nav">
                         <div class="down-nav_item">

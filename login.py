@@ -4,7 +4,7 @@ from functools import wraps
 def login_required(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
-        if not "name" in session:
+        if not "id" in session:
             flash("Debes iniciar sesión")
             return redirect(url_for("auth.login"))
         return func(*args, **kwargs)
@@ -12,7 +12,7 @@ def login_required(func):
 def staff_required(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
-        if session["rol"] == "cashier" or session["rol"] == "chef":
+        if session["rol"] == "client":
             flash("No tienes los permisos necesarios")
             return redirect(url_for("profile.profile"))
         return func(*args,**kwargs)

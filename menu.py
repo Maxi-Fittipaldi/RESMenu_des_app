@@ -8,9 +8,9 @@ bp = Blueprint('menu', __name__, url_prefix='/')
 def menu():
     pendingOrder = db.session.execute("""
     SELECT * FROM cabeceraTransaccion
-    WHERE usuario_id = :uid 
+    WHERE cliente_nombre = :cn 
     AND 
-    estado = "pendiente" LIMIT 1""",{"uid": session["id"]}).scalar()
+    estado = "pendiente" LIMIT 1""",{"cn": session["name"]}).scalar()
     if pendingOrder == None:
         productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
         session["order?"] = False
@@ -40,8 +40,10 @@ p.estado AS pEstado
         ON dt.cabecera_id = ct.id
         JOIN productos p
         ON p.id = dt.producto_id
-        WHERE ct.usuario_id = :uid AND ct.estado = 'pendiente'
-        """,{"uid":session["id"]})
+        WHERE ct.cliente_nombre = :cn 
+        AND ct.clientre_contraseña = :cc
+        AND ct.estado = 'pendiente'
+        """,{"cn":session["name"], "cc":session["password"]})
         session["order?"] = True
     return render_template("menu.html",productos=productos, session=session)
 
@@ -69,7 +71,8 @@ def commit():
     INSERT INTO detalleTransaccion
     VALUES((SELECT id
     FROM cabeceraTransaccion
-    WHERE usuario_id = :uid AND estado = "pendiente"),
+    WHERE usuario_id = :uid
+     AND estado = "pendiente"),
     :producto_id,
     :cantidad,
     (SELECT precio FROM productos WHERE id = :producto_id),
