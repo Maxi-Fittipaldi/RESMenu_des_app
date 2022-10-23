@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, url_for, redirect, send_from_directory, session, flash
+from flask import (Blueprint, render_template, request, url_for,
+                   redirect, send_from_directory,session, flash)
 from RESMenu_des_app import db
 from .login import *
 bp = Blueprint('menu', __name__, url_prefix='/')
@@ -10,7 +11,7 @@ def menu():
     SELECT * FROM cabeceraTransaccion
     WHERE cliente_nombre = :cn 
     AND 
-    estado = "pendiente" LIMIT 1""",{"cn": session["name"]}).scalar()
+    estado = "pendiente" LIMIT 1""",{"cn": session["id"]}).scalar()
     if pendingOrder == None:
         productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
         session["order?"] = False
@@ -40,10 +41,9 @@ p.estado AS pEstado
         ON dt.cabecera_id = ct.id
         JOIN productos p
         ON p.id = dt.producto_id
-        WHERE ct.cliente_nombre = :cn 
-        AND ct.clientre_contraseña = :cc
+        WHERE ct.cliente_id = :cid
         AND ct.estado = 'pendiente'
-        """,{"cn":session["name"], "cc":session["password"]})
+        """,{"cid":session["id"]})
         session["order?"] = True
     return render_template("menu.html",productos=productos, session=session)
 
@@ -61,10 +61,9 @@ def commit():
         return redirect("/menu")
     db.session.execute("""
     INSERT INTO
-    cabeceraTransaccion (usuario_id,nro_mesa,estado)
-    VALUES(:uid, :nm, :e)""",
+    cabeceraTransaccion (cliente_id,nro_mesa,estado)
+    VALUES(:cid, :nm, :e)""",
     {"uid": session["id"],
-    "nm":session["nTable"],
     "e": "pendiente"})
     db.session.commit()
     db.session.execute("""
@@ -77,8 +76,6 @@ def commit():
     :cantidad,
     (SELECT precio FROM productos WHERE id = :producto_id),
     "pendiente",
-    3,
-    "Sin comentarios"
     )
     """,
     [
@@ -96,11 +93,11 @@ def commit():
 def cancel():
     db.session.execute("""UPDATE cabeceraTransaccion
         SET estado="cancelado"
-        WHERE usuario_id = :id AND estado="pendiente"
+        WHERE usuario_id = :cid AND estado="pendiente"
         """,
         {
-        "id" :session["id"]
+        "cid" :session["id"]
         })
     db.session.commit()
     session["order?"] = False
-    return redirect("/menu")
+    return redirect(url_for("menu.menu"))

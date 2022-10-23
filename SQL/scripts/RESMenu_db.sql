@@ -10,7 +10,7 @@ CREATE TABLE usuarios (
     apellido VARCHAR(50) NOT NULL,
     password VARCHAR(64) NOT NULL,
     estado ENUM("pendiente","verificado","terminado") DEFAULT "pendiente",
-    rol ENUM("cliente","chef","cajero","admin") DEFAULT "cliente",
+    rol ENUM("sin_rol","chef","cajero","admin") DEFAULT "sin_rol",
     PRIMARY KEY(id)
 )ENGINE = InnoDB;
 

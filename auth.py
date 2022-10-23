@@ -7,15 +7,14 @@ from .login import *
 from RESMenu_des_app.mail import send_email
 from datetime import datetime
 from random import random
-from .misc import encrypt
 bp = Blueprint('auth', __name__, url_prefix='/')
 @bp.route("/login", methods = ["GET","POST"])
 def login():
     if "id" in session:
-        return redirect("/profile")
-    id = encrypt(f"{datetime.now()} {random()}")
-    session["id"] = id 
-    session["rol"] = "client"
+        return redirect(url_for("menu.menu"))
+    client_id = encrypt(datetime.now() + str(random()))
+    session["id"] = client_id
+    session["rol"] = "cliente"
     return redirect(url_for("menu.menu"))
 
 @bp.route("/staff/login", methods = ["GET","POST"])
@@ -35,16 +34,16 @@ def staff_login():
         dbState = None
         dbRol = None
         for result in query:
-                dbId = result["id"]
-                dbName = result["nombre"]
-                dbSurname = result["apellido"]
-                dbEmail = result["email"]
-                dbPassword = result["password"]
-                dbState = result["estado"]
-                dbRol = result["rol"]
+            dbId = result["id"]
+            dbName = result["nombre"]
+            dbSurname = result["apellido"]
+            dbEmail = result["email"]
+            dbPassword = result["password"]
+            dbState = result["estado"]
+            dbRol = result["rol"]
         if passwordEncrypted != dbPassword or email != dbEmail:
-                flash("La contraseña o el mail son incorrectos")
-                return redirect("/login")
+            flash("La contraseña o el mail son incorrectos")
+            return redirect("/login")
         session["order?"] = False
         session["id"] = dbId
         session["name"] = dbName
@@ -54,8 +53,7 @@ def staff_login():
         session["rol"] = dbRol
         flash("Has iniciado sessión")
         return redirect("/profile")
-    else:
-        return render_template("staff_login.html")
+    return render_template("staff_login.html")
 @bp.route("/signup", methods = ["GET","POST"])
 def signup():
         if "id" in session:
