@@ -4,14 +4,13 @@ from RESMenu_des_app import db
 from .login import *
 bp = Blueprint('profile', __name__, url_prefix='/')
 @bp.route("/profile")
-@login_required
-@staff_required
+@staff_login_required
 def profile():
     return render_template("profile.html", session=session)
 
 
 @bp.route("/profile/update",  methods=['POST'])
-@login_required
+@staff_login_required
 @verif_required
 @staff_required
 def update():

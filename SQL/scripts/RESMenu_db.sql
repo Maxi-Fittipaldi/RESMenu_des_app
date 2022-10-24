@@ -19,9 +19,7 @@ CREATE TABLE cabeceraTransaccion(
     cliente_id VARCHAR(64) NOT NULL,
     estado ENUM("completado","en_proceso","pendiente","expirado") DEFAULT "pendiente",
     fecha datetime DEFAULT current_timestamp,
-    PRIMARY KEY(id),
-    CONSTRAINT fk_usuario_id FOREIGN KEY (usuario_id)
-    REFERENCES usuarios(id)
+    PRIMARY KEY(id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE productos(

@@ -10,11 +10,11 @@ from random import random
 bp = Blueprint('auth', __name__, url_prefix='/')
 @bp.route("/login", methods = ["GET","POST"])
 def login():
-    if "id" in session:
+    if "cid" in session:
         return redirect(url_for("menu.menu"))
-    client_id = encrypt(datetime.now() + str(random()))
-    session["id"] = client_id
-    session["rol"] = "cliente"
+    client_id = encrypt(str(datetime.now()) + str(random()))
+    session["cid"] = client_id
+    session["client"] = True
     return redirect(url_for("menu.menu"))
 
 @bp.route("/staff/login", methods = ["GET","POST"])
@@ -43,7 +43,7 @@ def staff_login():
             dbRol = result["rol"]
         if passwordEncrypted != dbPassword or email != dbEmail:
             flash("La contraseña o el mail son incorrectos")
-            return redirect("/login")
+            return redirect("/staff/login")
         session["order?"] = False
         session["id"] = dbId
         session["name"] = dbName
@@ -86,6 +86,7 @@ def signup():
             subject = "Confirmación de email RESMenu"
             send_email(email, subject, html)
             flash("Usuario registrado, verifique la cuenta.")
+            session["rol"] = "sin_rol"
             return redirect("/login")
         return render_template("signup.html")
 
@@ -125,7 +126,6 @@ def resend():
     send_email(email, subject, html)
     return redirect("/profile")
 @bp.route("/logout")
-@staff_required
 def logout():
     session.pop("id",None)
     session.pop("name",None)

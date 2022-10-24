@@ -9,9 +9,9 @@ bp = Blueprint('menu', __name__, url_prefix='/')
 def menu():
     pendingOrder = db.session.execute("""
     SELECT * FROM cabeceraTransaccion
-    WHERE cliente_nombre = :cn 
+    WHERE cliente_id = :cid 
     AND 
-    estado = "pendiente" LIMIT 1""",{"cn": session["id"]}).scalar()
+    estado = "pendiente" LIMIT 1""",{"cid": session["cid"]}).scalar()
     if pendingOrder == None:
         productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
         session["order?"] = False
@@ -43,7 +43,7 @@ p.estado AS pEstado
         ON p.id = dt.producto_id
         WHERE ct.cliente_id = :cid
         AND ct.estado = 'pendiente'
-        """,{"cid":session["id"]})
+        """,{"cid":session["cid"]})
         session["order?"] = True
     return render_template("menu.html",productos=productos, session=session)
 

@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 from flask import session, redirect, flash, url_for
 from functools import wraps
-def login_required(func):
+def staff_login_required(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
         if not "id" in session:
-            flash("Debes iniciar sesión")
+            return redirect(url_for("auth.staff_login"))
+        return func(*args, **kwargs)
+    return wrapper
+def login_required(func):
+    @wraps(func)
+    def wrapper(*args,**kwargs):
+        if not "cid" in session:
             return redirect(url_for("auth.login"))
         return func(*args, **kwargs)
     return wrapper
 def client_only(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
-        if session["rol"] != "cliente":
+        if session["client"] != True:
             flash("Área sólo para clientes")
             return redirect(url_for("profile.profile"))
         return func(*args, **kwargs)
@@ -20,7 +26,7 @@ def client_only(func):
 def staff_required(func):
     @wraps(func)
     def wrapper(*args,**kwargs):
-        if session["rol"] == "cliente":
+        if session["rol"] == "sin_rol": 
             flash("No tienes los permisos necesarios")
             return redirect(url_for("menu.menu"))
         return func(*args,**kwargs)

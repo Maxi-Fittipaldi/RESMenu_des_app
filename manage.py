@@ -7,7 +7,7 @@ from RESMenu_des_app import db
 from .login import *
 bp = Blueprint('manage',__name__, url_prefix='/')
 @bp.route("/manage/search", methods=['GET'])
-@login_required
+@staff_login_required
 @verif_required
 @staff_required
 def search():
@@ -22,7 +22,7 @@ def search():
                 return redirect("/manage")
         return render_template("search_results.html", productos=productos)
 @bp.route("/manage")
-@login_required
+@staff_login_required
 @verif_required
 @staff_required
 def select():
@@ -30,7 +30,7 @@ def select():
     return render_template("manage.html", productos=productos)
 
 @bp.route("/manage/insert", methods=['GET','POST'])
-@login_required
+@staff_login_required
 @verif_required
 @admin_required
 def insert():
@@ -62,7 +62,7 @@ def insert():
         productos = db.session.execute("SELECT * FROM productos")
         return render_template('index.html',productos=productos)
 @bp.route("/manage/remove/<int:id>")
-@login_required
+@staff_login_required
 @verif_required
 @chef_required
 def remove(id):
@@ -71,7 +71,7 @@ def remove(id):
     return redirect("/manage")
 
 @bp.route("/manage/recover/<int:id>")
-@login_required
+@staff_login_required
 @verif_required
 @chef_required
 def recover(id):
@@ -79,7 +79,7 @@ def recover(id):
     db.session.commit()
     return redirect("/manage")
 @bp.route("/manage/delete/<int:id>")
-@login_required
+@staff_login_required
 @verif_required
 @admin_required
 def delete(id):
@@ -87,7 +87,7 @@ def delete(id):
     db.session.commit()
     return redirect("/manage")
 @bp.route("/manage/update/<int:id>", methods=["GET","POST"])
-@login_required
+@staff_login_required
 @verif_required
 @admin_required
 def update(id):
