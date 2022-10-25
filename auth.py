@@ -43,7 +43,7 @@ def staff_login():
             dbRol = result["rol"]
         if passwordEncrypted != dbPassword or email != dbEmail:
             flash("La contraseña o el mail son incorrectos")
-            return redirect("/staff/login")
+            return redirect(url_for("auth.staff_login"))
         session["order?"] = False
         session["id"] = dbId
         session["name"] = dbName
@@ -87,7 +87,7 @@ def signup():
             send_email(email, subject, html)
             flash("Usuario registrado, verifique la cuenta.")
             session["rol"] = "sin_rol"
-            return redirect("/login")
+            return redirect(url_for("auth.staff_login"))
         return render_template("signup.html")
 
 @bp.route("/confirm/<token>")
@@ -96,7 +96,7 @@ def confirm_email(token):
         email = confirm_token(token)
     except:
         flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo', 'warning')
-        return redirect("/login")
+        return redirect(url_for("auth.staff_login"))
     user = db.session.execute('SELECT * FROM usuarios WHERE email = :email', {'email': email})
     userStatus = None
     for result in user:
@@ -108,7 +108,7 @@ def confirm_email(token):
             return redirect("/profile")
         else:
             flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo.', 'warning')
-            return redirect("/login")
+            return redirect(url_for("auth.staff_login"))
     if userStatus == 'verificado':
         flash('La cuenta ha sido verificada previamente. Por favor, inicie sesión.', 'info')
     else:
@@ -134,4 +134,4 @@ def logout():
     session.pop("state",None)
     session.pop("order?",None)
     session.pop("rol",None)
-    return redirect("/login")
+    return redirect(url_for("auth.staff_login"))

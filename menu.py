@@ -63,14 +63,14 @@ def commit():
     INSERT INTO
     cabeceraTransaccion (cliente_id,nro_mesa,estado)
     VALUES(:cid, :nm, :e)""",
-    {"uid": session["id"],
+    {"cid": session["cid"],
     "e": "pendiente"})
     db.session.commit()
     db.session.execute("""
     INSERT INTO detalleTransaccion
     VALUES((SELECT id
     FROM cabeceraTransaccion
-    WHERE usuario_id = :uid
+    WHERE cliente_id = :cid
      AND estado = "pendiente"),
     :producto_id,
     :cantidad,
@@ -81,7 +81,7 @@ def commit():
     [
     {"producto_id": val["product_id"],
     "cantidad": val["quantity"],
-    "uid": session["id"]}
+    "cid": session["cid"]}
         for val in json["product_ids"]
     ])
     db.session.commit()
@@ -96,7 +96,7 @@ def cancel():
         WHERE usuario_id = :cid AND estado="pendiente"
         """,
         {
-        "cid" :session["id"]
+        "cid" :session["cid"]
         })
     db.session.commit()
     session["order?"] = False

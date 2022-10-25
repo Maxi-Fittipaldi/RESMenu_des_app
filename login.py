@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import session, redirect, flash, url_for
+from flask import session, redirect, flash, url_for, request
 from functools import wraps
 def staff_login_required(func):
     @wraps(func)
@@ -60,6 +60,6 @@ def admin_required(func):
     def wrapper(*args,**kwargs):
         if session["rol"] != "admin":
             flash("No tienes los permisos necesarios")
-            return redirect(url_for("profile.profile"))
+            return redirect(url_for("manage.select"))
         return func(*args,**kwargs)
     return wrapper

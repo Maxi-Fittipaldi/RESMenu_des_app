@@ -14,8 +14,8 @@
 <article>
  <h1>Bienvenido</h1>
 
- {% if  session.rol == "admin" or session.rol == "staff" %}
-     <a href="/manage">Administrar productos</a>
+ {% if  session.rol != "sin_rol" %}
+     <a href="/manage">Ver productos</a>
  {% endif %}
  {% if  session.state == "pendiente" %}
  <p>Por favor, verifica tu cuenta.</p>

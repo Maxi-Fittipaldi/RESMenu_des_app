@@ -39,8 +39,7 @@ p.precio
 @staff_required
 def update(id):
     if request.method == "POST":
-        estado = request.form ["estado"]
-        print(estado)
+        estado = request.form["estado"]
         db.session.execute("""UPDATE cabeceraTransaccion
         SET estado=:e
         WHERE id = :id
