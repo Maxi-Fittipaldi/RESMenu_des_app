@@ -6,7 +6,7 @@ from .login import *
 bp = Blueprint('orders',__name__, url_prefix='/')
 
 @bp.route("/orders")
-@login_required
+@staff_login_required
 @verif_required
 @staff_required
 def orders():
@@ -29,9 +29,9 @@ p.precio
         WHERE p.id = dt.producto_id
         """).all()
     cTrans = db.session.execute("""
-    SELECT * FROM cabeceraTransaccion WHERE estado = "pendiente"
+    SELECT * FROM cabeceraTransaccion
     """).all()
-    return render_template("orders.html", dTrans=dTrans, cTrans=cTrans)
+    return render_template("orders.html", dTrans=dTrans, cTrans=cTrans, session=session)
 
 @bp.route("/orders/update/<int:id>", methods=["POST"])
 @login_required

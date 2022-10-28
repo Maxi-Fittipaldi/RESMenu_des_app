@@ -19,13 +19,20 @@
       <div class="list-dropdown open">
         <div class="list-dropdown_button">
           <span class="material-icons-round">list_alt</span>
-          <p class="list-dropdown_button_text-area large-body"> Pedido: Nº{{ct.id}}|| Mesa: {{ct.nro_mesa}}|| Cliente: {{ct.usuario_id}}|| Fecha: {{ct.fecha}}
+          <p class="list-dropdown_button_text-area large-body"> Pedido: Nº{{ct.id}} || Fecha: {{ct.fecha}} || 
+              Estado: {{ct.estado}}
             <form action="/orders/update/{{ct.id}}" method="post">
-              Estado: {{ct.ctEstado}}
               <select name="estado">
-                <option >Completado</option>
-                <option  selected>Pendiente</option>
-                <option >Cancelado</option>
+                {% if session["rol"] == "chef" or session["rol"] == "admin" %}
+                  {% if ct.estado == "en_proceso"%}
+                <option>completado</option>
+                  {% endif %}
+                {% elif session["rol"] == "cajero" or session["rol"] == "admin" %}
+                  {% if ct.estado == "pendiente"%}
+                <option>en_proceso</option>
+                <option>cancelado</option>
+                  {% endif %}
+                {% endif %}
               </select>
                 <button type="submit">Confirmar</button>
             </form> 

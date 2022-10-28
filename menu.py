@@ -19,15 +19,12 @@ def menu():
         productos = db.session.execute("""
         SELECT 
 ct.id,
-ct.usuario_id,
-ct.nro_mesa,
+ct.cliente_id,
 ct.fecha,
 ct.estado AS ctEstado,
 dt.producto_id,
 dt.cantidad,
 dt.monto,
-dt.ranking,
-dt.comentarios,
 dt.estado AS dtEstado,
 p.nombre,
 p.descripcion,
@@ -61,8 +58,8 @@ def commit():
         return redirect("/menu")
     db.session.execute("""
     INSERT INTO
-    cabeceraTransaccion (cliente_id,nro_mesa,estado)
-    VALUES(:cid, :nm, :e)""",
+    cabeceraTransaccion (cliente_id,estado)
+    VALUES(:cid, :e)""",
     {"cid": session["cid"],
     "e": "pendiente"})
     db.session.commit()
@@ -75,8 +72,7 @@ def commit():
     :producto_id,
     :cantidad,
     (SELECT precio FROM productos WHERE id = :producto_id),
-    "pendiente",
-    )
+    "pendiente")
     """,
     [
     {"producto_id": val["product_id"],
@@ -93,7 +89,7 @@ def commit():
 def cancel():
     db.session.execute("""UPDATE cabeceraTransaccion
         SET estado="cancelado"
-        WHERE usuario_id = :cid AND estado="pendiente"
+        WHERE cliente_id = :cid AND estado="pendiente"
         """,
         {
         "cid" :session["cid"]
