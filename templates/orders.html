@@ -21,21 +21,33 @@
           <span class="material-icons-round">list_alt</span>
           <p class="list-dropdown_button_text-area large-body"> Pedido: Nº{{ct.id}} || Fecha: {{ct.fecha}} || 
               Estado: {{ct.estado}}
-            <form action="/orders/update/{{ct.id}}" method="post">
+            {% if session["rol"] == "cajero" %}
+            <form action="/cashier/orders/update/{{ct.id}}" method="post">
               <select name="estado">
-                {% if session["rol"] == "chef" or session["rol"] == "admin" %}
-                  {% if ct.estado == "en_proceso"%}
-                <option>completado</option>
-                  {% endif %}
-                {% elif session["rol"] == "cajero" or session["rol"] == "admin" %}
-                  {% if ct.estado == "pendiente"%}
                 <option>en_proceso</option>
                 <option>cancelado</option>
-                  {% endif %}
-                {% endif %}
+              </select>
+                <button type="submit">Confirmar</button>
+            </form>
+            {% elif session["rol"] == "chef" %}
+            <form action="/chef/orders/update/{{ct.id}}" method="post">
+              <select name="estado">
+                <option>completado</option>
               </select>
                 <button type="submit">Confirmar</button>
             </form> 
+            {% endif %}
+            {% if session["rol"] == "admin" %}
+            <form action="/admin/orders/update/{{ct.id}}" method="post">
+              <select name="estado">
+                <option>en_proceso</option>
+                <option>cancelado</option>
+                <option>completado</option>
+                <option>pendiente</option>
+              </select>
+                <button type="submit">Confirmar</button>
+            </form> 
+            {% endif %}
           </p>
           <span class="material-icons-round rotary">expand_more</span>
         </div>

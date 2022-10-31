@@ -11,8 +11,19 @@ def menu():
     SELECT * FROM cabeceraTransaccion
     WHERE cliente_id = :cid 
     AND 
-    estado = "pendiente" LIMIT 1""",{"cid": session["cid"]}).scalar()
+    estado = "pendiente" or estado = "en_proceso" LIMIT 1""",{"cid": session["cid"]}).scalar()
     if pendingOrder == None:
+        if session["order?"] == True:
+            order = db.session.execute("""
+            SELECT * FROM cabeceraTransaccion
+            WHERE cliente_id = :cid 
+            ORDER BY fecha DESC LIMIT 1""",{"cid": session["cid"]}).all()
+            for result in order:
+                estado = result["estado"]
+            if estado == "cancelado":
+                flash("Tu orden ha sido cancelada.")
+            if estado == "completado":
+                flash("Orden lista. Por favor, pase a retirarla")
         productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
         session["order?"] = False
     else:
@@ -39,7 +50,7 @@ p.estado AS pEstado
         JOIN productos p
         ON p.id = dt.producto_id
         WHERE ct.cliente_id = :cid
-        AND ct.estado = 'pendiente'
+        AND ct.estado = 'pendiente' or ct.estado = 'en_proceso'
         """,{"cid":session["cid"]})
         session["order?"] = True
     return render_template("menu.html",productos=productos, session=session)

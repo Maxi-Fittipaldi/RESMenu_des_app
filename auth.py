@@ -15,6 +15,7 @@ def login():
     client_id = encrypt(str(datetime.now()) + str(random()))
     session["cid"] = client_id
     session["client"] = True
+    session["order?"] = False
     return redirect(url_for("menu.menu"))
 
 @bp.route("/staff/login", methods = ["GET","POST"])
@@ -44,7 +45,6 @@ def staff_login():
         if passwordEncrypted != dbPassword or email != dbEmail:
             flash("La contraseña o el mail son incorrectos")
             return redirect(url_for("auth.staff_login"))
-        session["order?"] = False
         session["id"] = dbId
         session["name"] = dbName
         session["surname"] = dbSurname
@@ -132,6 +132,5 @@ def logout():
     session.pop("surname",None)
     session.pop("email",None)
     session.pop("state",None)
-    session.pop("order?",None)
     session.pop("rol",None)
     return redirect(url_for("auth.staff_login"))

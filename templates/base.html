@@ -29,11 +29,7 @@
         {% endwith %}
         {% block body %}{% endblock %}
         {% block nav %}
-        {% if  request.endpoint != "auth.signup" and
-        request.endpoint != "auth.login" and
-        request.endpoint != "manage.select" and
-        request.endpoint != "orders.orders" and
-        request.endpoint != "auth.staff_login" %}
+        {% if  request.endpoint == "profile.profile" or request.endpoint == "menu.menu"%}
         <header>
                 <nav class="down-nav" id="down-nav">
                         <div class="down-nav_item">
