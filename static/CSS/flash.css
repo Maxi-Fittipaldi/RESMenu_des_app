@@ -1,0 +1,15 @@
+.flash {
+    position: fixed;
+    color: white;
+    background-color: gray;
+}
+.flash.success{
+    background-color: green;
+}
+.flash.warning{
+    color: black;
+    background-color: yellow;
+}
+.flash.error{
+    background-color: red;
+}

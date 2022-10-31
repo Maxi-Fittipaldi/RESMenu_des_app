@@ -47,7 +47,7 @@ def cashier_update(id):
     "id" :id
     })
     db.session.commit()
-    flash("Operación realizada.")
+    flash("Operación realizada.", "success")
     return redirect(url_for("orders.cashier_orders"))
 
 @bp.route("/chef/orders")
@@ -92,7 +92,7 @@ def chef_update(id):
     "id" :id
     })
     db.session.commit()
-    flash("Operación realizada.")
+    flash("Operación realizada.", "success")
     return redirect(url_for("orders.chef_orders"))
 
 @bp.route("/admin/orders")
@@ -135,5 +135,5 @@ def admin_update(id):
     "id" :id
     })
     db.session.commit()
-    flash("Operación realizada.")
+    flash("Operación realizada.", "success")
     return redirect(url_for("orders.admin_orders"))

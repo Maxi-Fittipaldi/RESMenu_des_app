@@ -20,7 +20,7 @@ def update():
         password = request.form["password"]
         passwordEncrypted = encrypt(password)
         if len(nombre) < 2 or len(apellido) < 2 or len(password) < 2:
-            flash("Tus datos son inválidos")
+            flash("Tus datos son inválidos", "error")
             return redirect("/profile")
         db.session.execute("""UPDATE `usuarios`
         SET
@@ -38,6 +38,6 @@ def update():
         db.session.commit()
         session["name"] = nombre
         session["surname"] = apellido
-        flash("Has modificado tu usuario")
+        flash("Has modificado tu usuario", "success")
         return redirect("/profile")
 

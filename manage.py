@@ -56,7 +56,7 @@ def insert():
                 })
                 db.session.commit()
         except:
-                flash("Ocurrió un error en la inserción")
+                flash("Ocurrió un error en la inserción", "error")
         return redirect("/manage")
     else:
         productos = db.session.execute("SELECT * FROM productos")

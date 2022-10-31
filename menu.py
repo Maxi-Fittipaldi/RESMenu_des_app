@@ -21,9 +21,9 @@ def menu():
             for result in order:
                 estado = result["estado"]
             if estado == "cancelado":
-                flash("Tu orden ha sido cancelada.")
+                flash("Tu orden ha sido cancelada.","warning")
             if estado == "completado":
-                flash("Orden lista. Por favor, pase a retirarla")
+                flash("Orden lista. Por favor, pase a retirarla","success")
         productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
         session["order?"] = False
     else:
@@ -65,7 +65,7 @@ def commit():
             assert int(x["quantity"]) > 0
             assert int(x["product_id"]) > 0
     except ValueError:
-        flash("Transacción inválida")
+        flash("Transacción inválida","error")
         return redirect("/menu")
     db.session.execute("""
     INSERT INTO

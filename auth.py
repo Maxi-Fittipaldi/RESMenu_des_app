@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, url_for, redirect, send_from_directory, session, flash
+from flask import Blueprint, render_template, request, url_for, redirect, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from RESMenu_des_app.misc.encrypt import *
 from RESMenu_des_app import db
@@ -43,7 +43,7 @@ def staff_login():
             dbState = result["estado"]
             dbRol = result["rol"]
         if passwordEncrypted != dbPassword or email != dbEmail:
-            flash("La contraseña o el mail son incorrectos")
+            flash("La contraseña o el mail son incorrectos", "warning")
             return redirect(url_for("auth.staff_login"))
         session["id"] = dbId
         session["name"] = dbName
@@ -51,7 +51,7 @@ def staff_login():
         session["email"] = dbEmail
         session["state"] = dbState
         session["rol"] = dbRol
-        flash("Has iniciado sessión")
+        flash("Has iniciado sessión","success")
         return redirect("/profile")
     return render_template("staff_login.html")
 @bp.route("/signup", methods = ["GET","POST"])
@@ -69,7 +69,7 @@ def signup():
             for result in query:
                     dbEmail = result["email"]
             if email == dbEmail:
-                    flash("Esta cuenta ya existe")
+                    flash("Esta cuenta ya existe", "warning")
                     return redirect("/signup")
             db.session.execute(
                 """INSERT INTO usuarios
@@ -85,7 +85,7 @@ def signup():
             html = render_template("mail.html", confirm_url=confirm_url)
             subject = "Confirmación de email RESMenu"
             send_email(email, subject, html)
-            flash("Usuario registrado, verifique la cuenta.")
+            flash("Usuario registrado, verifique la cuenta.", "success")
             session["rol"] = "sin_rol"
             return redirect(url_for("auth.staff_login"))
         return render_template("signup.html")
@@ -110,11 +110,11 @@ def confirm_email(token):
             flash('El código ha expirado o es incorrecto, intenta iniciar sesión y reenviarlo.', 'warning')
             return redirect(url_for("auth.staff_login"))
     if userStatus == 'verificado':
-        flash('La cuenta ha sido verificada previamente. Por favor, inicie sesión.', 'info')
+        flash('La cuenta ha sido verificada previamente. Por favor, inicie sesión.')
     else:
         db.session.execute("UPDATE usuarios SET estado = 'verificado' WHERE email = :email ", {'email': email})
         db.session.commit()
-        flash('Has verificado la cuenta, gracias.', 'info')
+        flash('Has verificado la cuenta, gracias.', 'success')
     return redirect("/logout")
 @bp.route("/resend")
 def resend():
