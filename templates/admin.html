@@ -48,4 +48,29 @@
     </div>
   </div>
 </nav>
+  <h1>Usuarios</h1>
+  <div class="d-flex flex-row flex-wrap mb-3 ">
+  {% for usuario in usuarios %}
+    <div class="card flex-fill" style="width: 18rem;">
+    <div class="card-body">
+      <form action="/admin/update/{{usuario.id}}" method="post">
+      <h5 class="card-title">
+          <input type="text" name="apellido" placeholder="apellido" value="{{usuario.apellido}}">
+      </h5>
+      <p>
+          <input type="text" name="nombre" placeholder="nombre" value="{{usuario.nombre}}">
+      </p>
+      <p>rol:
+          <select name="rol" id=""></select>
+      </p>
+      <p>estado:</p>
+      <select name="estado" id="">
+        <option>sin_rol</option>
+        <option>cajero</option>
+        <option>chef</option>
+      </select>
+      <a href="/admin/delete/{{usuario.id}}" class="btn btn-danger" >Borrar Usuario</a>
+      <button class="btn btn-success" type="submit">Confirmar modificaciones</button>
+      </form>
+    </div>
 {% endblock %}
