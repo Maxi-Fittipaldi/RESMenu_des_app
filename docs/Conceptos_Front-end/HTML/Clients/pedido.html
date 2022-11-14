@@ -1,0 +1,132 @@
+<!-- pedido.html | DLM: 10/10/2022 | No License.
+     Replicated from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Pedido</title>
+  <!-- Metas: -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="resmenu,menú,restaurante">
+  <meta name="description" content="Sitio Web para un Restaurante">
+  <meta name="authoriz" content="BACK-END: Maximiliano Fittipaldi, Nicolas Lopez y Ezequiel Milich.
+  FRONT-END: Matias Font, Rosario Hernandez, Pilar Costa, Fernando Hsiao, Julieta Orda y Sol Corbelini.">
+  <meta name="robots" content="index">
+  <!-- CSS: -->
+  <link rel="stylesheet" type="text/css" href="../../Library/Master.css">
+  <link rel="stylesheet" type="text/css" href="../../CSS/Clients/pedido.css">
+  <!-- Activate just for experiments:-->
+  <!-- <link rel="stylesheet" type="text/css" href="../Library/4_Others/4.1_Experimental.css"> -->
+  <!-- Icon pack from Google Fonts: -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Page .ico: -->
+  <link rel="icon" href="../../Media/logo.ico">
+</head>
+
+<body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body. -->
+  <article>
+    <div class="list">
+      <div class="list-item">
+        <div class="Horiz-Card disabled">
+          <div class="Horiz-Card_content">
+            <p class="medium-title">Deshabilitada</p>
+            <p class="medium-body">$ Precio</p>
+          </div>
+          <div class="Horiz-Card_media"></div>
+        </div>
+        <div class="Icon-BtN">
+          <span class="material-icons-round">close</span> 
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="Horiz-Card">
+          <div class="Horiz-Card_content">
+            <p class="medium-title">Default</p>
+            <p class="medium-body">$ Precio</p>
+          </div>
+          <div class="Horiz-Card_media"></div>
+        </div>
+        <div class="Icon-BtN">
+          <span class="material-icons-round">close</span> 
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="Horiz-Card hvr">
+          <div class="Horiz-Card_content">
+            <p class="medium-title">On Hover (hvr)</p>
+            <p class="medium-body">$ 900 ARS</p>
+          </div>
+          <div class="Horiz-Card_media"></div>
+        </div>
+        <div class="Icon-BtN hvr">
+          <span class="material-icons-round">close</span> 
+        </div>
+      </div>
+      <div class="list-item">
+        <div class="Horiz-Card on-click">
+          <div class="Horiz-Card_content">
+            <p class="medium-title">On Click</p>
+            <p class="medium-body">$ Precio</p>
+          </div>
+          <div class="Horiz-Card_media"></div>
+        </div>
+        <div class="Icon-BtN">
+          <span class="material-icons-round">close</span> 
+        </div>
+      </div>
+    </div>
+    
+    <!-- Experimental Section: -->
+      <!-- Code goes here. -->
+    <!-- End Of Section. -->
+  </article>
+  <header>
+  <div class="Nav-Dialog"> <!-- Add "collapsed" class to close it. -->
+    <div class="Nav-Dialog_state-indicator">
+      <span class="material-icons-round rotary">expand_more</span> 
+    </div>
+    <div class="Nav-Dialog_item" id="DeliveryTime">
+      <div class="Nav-Dialog_item_text">
+        <span class="material-icons-round">hourglass_top</span> 
+        <p class="large-label">Hora de Entrega Aproximada</p>
+      </div>
+      <p class="large-label">9:55</p>
+    </div>
+    <div class="Nav-Dialog_item" id="Discount">
+      <div class="Nav-Dialog_item_text">
+        <span class="material-icons-round">sell</span> 
+        <p class="large-label"p>Descuento:</p>
+      </div>
+      <p class="large-label"p>15%</p>
+    </div>
+    <div class="Nav-Dialog_item" id="Cost">
+      <div class="Nav-Dialog_item_text">
+        <span class="material-icons-round">payments</span> 
+        <p class="large-label">Costo Total del Pedido</p>
+      </div>
+      <p class="large-label">$2450</p>
+    </div>
+    <div class="Nav-Dialog_actions">
+      <button class="Filled-BtN" id="Cancel">
+        <p class="button">
+          Borrar
+        </p>
+      </button>
+      <button class="Filled-BtN" id="Cancel">
+        <p class="button">
+          Continuar
+        </p>
+      </button>
+    </div>
+  </div>
+    <nav class="Mobile-Nav back" id="Mobile-Nav">
+    <div class="Mobile-Nav_item">
+      <span class="material-icons-round">arrow_back_ios_new</span> 
+      <p class="large-label">Volver</p>
+    </div>
+  </nav>
+  </header>
+  <script src="../../JS/experimental.js"></script>
+</body>
+</html>

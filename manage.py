@@ -7,7 +7,7 @@ from RESMenu_des_app import db
 from .login import *
 bp = Blueprint('manage',__name__, url_prefix='/')
 @bp.route("/manage/search", methods=['GET'])
-@login_required
+@staff_login_required
 @verif_required
 @staff_required
 def search():
@@ -22,71 +22,70 @@ def search():
                 return redirect("/manage")
         return render_template("search_results.html", productos=productos)
 @bp.route("/manage")
-@login_required
+@staff_login_required
 @verif_required
 @staff_required
 def select():
     productos = db.session.execute("SELECT * FROM productos")
     return render_template("manage.html", productos=productos)
 
-@bp.route("/manage/insert", methods=['GET','POST'])
-@login_required
+@bp.route("/manage/insert", methods=['POST'])
+@staff_login_required
 @verif_required
-@staff_required
+@admin_required
 def insert():
-    if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]
         productoCantidad = request.form["cantidad"]
         productoDesc = request.form["descripcion"]
         horariod = request.form["horariod"]
         horarioh = request.form["horarioh"]
-        db.session.execute("""INSERT INTO productos
-        (nombre,precio,cantidad, descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
-        VALUES(:n,:p ,:c, :d, :dd,:dh,:prop)""",
-        {
-        "n":productoNombre,
-        "p":productoPrecio,
-        "c":productoCantidad,
-        "d": productoDesc,
-        "dd": horariod,
-        "dh": horarioh,
-        "prop": session["id"]
-        })
-        db.session.commit()
+        try:
+                db.session.execute("""INSERT INTO productos
+                (nombre,precio,cantidad, descripcion, disponibilidad_desde, disponibilidad_hasta, propietario)
+                VALUES(:n,:p ,:c, :d, :dd,:dh,:prop)""",
+                {
+                "n":productoNombre,
+                "p":productoPrecio,
+                "c":productoCantidad,
+                "d": productoDesc,
+                "dd": horariod,
+                "dh": horarioh,
+                "prop": session["id"]
+                })
+                db.session.commit()
+        except:
+                flash("Ocurrió un error en la inserción", "error")
         return redirect("/manage")
-    else:
-        productos = db.session.execute("SELECT * FROM productos")
-        return render_template('index.html',productos=productos)
 @bp.route("/manage/remove/<int:id>")
-@login_required
+@staff_login_required
 @verif_required
-@staff_required
+@chef_required
 def remove(id):
     db.session.execute("UPDATE productos SET estado='oculto' WHERE id = :id",{"id":id})
     db.session.commit()
     return redirect("/manage")
 
 @bp.route("/manage/recover/<int:id>")
-@login_required
+@staff_login_required
 @verif_required
-@staff_required
+@chef_required
 def recover(id):
     db.session.execute("UPDATE productos SET estado='visible' WHERE id = :id",{"id":id})
     db.session.commit()
     return redirect("/manage")
 @bp.route("/manage/delete/<int:id>")
-@login_required
+@staff_login_required
 @verif_required
-@staff_required
+@admin_required
 def delete(id):
     db.session.execute("DELETE FROM productos WHERE estado='oculto' AND id = :id",{"id":id})
     db.session.commit()
     return redirect("/manage")
 @bp.route("/manage/update/<int:id>", methods=["GET","POST"])
-@login_required
+@staff_login_required
 @verif_required
-@staff_required
+@admin_required
 def update(id):
     if request.method == "POST":
         productoNombre = request.form["nombre"]

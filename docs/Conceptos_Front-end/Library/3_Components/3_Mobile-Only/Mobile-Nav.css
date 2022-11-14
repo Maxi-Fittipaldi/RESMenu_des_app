@@ -1,0 +1,130 @@
+/* Mobile-Navbar.css | DLM: 16/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+   
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States.
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Mobile-Nav {
+		/* Auto layout */
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 13px 32px;
+		gap: 4px;
+		width: 100%;
+		height: fit-content;
+
+		/* M3/read-only/dark/surface2 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), var(--md-sys-color-surface);
+
+		/* Inside auto layout */
+		flex: none;
+		align-self: stretch;
+	}
+
+	.Mobile-Nav_item {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+
+		width: 64px;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1;
+	}
+
+	.Mobile-Nav .Mobile-Nav_item span, .Mobile-Nav .Mobile-Nav_item p{
+		color: var(--md-sys-color-on-surface-variant);
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: Back ───────────*/
+		.Mobile-Nav.back {
+			background: var(--md-sys-color-surface-variant);
+			padding: 14px 32px;
+		}
+
+		.Mobile-Nav.back .Mobile-Nav_item {
+			flex-grow: 0;
+			width: calc(33.333% - 3px);
+		}
+
+		.Mobile-Nav.back .Mobile-Nav_item span, .Mobile-Nav.back .Mobile-Nav_item p {
+			color: var(--md-sys-color-on-surface-variant);
+		}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled ───────────*/
+		.Mobile-Nav_item.disabled span, .Mobile-Nav_item.disabled p {
+			color: var(--md-sys-color-outline);
+		}
+
+	/*─────────── Status: On-Hover ───────────*/
+		.Mobile-Nav_item.hvr span, .Mobile-Nav_item.hvr p {
+			color: var(--md-sys-color-primary);
+		}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Active ───────────*/
+	/* It's for a sub-item in the navbar*/
+		.Mobile-Nav_item.active {
+			gap: 2px;
+		}
+
+		.Mobile-Nav_item.active span {
+			/* Auto Layout */
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			width: 64px;
+			height: 32px;
+			background-color: var(--md-sys-color-secondary-container);
+			border-radius: 20px;
+			
+			/* Inside auto layout */
+			flex: none;
+			
+		}
+
+		.Mobile-Nav_item.active p {
+			color: var(--md-sys-color-primary)
+		}
+
+
+
+/* New section goes here. */
+/* End of the document. */

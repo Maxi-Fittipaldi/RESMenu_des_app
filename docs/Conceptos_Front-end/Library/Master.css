@@ -1,0 +1,65 @@
+/* Master.css | DLM: 23/9/2022 | No License.
+   This file includes all the neccesary .css files for every sub-page. */
+
+@import url(0_Normalize.css); /* Changes some CSS Default Values for a clean start. */
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+/* Material Theme: */
+   @import url(1_MD-Theme/1.1_Color-Palettes.css);
+   @import url(1_MD-Theme/1.2_Fonts.css);
+   @import url(1_MD-Theme/1.3_Elevation.css);
+
+/* CSS Page structure: */
+   @import url(2_Foundation.css);
+   
+/* Components: */
+   /* Responsive: */
+      /* Cards: */
+         @import url(3_Components/1_Responsive/Cards/Expanded/Expand-Card.css);
+         @import url(3_Components/1_Responsive/Cards/Horizontal/Horiz-Card.css);
+         @import url(3_Components/1_Responsive/Cards/Vertical/Vert-Card.css);
+      /* Dropdowns: */
+         @import url(3_Components/1_Responsive/Dropdown-List/Basic/Basic-DDL.css);
+         @import url(3_Components/1_Responsive/Dropdown-List/Inputs/Inputs-DDL.css);
+      /* Filters: */
+            @import url(3_Components/1_Responsive/Filter/Basic/Basic-Filter.css);
+      /* Grids: */
+            @import url(3_Components/1_Responsive/Grids/DDL-Cards/Cards-Grid.css);
+      /* Inputs: */
+         @import url(3_Components/1_Responsive/Inputs/Boolean/Switch-Input.css);
+         @import url(3_Components/1_Responsive/Inputs/Button/BtN-Input.css);
+         @import url(3_Components/1_Responsive/Inputs/Large-Text/L-TxT-Input.css);
+         @import url(3_Components/1_Responsive/Inputs/Short-Text/S-TxT-Input.css);
+      /* Buttons: */
+         @import url(3_Components/1_Responsive/Buttons/Filled/Filled-BtN.css);
+         @import url(3_Components/1_Responsive/Buttons/Icon/Icon-BtN.css);
+         @import url(3_Components/1_Responsive/Buttons/Popup/Popup-BtN.css);
+         @import url(3_Components/1_Responsive/Buttons/Tonal/Tonal-BtN.css);
+      /* Dialogs: */
+         @import url(3_Components/1_Responsive/Dialogs/Navbar/Nav-Dialog.css);
+         @import url(3_Components/1_Responsive/Dialogs/Input/Input-Dialog.css);
+      /* Pop-Ups: */
+         @import url(3_Components/1_Responsive/Pop-Ups/Popup-Effect.css);
+         @import url(3_Components/1_Responsive/Pop-Ups/Basic/Basic-Popup.css);
+         @import url(3_Components/1_Responsive/Pop-Ups/List/List-Popup.css);
+         @import url(3_Components/1_Responsive/Pop-Ups/Time/Time-Popup.css);
+         @import url(3_Components/1_Responsive/Pop-Ups/Popup-Container.css);
+      /* Lists: */
+         @import url(3_Components/1_Responsive/Lists/Components/COM-List.css);
+         @import url(3_Components/1_Responsive/Lists/Product/Basic-List.css);
+      /* Labels: */
+         @import url(3_Components/1_Responsive/Labels/Chip/Chip-LBL.css);
+         @import url(3_Components/1_Responsive/Labels/Role/Role-LBL.css);
+      /* Others: */
+         @import url(3_Components/1_Responsive/Others/Quantity-Slider/Qty-Slider.css);
+         @import url(3_Components/1_Responsive/Others/Search-Box/Search-Box.css);
+         @import url(3_Components/1_Responsive/Others/Sector-Indicator/Sec-Indicator.css);
+   /* Non-Responsive: */
+      @import url(3_Components/2_PC-Only/PC-Nav.css);
+      @import url(3_Components/3_Mobile-Only/Mobile-Nav.css);
+      @import url(3_Components/3_Mobile-Only/Banner/Banner.css);
+
+/* Activate this just when you want to experiment with multiple pages at the same time: */
+@import url(4_Others/4.1_Experimental.css);
+
+
+/* End of the document. */

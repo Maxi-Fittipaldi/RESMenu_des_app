@@ -1,0 +1,166 @@
+/* Input-Dialog.css | DLM: 16/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Input-Dialog {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		
+		width: fit-content;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.Input-Dialog_requirements {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		padding: 8px;
+		gap: 12px;
+		width: fit-content;
+		height: fit-content;
+
+		/* M3/read-only/dark/surface3 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), #1C1B1F;
+		border-radius: 12px;
+
+		/* Inside auto layout */
+		flex: none;
+		order: 1;
+	}
+
+	.Input-Dialog_requirements_item {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		gap: 4px;
+		width: 100%;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.Input-Dialog_source {
+		width: 0;
+		height: 0;
+		order: 2;
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	It has a Default variant that has to be applied: "Bottom". */
+
+	/*─────────── Variant: Start ───────────*/
+	/* It changes the Input-Dialog alignment. */
+		.Input-Dialog.Start {
+			align-items: flex-start;
+		}
+
+	/*─────────── Variant: Top ───────────*/
+	/* It moves the dialog_source to the top. */	
+		.Input-Dialog.Top .Input-Dialog_source {
+			margin: 4px 12px 0px 12px;
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			border-bottom: 10px solid #302d38;
+			order: 0;
+		}
+
+	/*─────────── Variant: Bottom ───────────*/
+	/* It moves the dialog_source to the bottom. */	
+		.Input-Dialog.Bottom .Input-Dialog_source {
+			margin: 0px 12px 4px 12px;
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			border-top: 10px solid #302d38;
+		}
+
+	/*─────────── Variant: Right ───────────*/
+	/* It moves the dialog_source to the right. */	
+		.Input-Dialog.Right {
+			flex-direction: row;
+		}
+
+		.Input-Dialog.Right .Input-Dialog_source {
+			margin: 12px 4px 12px 0px;
+			border-top: 8px solid transparent;
+			border-left: 10px solid #302d38;
+			border-bottom: 8px solid transparent;
+		}
+
+	/*─────────── Variant: Left ───────────*/
+	/* It moves the dialog_source to the left. */	
+		.Input-Dialog.Left {
+			flex-direction: row;
+		}
+
+		.Input-Dialog.Left .Input-Dialog_source {
+			margin: 12px 0px 12px 4px;
+			border-top: 8px solid transparent;
+			border-right: 10px solid #302d38;
+			border-bottom: 8px solid transparent;
+			order: 0;
+		}
+
+	/*─────────── Variant: Left (abreviation) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+	
+	/*─────────── Status: On-Hover (hvr) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/*─────────── Status: After-Click (afc) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── ID-Variant: #error (abreviation) ───────────*/
+	/* Item(s) that aren't being satisfied. */
+		.Input-Dialog .Input-Dialog_requirements .Input-Dialog_requirements_item#error p,
+		.Input-Dialog .Input-Dialog_requirements .Input-Dialog_requirements_item#error span {
+			color: var(--md-sys-color-error);
+		}
+
+/* New section goes up here. */
+/* End of the document. */

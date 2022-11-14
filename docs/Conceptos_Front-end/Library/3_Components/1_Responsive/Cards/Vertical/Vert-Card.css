@@ -1,0 +1,124 @@
+/* Vert-Card.html | DLM: 15/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Vert-Card {	
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		
+		width: fit-content;
+		height: fit-content;
+	
+		/* M3/read-only/dark/surface1 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), var(--md-sys-color-surface);
+		border-radius: 12px;
+	
+		/* Inside auto layout */
+		flex: none;
+		flex-shrink: 1;
+	}
+	
+	.Vert-Card img {
+		width: 100%
+	}
+	
+	.Vert-Card_headline {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		padding: 16px 16px 8px;
+		width: 100%;
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1; 
+	}
+	
+	.Vert-Card_actions {
+		/* Auto layout */
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px 16px 16px;
+	
+		width: 100%;
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled ───────────*/
+	.Vert-Card.disabled {
+		opacity: 100%; /* Overlay from .disabled 60% auto-opacity*/
+	}
+
+	/*─────────── Status: On-Hover ───────────*/
+	.Vert-Card.hvr {
+		/* M3/read-only/dark/surface2 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), var(--md-sys-color-surface);
+	}
+
+	/*─────────── Status: After-Click ───────────*/
+	.Vert-Card.afc {
+		/* M3/read-only/dark/surface3 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), var(--md-sys-color-surface);
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled ───────────*/
+	/* The button needs to be disabled like his master component. */
+		.Vert-Card.disabled .Vert-Card_actions .Filled-BtN {
+			background-color: var(--md-sys-color-inverse-on-surface)
+		}
+
+		.Vert-Card.disabled .Vert-Card_actions .Filled-BtN p, .Vert-Card.disabled .Vert-Card_actions .Filled-BtN span {
+			color: var(--md-sys-color-on-surface)
+		}
+	
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+
+		
+/* New section goes up here. */
+/* End of the document. */

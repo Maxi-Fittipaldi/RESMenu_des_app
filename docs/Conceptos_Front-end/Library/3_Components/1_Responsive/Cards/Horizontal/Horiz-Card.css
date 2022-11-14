@@ -1,0 +1,141 @@
+/* Horiz-Card | DLM: 15/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+	.Horiz-Card {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+
+		min-width: fit-content;
+		height: fit-content;
+	
+		/* M3/read-only/dark/surface1 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+		border-radius: 12px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	.Horiz-Card_content {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		padding: 16px;
+		gap: 4px;
+	
+		width: fit-content;
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1;
+		flex-shrink: 1; /* Temporal solution because media doesn't work with a height of 100% */
+	}
+
+	.Horiz-Card p.medium-body#time {
+		padding: 0px 16px 0px 0px;
+		display: none;
+	}
+	
+	.Horiz-Card_media {
+		/* Auto layout */
+		display: flex;
+
+		width: 80px;
+		height: auto;
+
+		background-color: var(--md-sys-color-outline);
+
+		/* Inside auto layout */
+		flex: none;
+		align-self: stretch;
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: Inverted (inv) ───────────*/
+		.Horiz-Card.inv p.medium-body#time {
+			display: flex;
+		}
+
+		.Horiz-Card.inv .Horiz-Card_media {
+			order: 0;
+		}
+
+		.Horiz-Card.inv .Horiz-Card_content {
+			order: 1;
+		}
+		
+		.Horiz-Card.inv p.medium-body#time {
+			order: 2;
+		}
+
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/* ─────── Status: Disabled ─────── */
+	.Horiz-Card.disabled .Horiz-Card_content .Horiz-Card_content p {
+		color: var(--md-sys-color-outline);
+	}
+
+	/* ───────Status: On-Hover ─────── */
+	.Horiz-Card.hvr {
+		/* M3/read-only/dark/surface2 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), var(--md-sys-color-surface);
+	}
+
+	.Horiz-Card.hvr .Horiz-Card_content .Horiz-Card_content p {
+		color: var(--md-sys-color-primary);
+	}
+
+	/* ───────Status: Active ─────── */
+	.Horiz-Card.active {
+		/* M3/read-only/dark/surface3 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), #1C1B1F;
+	}
+
+	.Horiz-Card.active .Horiz-Card_content .Horiz-Card_content p {
+		color: var(--md-sys-color-primary);
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+
+		
+/* New section goes up here. */
+/* End of the document. */

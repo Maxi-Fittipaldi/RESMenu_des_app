@@ -1,0 +1,81 @@
+<!-- {COM-Name}.html | DLM: 16/10/2022 | No License.
+Replicated from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>PC-Navbar</title>
+	<!-- Meta: -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS: -->
+	<link rel="stylesheet" type="text/css" href="../../Master.css">
+	<link rel="stylesheet" type="text/css" href="../../PC-Nav.css">
+	<!-- Activate just for experiments:-->
+	<!-- <link rel="stylesheet" type="text/css" href="../Library/4_Others/4.1_Experimental.css"> -->
+	<!-- Icon pack from Google Fonts: -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Page .ico: -->
+	<link rel="icon" href="../../../Media/component.ico">
+</head>
+
+<body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body. -->
+	<header>
+		<!-- Component starts here: -->
+			<!-- Warning: component goes in <header> -->
+			<div class="PC-Navbar open"> <!-- Has only open status and no variants -->
+				<div class="PC-Navbar_upbar">
+					<div class="PC-Navbar_upbar_item" id="configuracion">
+						<span class="material-symbols-rounded">settings</span>
+						<div class="PC-Navbar_upbar_item_indicator">
+							<p class="medium-title">Configuracion</p>
+						</div>
+						</div>
+					<div class="PC-Navbar_upbar_item active" id="pedidos"> <!-- "active" css class = Sub-Status (read PC-Nav.css for more sub-status) -->
+						<span class="material-symbols-rounded">article</span>
+						<div class="PC-Navbar_upbar_item_indicator"> 
+							<p class="medium-title">Pedidos</p>
+						</div>
+					</div>
+					<div class="PC-Navbar_upbar_item hvr" id="sign-out"> <!-- "hvr" css class = Sub-Status (read PC-Nav.css for more sub-status) -->
+						<span class="material-symbols-rounded">exit_to_app</span>
+						<div class="PC-Navbar_upbar_item_indicator">
+							<p class="medium-title">Sign out</p>
+						</div>
+					</div>
+				</div>
+				<div class="PC-Navbar_config-options"> 
+					<div class="PC-Navbar_config-options_item" id="filtros">
+						<span class="material-symbols-rounded">settings</span>
+						<div class="PC-Navbar_config-options_item_indicator">
+							<p class="small-title">Filtros</p>
+						</div>
+					</div>
+					<div class="PC-Navbar_config-options_item hvr" id="platillos"> <!-- "hvr" css class = Sub-Status (read PC-Nav.css for more sub-status) -->
+						<span class="material-symbols-rounded">settings</span>
+						<div class="PC-Navbar_config-options_item_indicator">
+							<p class="small-title">Platillos</p>
+						</div>
+					</div>
+					<div class="PC-Navbar_config-options_item active" id="roles"> <!-- "active" css class = Sub-Status (read PC-Nav.css for more sub-status) -->
+						<span class="material-symbols-rounded">settings</span>
+							<div class="PC-Navbar_config-options_item_indicator">
+							<p class="small-title">Roles y otros</p>
+						</div>
+					</div>
+					<div class="PC-Navbar_config-options_item disabled"> <!-- "disabled" css class = Sub-Status (read PC-Nav.css for more sub-status) -->
+						<span class="material-symbols-rounded">settings</span>
+						<div class="PC-Navbar_config-options_item_indicator">
+							<p class="small-title">Otros</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- Component ends here. -->
+	</header>
+	<article>
+
+	</article>
+	<script src="../../../JS/experimental.js"></script>
+</body>
+</html>

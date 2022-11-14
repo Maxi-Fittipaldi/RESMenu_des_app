@@ -1,0 +1,77 @@
+/* retiro & sin_pedido.css | DLM: 19/9/2022 | No License
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=51196%3A4675
+   This file includes a specific sub-page Structure and Overlays */
+
+/* 
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                        ί CSS Dictionary                                        │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+	[0] = Readme: https://docs.google.com/document/d/1klGHasUyw5qGmO96J0mGbTqSqYJ1BW1GTXY6QOHp4hA/edit?usp=sharing
+	      ↑ Es muy importante leer ese documento antes de adentrarse a programar.
+
+	[1] = Structure
+	[2] = Overlays
+
+	[9] = Others
+	[10] = Experimental
+*/  
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                         [1] Structure                                          │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+	.list{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+
+		width: 100%;
+		height: 100%;
+		overflow-y: scroll;
+
+		/*inherited from Article (usable-content)*/
+		flex: none;
+		order: 1;
+		align-self: stretch;
+		flex-grow: 1;
+	}
+
+	.wide-img {
+		height: auto;
+		width: 100%;
+		max-height: 800px;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          [2] Overlays                                          │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+	/* No content at the moment */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                           [9] Others                                           │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+Nonclassifiable CSS CSS */
+
+	/* No content at the moment. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                       [10] Experimental                                        │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+Testing Code */
+
+	/* No content at the moment. */
+
+
+/* End of the Document */

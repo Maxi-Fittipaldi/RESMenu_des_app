@@ -1,0 +1,199 @@
+/* Large-Text-Input.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.L-TxT-Input {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		padding: 16px 12px 16px 16px;
+		gap: 8px;
+	
+		width: fit-content;
+		height: fit-content;
+	
+		/* M3/read-only/dark/surface1 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+		/* M3/sys/dark/outline */
+		border-bottom: 1px solid var(--md-sys-color-outline);
+		border-radius: 12px 12px 0px 0px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	
+	.L-TxT-Input_description {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	
+		width: 0px; /* A bit hacky practice. */
+		height: fit-content;
+	
+		border-radius: 4px 4px 0px 0px;
+	
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1;
+	
+	}
+	
+	.L-TxT-Input_description p {
+		color: var(--md-sys-color-outline);
+	}
+
+	.L-TxT-Input_description p#limit {
+		align-self: flex-end;
+		display: none;
+	}
+
+	.L-TxT-Input span#right {
+		margin-top: 24px;
+	}
+
+	.L-TxT-Input span {
+		display: none;
+	}
+
+	
+	.L-TxT-Input_description_camp {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		padding: 8px;
+	
+		width: 100%;
+		height: fit-content;
+	
+		background: rgba(255, 255, 255, 0.04);
+		border-radius: 12px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: Span+ (splus) ───────────*/
+	/* Extra span in the left. */
+		.L-TxT-Input.splus span#left {
+			display: inline-block;
+		}
+
+	
+	/* New variants goes up here. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Hover after Active is invalid. */
+
+	/* ---------- Status: Disabled ---------- */
+	/* It has a general ".disabled" class. */
+	
+	/* ---------- Status: Saved ---------- */
+	/* Can match with:
+	"default and/or "end-error" and/or "hover" */
+	.L-TxT-Input.saved {
+		border-bottom: 1px solid var(--md-sys-color-outline);
+	}
+	.L-TxT-Input.saved span#right {
+		display: flex;
+	}
+
+
+	/* ---------- Status: Active ---------- */
+	/* Can match with default. */
+	.L-TxT-Input.active span#right, 
+	.L-TxT-Input.active .L-TxT-Input_description p#limit {
+		display: flex;
+	}
+
+	.L-TxT-Input.active {
+		/* M3/read-only/dark/surface2 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), #1C1B1F;
+		border-bottom: 2px solid var(--md-sys-color-primary);
+	}
+
+	.L-TxT-Input.active .L-TxT-Input_description p#name {
+		color: var(--md-sys-color-primary);
+	}
+	
+	.L-TxT-Input.active .L-TxT-Input_description_camp p {
+		color: var(--md-sys-color-on-surface);
+	}
+	
+	.L-TxT-Input.active span#right {
+		margin-top: 0;
+	}
+
+	/* ---------- Status: Error ---------- */
+	/* Can match with active. 
+	   The span#right needs to be replaced by one named "error" with js.*/
+	.L-TxT-Input.error {
+		border-bottom: 2px solid var(--md-sys-color-error);
+	}
+
+	.L-TxT-Input.error span#right,
+	.L-TxT-Input.error .L-TxT-Input_description p#name {
+		color: var(--md-sys-color-error)
+	}
+
+		/* ---------- Status: Limit-Error ---------- */
+	/* Can match with active. 
+	   The span#right needs to be replaced by one named "error" with js.*/
+	   .L-TxT-Input.limit-error .L-TxT-Input_description p#limit {
+		color: var(--md-sys-color-error)
+	}
+
+	/* ---------- Status: Hover ---------- */
+	/* Can match with default and "end-error". */
+	.L-TxT-Input.hover {
+		/* M3/sys/dark/on-surface */
+		border-bottom: 1px solid var(--md-sys-color-on-surface);
+		/* M3/read-only/dark/surface3 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), var(--md-sys-color-background);
+	}
+
+	/* Hover is general, others are more specific with p targets. */
+	.L-TxT-Input.hover p {
+		color: var(--md-sys-color-on-surface-variant)	
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+/* New section goes up here. */
+/* End of the document. */

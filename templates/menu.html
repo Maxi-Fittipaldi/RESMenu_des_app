@@ -1,29 +1,118 @@
 {% extends 'base.html'%}
 {% block head %}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/index.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/lib.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/elaboracion.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='CSS/menu.css')}}">
+  <!-- Font from Google Fronts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Icon pack from Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Ordenar</title>
 {% endblock %}
-{% block body %}
+{% block body %}  
 {%if session["order?"] == False%}
-  <div class="products-container">
-    <h1>Listado de productos</h1>
-    {% for producto in productos %}
-    <div class="product" id="{{producto.id}}">
-      <h5>{{producto.nombre}}</h5>
-      <p>{{producto.descripcion}}</p>
-      <p>{{producto.precio}}</p>
-      <input type="number">
-      <button class="addToCart" id="btn" name="{{producto.id}}">Añadir al carro</button>
-    </div>
-    {% endfor %}
-  </div>
-  <h3>Productos en el carro</h3>
-    <div class="products-in-cart">
-    </div>
-    <button type="submit">Comprar productos</button>
+    <article>
+    <div class="products-list">
+      <div class="food-dropdown open" id="food-dropdown"> <!-- Remove "open" class to collapse the dropdown -->
+        <div class="food-dropdown_button" id="food-dropdown_button">
+          <span class="material-icons-outlined">brunch_dining</span>
+          <p class="filter_button_text-area large-body">
+            Platos Principales
+          </p>
+          <span class="material-icons-round rotary">expand_more</span>
+        </div>
+        <div class="food-dropdown_content" id="products-container">
+          <div class="food-dropdown_content_cards">
+          {% for producto in productos %}
+            <div class="ver-card disabled" id="card {{producto.id}}">
+              <p class="product-id" id="{{producto.id}}"></p>
+              <div class="ver-card_headline">
+                <p class="large-body">
+                  {{producto.nombre}}
+                </p>
+                <p class="medium-body">
+                  $ {{producto.precio}} ARS
+                </p>
+                <p class="medium-body">
+                  Horario disponible:
+                 {{producto.disponibilidad_desde}} -
+                 {{producto.disponibilidad_hasta}}
+                </p>
+                <p class="medium-body">
+                  Descripción:
+                 {{producto.descripcion}}
+                </p>
+                <input type="number" class="medium-body">
+                </input>
+              </div>
+              <div class="ver-card_actions">
+                <button class="text-button addToCart hvr" name="{{producto.id}}" id="text-button"> <!-- Remove "active" class to unselect it -->
+                  <p class="button">
+                    Añadir
+                  </p>
+                </button>
+                <div class="big-icon-button active" id="add-fav"> <!-- Remove "active" class to unselect it -->
+                  <span class="material-icons-round">favorite</span>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+      <h3 class="large-body cart-title">Productos en el carro</h3>
+      <div class="food-dropdown open">
+        <div class="cart" id="cart">
 
+        </div>
+      </div>
+        <button class="text-button hvr" id="text-button confirmButton" type="submit"> <!-- Remove "active" class to unselect it -->
+          <p class="button">Comprar productos</p>
+        </button>
+    </div>
+    </article>
   <script src="{{url_for("static",filename="JS/cart.js")}}"></script>
 {%else%}
-<p>Tu orden está siendo procesada</p>
-<a href="/menu/cancel">Cancelar?</a>
+<article>
+  <div class="list">
+    <div class="state-popup">
+      <p class="small-headline" > Elaboración </p>
+      <p class="medium-body"> Muchas gracias por su compra.
+        Su pedido esta siendo elaborado, puede presentarse a la caja si tiene algun inconviente. </p>
+        <div class="text-button hvr" id="text-button">
+          <p class="button">
+            <a href="/menu/cancel">Cancelar</a>
+          </p>
+          
+        </div>
+    </div>
+    <div class="list-dropdown open">
+      <div class="list-dropdown_button">
+        <span class="material-icons-round">list_alt</span>
+        <p class="list-dropdown_button_text-area large-body">
+          Tu orden ||
+          {% for x in CT %}
+            Nro de orden: {{x.id}} ||
+            fecha: {{x.fecha}}
+          {% endfor %}</p>
+        <span class="material-icons-round rotary">expand_more</span>
+      </div>
+      
+      <div class="list-dropdown_content">
+        {% for producto in productos %}
+        <div class="list-dropdown_content_item">
+          <p class="medium-body grow">{{producto.nombre}}</p>
+          <p class="medium-body grow ">Desc: {{producto.descripcion}}</p>
+          <p class="medium-body">x{{producto.cantidad}}</p>
+          <p class="medium-body">${{producto.precio}} ARS</p>
+        </div> 
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</article>
 {% endif %}
 {% endblock %}

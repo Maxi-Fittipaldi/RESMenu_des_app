@@ -1,0 +1,104 @@
+<!-- lista-pedidos.html | DLM: 7/11/2022 | No License.
+     Replicated from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Lista de Pedidos</title>
+  <!-- Metas -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="resmenu,menú,restaurante">
+  <meta name="description" content="Sitio Web para un Restaurante">
+  <meta name="author" content="BACK-END: Maximiliano Fittipaldi, Nicolas Lopez y Ezequiel Milich.
+  FRONT-END: Matias Font, Rosario Hernandez, Pilar Costa, Fernando Hsiao, Julieta Orda y Sol Corbelini.">
+  <meta name="robots" content="index">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="../../Library/Master.css">
+  <link rel="stylesheet" type="text/css" href="../../CSS/Staff/lista-pedidos.css">
+  <!-- Icon pack from Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Page .ico -->
+  <link rel="icon" href="../../Media\logo.ico">
+</head>
+
+<body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body -->
+  <header>
+      <div class="PC-Navbar">
+        <div class="PC-Navbar_upbar">
+          <div class="PC-Navbar_upbar_item" id="configuracion">
+            <span class="material-symbols-rounded">settings</span>
+            <div class="PC-Navbar_upbar_item_indicator">
+              <p class="large-body">Configuracion</p>
+            </div>
+            </div>
+          <div class="PC-Navbar_upbar_item active" id="pedidos"> <!-- "active" css class = Sub-Status (read PC-Nav.css for more status)-->
+            <span class="material-symbols-rounded">article</span>
+            <div class="PC-Navbar_upbar_item_indicator"> 
+              <p class="large-body">Pedidos</p>
+            </div>
+          </div>
+          <div class="PC-Navbar_upbar_item hvr" id="sign-out"> <!-- "hvr" css class = Sub-Status (read PC-Nav.css for more status)-->
+            <span class="material-symbols-rounded">exit_to_app</span>
+            <div class="PC-Navbar_upbar_item_indicator">
+              <p class="large-body">Sign out</p>
+            </div>
+          </div>
+        </div>
+        <div class="PC-Navbar_config-options"> 
+          <div class="PC-Navbar_config-options_item" id="filtros">
+            <span class="material-symbols-rounded">settings</span>
+            <div class="PC-Navbar_config-options_item_labels">
+              <p class="small-body">Filtros</p>
+            </div>
+          </div>
+          <div class="PC-Navbar_config-options_item hvr" id="platillos"> <!-- "hvr" css class = Sub-Status (read PC-Nav.css for more status)-->
+            <span class="material-symbols-rounded">settings</span>
+            <div class="PC-Navbar_config-options_item_labels">
+              <p class="small-body">Platillos</p>
+            </div>
+          </div>
+          <div class="PC-Navbar_config-options_item active" id="roles"> <!-- "active" css class = Sub-Status (read PC-Nav.css for more status)-->
+            <span class="material-symbols-rounded">settings</span>
+            <div class="PC-Navbar_config-options_item_labels">
+              <p class="small-body">Roles</p>
+            </div>
+          </div>
+          <div class="PC-Navbar_config-options_item disabled"> <!-- "disabled" css class = Sub-Status (read PC-Nav.css for more status)-->
+            <span class="material-symbols-rounded">settings</span>
+            <div class="PC-Navbar_config-options_item_labels">
+              <p class="small-body">Otros</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </header>
+  <article>
+      <div class="half-list">
+        <div class="Horiz-Card inv">
+          <div class="Horiz-Card_content">
+            <p class="medium-title">Número de Pedido.</p>
+            <p class="medium-body">Número de mesa.</p>
+          </div>
+            <p class="medium-body" id="time">Hora</p>
+            <div class="Horiz-Card_media"></div>
+        </div>  
+      </div>
+      <div class="half-list">
+        <div class="Horiz-Card inv hvr">
+          <div class="Horiz-Card_content">
+            <p class="medium-title">Número de Pedido.</p>
+            <p class="medium-body">Número de mesa.</p>
+          </div>
+          <p class="medium-body" id="time">Hora</p>
+          <div class="Horiz-Card_media"></div>
+        </div>
+    </div>
+      
+      <!-- Experimental Section -->
+        <!-- Code goes here -->
+      <!-- End Of Section -->
+    </article>
+  <script src="../../JS/experimental.js"></script>
+</body>
+</html>

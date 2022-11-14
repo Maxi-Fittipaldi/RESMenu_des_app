@@ -1,0 +1,132 @@
+/* Btn-Input.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/* Code goes here. */
+	.Input-Button {
+		/* Auto layout */
+
+		display: flex;
+		align-items: center;
+		padding: 8px 12px 8px 16px;
+		gap: 6px;
+		width: fit-content;
+		height: fit-content;
+
+		/* M3/read-only/dark/surface1 */
+
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+		/* M3/sys/dark/outline
+
+		token=md.sys.color.outline
+		*/
+		border: 1px solid #938F99;
+		border-radius: 4px;
+
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1;
+	}
+
+	.Input-Button_text {
+		/* Auto layout */
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 8px 0px;
+		width: fit-content;
+		height: fit-content;
+
+		border-radius: 4px 4px 0px 0px;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: disabled (dis) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+		.Input-Button#disabled.dis {
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+			opacity: 0.6;
+			border-radius: 4px;
+		}
+
+
+	/*─────────── Variant: hover (hvr) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+		.Input-Button#hover.hvr {
+			border: 1px solid #E6E1E5;
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), #1C1B1F;
+		}
+
+
+	/*─────────── Variant: active (act) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+		.Input-Button#active.act {
+			border: 2px solid #D0BCFF;
+			border-radius: 4px;
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), #1C1B1F;
+		}
+	
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+	
+	/*─────────── Status: On-Hover (hvr) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/*─────────── Status: After-Click (afc) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Icon Error. */
+		.Input-Button span#error {
+			color: #F2B8B5;
+		}
+
+/* New section goes up here. */
+/* End of the document. */

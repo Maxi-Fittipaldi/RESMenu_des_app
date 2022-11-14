@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+  {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font from Google Fronts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Icon pack from Google Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Productos</title>
+    <link href="{{url_for('static',filename='CSS/bootstrap.min.css')}}" rel="stylesheet">
+  {% endblock %}
+
+  {% block body %}
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/menu">Resmenu</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/profile">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/manage">Gestionar productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/admin/orders">Gestionar órdenes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/admin">Panel de admin</a>
+        </li>
+      </ul>
+      <ul class="nav justify-content-end">
+        <li>Rol actual: <b>{{session.rol}}</b></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <h1>Usuarios</h1>
+  <div class="d-flex flex-row flex-wrap mb-3 ">
+  {% for usuario in usuarios %}
+  <div class="card flex-fill" style="width: 18rem;">
+    <div class="card-body">
+      <form action="/admin/update/{{usuario.id}}" method="post">
+      <h5 class="card-title">
+          <input type="text" name="apellido" placeholder="apellido" value="{{usuario.apellido}}">
+      </h5>
+      <p>
+          <input type="text" name="nombre" placeholder="nombre" value="{{usuario.nombre}}">
+      </p>
+      <p>
+          <input type="email" name="email" placeholder="nombre" value="{{usuario.email}}">
+      </p>
+      <p>rol:
+        <select name="rol" id="">
+          <option>sin_rol</option>
+          <option>cajero</option>
+          <option>chef</option>
+          {% if usuario.rol == "admin" %}
+          <option selected >admin</option>
+          {% else %}
+          <option style="background-color: red">admin</option>
+          {% endif %}
+        </select>
+      </p>
+      <p>estado:</p>
+      <select name="estado" id="">
+        <option>pendiente</option>
+        {% if usuario.estado == "verificado" %}
+        <option selected>verificado</option>
+        {% endif %}
+      </select>
+      <a href="/admin/delete/{{usuario.id}}" class="btn btn-danger" >Borrar Usuario</a>
+      <button class="btn btn-success" type="submit">Confirmar modificaciones</button>
+      </form>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+  <h1>Añadir un usuario</h1>
+  <div class="card flex-fill" style="width: 18rem;">
+    <div class="card-body">
+      <form action="/admin/insert" method="POST">
+      <h5 class="card-title">
+          <input type="text" name="apellido" placeholder="apellido" value="Doe">
+      </h5>
+      <p>
+          <input type="text" name="nombre" placeholder="nombre" value="John">
+      </p>
+      <p>
+          <input type="email" name="email" placeholder="email" value="John.Doe@gmail.com">
+      </p>
+      <p>
+          <input type="text" name="pwd" placeholder="contraseña" value="12345">
+      </p>
+      <p>rol:
+        <select name="rol" id="">
+          <option>sin_rol</option>
+          <option>cajero</option>
+          <option>chef</option>
+          <option>admin</option>
+          <option style="background-color: red">admin</option>
+        </select>
+      </p>
+      <p>estado:</p>
+      <select name="estado" id="">
+        <option>pendiente</option>
+        <option selected>verificado</option>
+      </select>
+      <button class="btn btn-success" type="submit">Añadir</button>
+      </form>
+    </div>
+    </div>
+<script src="{{url_for('static',filename='JS/bootstrap.bundle.min.js')}}"></script>
+
+{% endblock %}

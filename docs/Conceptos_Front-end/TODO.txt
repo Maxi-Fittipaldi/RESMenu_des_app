@@ -1,0 +1,35 @@
+﻿----FRONTEND---
+
+Pasar Input-Description (Hsiao)
+  INPUTS 
+  -cambiar inputs para que su contenido se alinee de forma centrada de arriba a abajo
+  -agregar un icono invisible hacia a la izquierda en todos los inputs
+  -agregar una caja que contenga el icono derecho y que pueda contener un switch o buscar otra    alternativa para que el input pueda tener un switch tambien si se desea.
+  -crear boton similar al input
+  -agregar variantes de error al "large-text" usuado como description, x ej
+  -revisar variantes de los inptus modificados
+  -revisar variantes del input-description
+  -Que la X actue por separado
+  -revisar bordes
+
+CORREGIR POPUPS a partir del List-Popup (Mati)
+
+- Unificar botones (exc Icon-BtN) en 1 con muchas variantes (Mati) (OPC)
+
+CREAR PÁGINAS RESTANTES
+FUSION STAFF
+FUSION STAFF-CEL
+AGREGAR SOMBRAS DE FORMA CORRECTA
+REEMPLAZO DE COLORES
+REVISION GENERAL
+TESTING
+
+
+----BACKEND/JS----
+  - JS que detecte cuando un elemento se sobreponga a otro esconda el de abajo.
+
+  COMPONENTES
+  FILTRO
+    - Se necesita que en el backend cambie el texto entre el floating label y el input ingresado     al abrirlo/cerrarlo
+
+Rama Github "Beta" están los últimos cambios de Maxi.

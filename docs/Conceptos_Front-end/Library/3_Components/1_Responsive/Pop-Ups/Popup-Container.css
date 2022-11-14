@@ -1,0 +1,41 @@
+/* Basic-Popup.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+Notes goes here. */
+
+.Smoke-Effect {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position:absolute;
+	background: black;
+	opacity: 0.95;
+
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+
+.Popup-Container {
+	/* Auto layout */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	padding: 16px;
+	gap: 16px;
+
+	width: 100%; 
+	height: 100%;
+	z-index: 101;
+
+	/* Inside auto layout */
+	flex: none;
+}
+
+
+
+/* New section goes up here. */
+/* End of the document. */

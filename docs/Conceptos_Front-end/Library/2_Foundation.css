@@ -1,0 +1,58 @@
+/* 2_Foundation.css | DLM: 16/10/2022 | No License
+Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=51196%3A4675 */
+
+body {
+	/* Auto layout of Frame "Inicio" */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	width: 100vw;
+	height: 100vh;
+
+	background-color: var(--md-sys-color-background);
+
+	/* Inside auto layout */
+	flex: none;
+} 
+
+article {
+	/* Auto layout of "Usable Content" */
+	display: flex;
+	flex-direction: column;
+	padding: 16px;
+	gap: 16px;
+
+	width: 100%;
+	height: fit-content;
+
+	/* Inside auto layout */
+	flex-grow: 1;
+}
+
+header {
+	/* Auto layout of Frame "Navbar" */
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	height: fit-content;
+
+	/* Inside auto layout */
+	flex: none;
+}
+
+/*
+┌────────────────────────────────────────────────┐
+│	PC Adaptation					             │
+└────────────────────────────────────────────────┘
+*/
+
+	/* No content at the moment */
+
+
+	
+/* New section goes up here*/
+
+
+/* End of the Document */

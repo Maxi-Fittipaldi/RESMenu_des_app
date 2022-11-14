@@ -1,0 +1,81 @@
+/* pedido.css | DLM: 20/9/2022 | No License
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=51196%3A4675
+   This file includes a specific sub-page Structure and Overlays*/
+
+/* 
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                        ί CSS Dictionary                                        │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+	[0] = Readme: https://docs.google.com/document/d/1klGHasUyw5qGmO96J0mGbTqSqYJ1BW1GTXY6QOHp4hA/edit?usp=sharing
+	      ↑ Es muy importante leer ese documento antes de adentrarse a programar.
+
+	[1] = Structure
+	[2] = Overlays
+
+	[9] = Others
+	[10] = Experimental
+*/  
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                         [1] Structure                                          │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+	.list {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 16px;
+
+		width: 100%;
+		height: 401px;
+		overflow-y: scroll;
+
+
+		/* Inside auto layout */
+		flex: none;
+		order: 0;
+		align-self: stretch;
+		flex-grow: 1;
+	}
+
+	.list-item {
+		/* Auto layout */
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 0px;
+		gap: 16px;
+
+		width: 100%;
+		height: 80px;
+
+
+		/* Inside auto layout */
+		flex: none;
+		order: 1;
+		align-self: stretch;
+		flex-grow: 0;
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                          [2] Overlays                                          │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
+
+	article {
+		height: calc(100% - 80px - 337px);
+	}
+
+	.big-icon-button {
+		background-color: var(--md-sys-color-error);
+	}
+
+	/*─────────── Status: On-Hover ───────────*/
+	.big-icon-button.hvr span {
+		color: var(--md-sys-color-on-error);
+	}

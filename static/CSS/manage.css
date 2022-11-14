@@ -1,0 +1,10 @@
+h1 {
+    color: white;
+}
+body{
+    background: var(--Background)
+}
+.card {
+    margin: 10px;
+    background: var(--Surface)
+}

@@ -1,0 +1,1039 @@
+	/* library.css | DLM: 14/8/2022 | No License
+   This CSS file includes the Material Desing Theme + Foundation, it´s for every sub-page */
+
+/* 
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                        ί CSS Dictionary                                        │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+	[0] = Readme: https://docs.google.com/document/d/1klGHasUyw5qGmO96J0mGbTqSqYJ1BW1GTXY6QOHp4hA/edit?usp=sharing
+	      ↑ Es muy importante leer ese documento antes de adentrarse a programar.
+
+	[1] = Theme:
+		[1.1] = Color Palettes:
+			-> [1.1.1] = Light-Mode
+			-> [1.1.1] = Dark-Mode
+		[1.2] = Shadows
+		[1.3] = Text & Icons
+		[1.4] = Details
+
+	[2] = Foundation
+
+	[3] = Components:
+	[3.1] = Navbar
+	[3.2] = Filter
+	[3.3] = Dropdowns:
+	->	[3.3.1] = Food-Dropdown
+	->	[3.3.2] = Order-Dropdown
+	[3.4] = Cards:
+	->	[3.4.1] = Vertical-Card
+	->	[3.4.2] = Horizontal-Card
+	->	[3.4.2] = Expanded-Card
+	[3.5] = Pop-Ups:
+	->	[3.5.1] = Activity-Popup
+	->	[3.5.2] = State-Popup
+	->	[3.5.3] = Alert-Popup
+	[3.6] = Buttons:
+	->	[3.6.1] = Text-Button
+	->	[3.6.2] = Fav-Button
+	->	[3.6.3] = Icon-Button
+	->	[3.6.4] = Popup-Button
+
+	[9] = Others
+	[10] = Experimental
+*/
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                           [1] Theme                                            │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+(MD v3.0 CUSTOM | DLM: 15/8/2022 | MIT License | Source: https://m3.material.io/ 
+Most of the code was extracted from "Export -> Web (CSS)" in https://m3.material.io/theme-builder#/custom */
+
+
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│						[1.1] Color Palettes                             │
+	└────────────────────────────────────────────────────────────────────────┘
+	More info about colors: https://m3.material.io/styles/color/overview
+		
+		/* Included -text-selection and hardcoded surface depths. */
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│				[1.1.1] Light Mode               │
+		└────────────────────────────────────────────────┘
+		*/
+
+			.material.light {
+				--md-sys-color-primary: #6750A4;
+				--md-sys-color-on-primary: #FFFFFF;
+				--md-sys-color-primary-container: #EADDFF;
+				--md-sys-color-on-primary-container: #21005D;
+				--md-sys-color-secondary: #625B71;
+				--md-sys-color-on-secondary: #FFFFFF;
+				--md-sys-color-secondary-container: #E8DEF8;
+				--md-sys-color-on-secondary-container: #1D192B;
+				--md-sys-color-tertiary: #7D5260;
+				--md-sys-color-on-tertiary: #FFFFFF;
+				--md-sys-color-tertiary-container: #FFD8E4;
+				--md-sys-color-on-tertiary-container: #31111D;
+				--md-sys-color-error: #B3261E;
+				--md-sys-color-on-error: #FFFFFF;
+				--md-sys-color-error-container: #F9DEDC;
+				--md-sys-color-on-error-container: #410E0B;
+				--md-sys-color-outline: #79747E;
+				--md-sys-color-background: #FFFBFE;
+				--md-sys-color-on-background: #1C1B1F;
+				--md-sys-color-surface: #FFFBFE;
+				--md-sys-color-on-surface: #1C1B1F;
+				--md-sys-color-surface-variant: #E7E0EC;
+				--md-sys-color-on-surface-variant: #49454F;
+				--md-sys-color-inverse-surface: #313033;
+				--md-sys-color-inverse-on-surface: #F4EFF4;
+				/* Custom */
+				--md-sys-color-text-selection: rgba(0, 0, 0, 0.2);
+			}
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│				[1.1.2] Dark Mode                │
+		└────────────────────────────────────────────────┘
+		*/
+
+			.material.dark {
+				--md-sys-color-primary: #D0BCFF;
+				--md-sys-color-on-primary: #381E72;
+				--md-sys-color-primary-container: #4F378B;
+				--md-sys-color-on-primary-container: #EADDFF;
+				--md-sys-color-secondary: #CCC2DC;
+				--md-sys-color-on-secondary: #332D41;
+				--md-sys-color-secondary-container: #4A4458;
+				--md-sys-color-on-secondary-container: #E8DEF8;
+				--md-sys-color-tertiary: #EFB8C8;
+				--md-sys-color-on-tertiary: #492532;
+				--md-sys-color-tertiary-container: #633B48;
+				--md-sys-color-on-tertiary-container: #FFD8E4;
+				--md-sys-color-error: #F2B8B5;
+				--md-sys-color-on-error: #601410;
+				--md-sys-color-error-container: #8C1D18;
+				--md-sys-color-on-error-container: #F2B8B5;
+				--md-sys-color-outline: #938F99;
+				--md-sys-color-background: #1C1B1F;
+				--md-sys-color-on-background: #E6E1E5;
+				--md-sys-color-surface: #1C1B1F;
+				--md-sys-color-on-surface: #E6E1E5;
+				--md-sys-color-surface-variant: #49454F;
+				--md-sys-color-on-surface-variant: #CAC4D0;
+				--md-sys-color-inverse-surface: #E6E1E5;
+				--md-sys-color-inverse-on-surface: #313033;
+				/* Custom */
+				--md-sys-color-text-selection: rgba(255, 255, 255, 0.2);
+			}
+
+
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│							[1.2] Shadows                                │
+	└────────────────────────────────────────────────────────────────────────┘
+	More info about shadows in: https://material.io/archive/guidelines/material-design/elevation-shadows.html#elevation-shadows-elevation-android */
+
+		/* Umbra, Penumbra, Ambient.
+		x y blur spread color. */
+		.material {
+			--md-sys-shadow-1DP: 0 0 2px 0 rgba(0,0,0,0.14), 0 2px 2px 0 rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-2DP: 0 0 4px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-3DP: 0 3px 3px 0 rgba(0,0,0,0.14), 0 3px 4px 0 rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-4DP: 0 2px 4px 0 rgba(0,0,0,0.14), 0 4px 5px 0 rgba(0,0,0,0.12), 0 1px 10px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-6DP: 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12), 0 3px 5px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-8DP: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 3px rgba(0,0,0,0.12), 0 4px 15px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-9DP: 0 9px 12px 1px rgba(0,0,0,0.14), 0 3px 16px 2px rgba(0,0,0,0.12), 0 5px 6px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-12DP: 0 12px 17px 2px rgba(0,0,0,0.14), 0 5px 22px 4px rgba(0,0,0,0.12), 0 7px 8px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-16DP: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px 0 rgba(0,0,0,0.2);
+			--md-sys-shadow-24DP: 0 24px 38px 3px rgba(0,0,0,0.14), 0 9px 46px 8px rgba(0,0,0,0.12), 0 11px 15px 0 rgba(0,0,0,0.2);
+		}
+
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│							[1.3] Text & Icons                           │
+	└────────────────────────────────────────────────────────────────────────┘
+	*/
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│				[1.3.1] Text                     │
+		└────────────────────────────────────────────────┘
+		More info about typography in: https://m3.material.io/styles/typography/overview */
+
+			/* Had to replace font-weight "regular" to "400" and "medium" to "500" due to
+			Google Fonts / Browser issues. */
+			.material {
+				/* From small-body to large-body */
+				--md-sys-typescale-caption-font: Roboto; /* small*/
+				--md-sys-typescale-caption-weight: 400;
+				--md-sys-typescale-caption-size: 12px;
+				--md-sys-typescale-caption-line-height: 16px;
+				--md-sys-typescale-caption-tracking: 0.4000000059604645px;
+				--md-sys-typescale-body2-font: Roboto; /* 2 = medium */
+				--md-sys-typescale-body2-weight: 400;
+				--md-sys-typescale-body2-size: 14px;
+				--md-sys-typescale-body2-line-height: 20px;
+				--md-sys-typescale-body2-tracking: 0.25px;
+				--md-sys-typescale-body1-font: Roboto; /* 1 = large */
+				--md-sys-typescale-body1-weight: 400;
+				--md-sys-typescale-body1-size: 16px;
+				--md-sys-typescale-body1-line-height: 24px;
+				--md-sys-typescale-body1-tracking: 0.5px;
+
+				/* small-label to large-label*/
+				--md-sys-typescale-overline-font: Roboto; /* overline = medium*/
+				--md-sys-typescale-overline-weight: 500;
+				--md-sys-typescale-overline-size: 12px;
+				--md-sys-typescale-overline-line-height: 16px;
+				--md-sys-typescale-overline-tracking: 0.5px;
+				--md-sys-typescale-button-font: Roboto; /* button = large*/
+				--md-sys-typescale-button-weight: 500;
+				--md-sys-typescale-button-size: 14px;
+				--md-sys-typescale-button-line-height: 20px;
+				--md-sys-typescale-button-tracking: 0.10000000149011612px;
+				/* Custom */
+				--md-sys-typescale-note-font: Roboto; /* note = small*/
+				--md-sys-typescale-note-weight: 500;
+				--md-sys-typescale-note-size: 11px;
+				--md-sys-typescale-note-line-height: 16px;
+				--md-sys-typescale-note-tracking: 0.5px;
+				
+				/* small-title to large-title*/
+				--md-sys-typescale-subhead2-font: Roboto; /* subhead2 is a small-title */
+				--md-sys-typescale-subhead2-weight: 500;
+				--md-sys-typescale-subhead2-size: 14px;
+				--md-sys-typescale-subhead2-line-height: 20px;
+				--md-sys-typescale-subhead2-tracking: 0.10000000149011612px;
+				--md-sys-typescale-subhead1-font: Roboto; /* subhead1 is a medium-title */
+				--md-sys-typescale-subhead1-weight: 500;
+				--md-sys-typescale-subhead1-size: 16px;
+				--md-sys-typescale-subhead1-line-height: 24px;
+				--md-sys-typescale-subhead1-tracking: 0.15000000596046448px;
+				--md-sys-typescale-headline5-font: Roboto; /* headline5 is a large-title */
+				--md-sys-typescale-headline5-weight: 400;
+				--md-sys-typescale-headline5-size: 22px;
+				--md-sys-typescale-headline5-line-height: 28px;
+				--md-sys-typescale-headline5-tracking: 0px;
+
+				/* From small-headline to large-headline*/
+				--md-sys-typescale-headline4-font: Roboto;
+				--md-sys-typescale-headline4-weight: 400;
+				--md-sys-typescale-headline4-size: 24px;
+				--md-sys-typescale-headline4-line-height: 32px;
+				--md-sys-typescale-headline4-tracking: 0px;
+				--md-sys-typescale-headline3-font: Roboto;
+				--md-sys-typescale-headline3-weight: 400;
+				--md-sys-typescale-headline3-size: 28px;
+				--md-sys-typescale-headline3-line-height: 36px;
+				--md-sys-typescale-headline3-tracking: 0px;
+				--md-sys-typescale-headline2-font: Roboto;
+				--md-sys-typescale-headline2-weight: 400;
+				--md-sys-typescale-headline2-size: 32px;
+				--md-sys-typescale-headline2-line-height: 40px;
+				--md-sys-typescale-headline2-tracking: 0px;
+				--md-sys-typescale-headline1-font: Roboto;
+				--md-sys-typescale-headline1-weight: 400;
+				--md-sys-typescale-headline1-size: 36px;
+				--md-sys-typescale-headline1-line-height: 44px;
+				--md-sys-typescale-headline1-tracking: 0px;
+			}
+			
+			/* Custom [Override](Ovr): */
+			p, a {
+				color: var(--md-sys-color-on-surface);
+			}
+				
+			.caption, .small-body {
+				font-family: var(--md-sys-typescale-caption-font);
+				font-weight: var(--md-sys-typescale-caption-weight);
+				font-size: var(--md-sys-typescale-caption-size);
+				line-height: var(--md-sys-typescale-caption-line-height);
+				letter-spacing: var(--md-sys-typescale-caption-tracking);
+				/* Custom Ovr: */
+				color: var(--md-sys-color-on-surface-variant);
+			}
+
+			.body2, .medium-body {
+				font-family: var(--md-sys-typescale-body2-font);
+				font-weight: var(--md-sys-typescale-body2-weight);
+				font-size: var(--md-sys-typescale-body2-size);
+				line-height: var(--md-sys-typescale-body2-line-height);
+				letter-spacing: var(--md-sys-typescale-body2-tracking);
+				/* Custom Ovr: */
+				color: var(--md-sys-color-on-surface-variant);
+			}
+
+			.body1, .large-body {
+				font-family: var(--md-sys-typescale-body1-font);
+				font-weight: var(--md-sys-typescale-body1-weight);
+				font-size: var(--md-sys-typescale-body1-size);
+				line-height: var(--md-sys-typescale-body1-line-height);
+				letter-spacing: var(--md-sys-typescale-body1-tracking);
+			}
+			
+			/* Custom */
+			.note, .small-label {
+				font-family: var(--md-sys-typescale-note-font);
+				font-weight: var(--md-sys-typescale-note-weight);
+				font-size: var(---md-sys-typescale-note-size);
+				line-height: var(--md-sys-typescale-note-line-height);
+				letter-spacing: var(--md-sys-typescale-note-tracking);
+				color: var(--md-sys-color-on-surface-variant);
+			}
+
+			.overline, .medium-label {
+				font-family: var(--md-sys-typescale-overline-font);
+				font-weight: var(--md-sys-typescale-overline-weight);
+				font-size: var(--md-sys-typescale-overline-size);
+				line-height: var(--md-sys-typescale-overline-line-height);
+				letter-spacing: var(--md-sys-typescale-overline-tracking);
+				/* Custom Ovr: */
+				color: var(--md-sys-color-on-surface-variant);
+			}
+
+			.button, .large-label {
+				font-family: var(--md-sys-typescale-button-font);
+				font-weight: var(--md-sys-typescale-button-weight);
+				font-size: var(--md-sys-typescale-button-size);
+				line-height: var(--md-sys-typescale-button-line-height);
+				letter-spacing: var(--md-sys-typescale-button-tracking);
+				/* Custom Ovr: */
+				color: var(--md-sys-color-on-surface-variant);
+			}
+					
+			.subhead2, .small-title {
+				font-family: var(--md-sys-typescale-subhead2-font);
+				font-weight: var(--md-sys-typescale-subhead2-weight);
+				font-size: var(--md-sys-typescale-subhead2-size);
+				line-height: var(--md-sys-typescale-subhead2-line-height);
+				letter-spacing: var(--md-sys-typescale-subhead2-tracking);
+			}
+
+			.subhead1, .medium-title {
+				font-family: var(--md-sys-typescale-subhead1-font);
+				font-weight: var(--md-sys-typescale-subhead1-weight);
+				font-size: var(--md-sys-typescale-subhead1-size);
+				line-height: var(--md-sys-typescale-subhead1-line-height);
+				letter-spacing: var(--md-sys-typescale-subhead1-tracking);
+			}
+
+			.headline5, .large-title {
+				font-family: var(--md-sys-typescale-headline5-font);
+				font-weight: var(--md-sys-typescale-headline5-weight);
+				font-size: var(--md-sys-typescale-headline5-size);
+				line-height: var(--md-sys-typescale-headline5-line-height);
+				letter-spacing: var(--md-sys-typescale-headline5-tracking);
+			}
+
+			.headline4, .small-headline {
+				font-family: var(--md-sys-typescale-headline4-font);
+				font-weight: var(--md-sys-typescale-headline4-weight);
+				font-size: var(--md-sys-typescale-headline4-size);
+				line-height: var(--md-sys-typescale-headline4-line-height);
+				letter-spacing: var(--md-sys-typescale-headline4-tracking);
+			}
+
+			.headline3, .medium-headline {
+				font-family: var(--md-sys-typescale-headline3-font);
+				font-weight: var(--md-sys-typescale-headline3-weight);
+				font-size: var(--md-sys-typescale-headline3-size);
+				line-height: var(--md-sys-typescale-headline3-line-height);
+				letter-spacing: var(--md-sys-typescale-headline3-tracking);
+			}
+
+			.headline2, .large-headline {
+				font-family: var(--md-sys-typescale-headline2-font);
+				font-weight: var(--md-sys-typescale-headline2-weight);
+				font-size: var(--md-sys-typescale-headline2-size);
+				line-height: var(--md-sys-typescale-headline2-line-height);
+				letter-spacing: var(--md-sys-typescale-headline2-tracking);
+			}
+
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│				[1.3.2] Icons                    │
+		└────────────────────────────────────────────────┘
+		More info about icons in: https://m3.material.io/styles/icons/overview*/
+
+			span {
+				/* M3/read-only/dark/surface1 */
+				font-family: 'Material Icons';
+				font-weight: normal;
+				font-style: normal;
+				font-size: 24px;  /* Preferred icon size */
+				display: inline-block;
+				line-height: 1;
+				text-transform: none;
+				letter-spacing: normal;
+				word-wrap: normal;
+				white-space: nowrap;
+				direction: ltr;
+
+				color: var(--md-sys-color-on-surface);
+
+				/* Support for all WebKit browsers. */
+				-webkit-font-smoothing: antialiased;
+
+				/* Support for Safari and Chrome. */
+				text-rendering: optimizeLegibility;
+
+				/* Support for Firefox. */
+				-moz-osx-font-smoothing: grayscale;
+
+				/* Support for IE. */
+				font-feature-settings: 'liga';
+			}
+
+
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│                              [1.4] Details                             │   
+	└────────────────────────────────────────────────────────────────────────┘
+	Minor MD modifications. */
+
+		/* No content at the moment. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                         [2] foundation                                         │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=51196%3A4675 */
+
+body {
+	/* background-color: red !important; */
+	/* Auto layout of Frame "Inicio" */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+
+	background-color: var(--md-sys-color-background);
+} 
+
+article {
+	/* background-color: orangered !important; */
+	/* Auto layout of "Usable Content" */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 16px;
+	gap: 16px;
+
+	width: 100%;
+	height: calc(100% - 80px - 60px);
+		
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 1;
+}
+
+header {
+	/* background-color: orange !important; */
+	/* Auto layout of Frame "Navbar" */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	width: 100%;
+	height: fit-content;
+
+	/* Inside auto layout */
+	flex: none;
+	order: 2;
+	align-self: stretch;
+	flex-grow: 0;
+}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                         [3] Components                                         │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+Customized MD v3.0 UI KIT in Figma | STUDENT License till 5/2027.
+More info about components in: https://m3.material.io/foundations/glossary
+Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu?node-id=52177%3A3781 */
+
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│							[3.1] Navbar                                 │
+	└────────────────────────────────────────────────────────────────────────┘
+	*/
+
+		.down-nav {
+			/* Auto layout */
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			padding: 0px 12px;
+			gap: 4px;
+			width: 100%;
+			height: 80px;
+		
+			/* M3/read-only/dark/surface2 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), var(--md-sys-color-surface);
+		
+			/* Inside auto layout */
+			flex: none;
+			order: 0;
+			align-self: stretch;
+			flex-grow: 0;
+		}
+		
+		.down-nav_item {
+			/* background-color: gray !important; */
+			/* Auto layout */
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 14px 0px;
+			gap: 8px;
+		
+			width: 33.3%;
+			height: 80px;
+		
+			/* Inside auto layout */
+			flex: none;
+			order: 0;
+			flex-grow: 0;
+		}
+		
+		.down-nav_item.active {
+			padding: 12px 0px;
+			gap: 2px;
+		}
+
+		.down-nav_item.active span {
+			/* Auto Layout */
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			width: 64px;
+			height: 32px;
+			background-color: var(--md-sys-color-secondary-container);
+			border-radius: 20px;
+			
+			/* Inside auto layout */
+			flex: none;
+			order: 0;
+			flex-grow: 0;
+		}
+
+		.down-nav_item.active p {
+			color: var(--md-sys-color-primary)
+		}
+
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│							[3.2] Filter                                 │
+	└────────────────────────────────────────────────────────────────────────┘
+	*/
+
+		.filter {
+			/* background-color: violet !important; */
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		 
+			width: calc(50% - 8px);
+			height: fit-content;
+
+			/* M3/read-only/dark/surface1 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), var(--md-sys-color-surface);
+			border-radius: 4px;
+
+			/* Inside auto layout */
+			flex: none;
+			flex-grow: 0;
+		}
+		
+		.filter_button {
+			/* background-color: pink !important; */
+			/* Auto layout */
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 0px 12px;
+			gap: 12px;
+		
+			width: 100%;
+			height: 48px;
+		
+			/* Inside auto layout */
+			flex: none;
+			order: 0;
+			align-self: stretch;
+			flex-grow: 0;
+		}
+		
+		.filter_button_text-area {
+			/* background-color: rosybrown !important; */
+			/* Auto layout */
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			
+			height: 100%;
+		
+			/* Inside auto layout */
+			flex: none;
+			flex-grow: 1;
+		}
+
+		.filter_button_text-area p.medium-label {
+			display: none
+		}
+		
+		.filter_content {
+			/* Auto layout */
+			display: none;
+			flex-direction: column;
+			align-items: flex-start;
+
+			width: 100%;
+			height: fit-content;
+
+			/* M3/read-only/dark/surface1 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), var(--md-sys-color-surface);
+
+			/* Inside auto layout */
+
+			flex: none;
+			order: 0;
+			align-self: stretch;
+			flex-grow: 0;
+		}
+
+		.filter_content_text-field {
+			/* Auto layout */
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 0px 16px;
+			gap: 10px;
+			
+			width: 100%;
+			height: 32px;
+			
+			
+			/* Inside auto layout */
+			
+			flex: none;
+			order: 2;
+			align-self: stretch;
+			flex-grow: 0;
+		}
+
+		.filter_content_text-field.active {
+			/* M3/read-only/dark/surface3 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), var(--md-sys-color-surface);
+		}
+		
+		/* ─────────── Open State ─────────── */
+			.filter.open .filter_button {
+				/* M3/read-only/dark/surface3 */
+				background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), var(--md-sys-color-surface);
+				
+				/* M3/sys/dark/outline */
+				border-bottom: 2px solid var(--md-sys-color-outline);
+			}
+
+			.filter.open .filter_button span.rotary {
+				transform: rotate(180deg);
+				transition-duration: 500ms
+			}
+
+			.filter.open .filter_button .filter_button_text-area p.medium-label {
+				color: var(--md-sys-color-primary)
+			}
+			
+			.filter.open .filter_button .filter_button_text-area p.medium-label {
+				display: initial;
+			}
+
+			.filter.open .filter_content {
+				display: flex;
+			}
+	
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│							[3.3] Dropdowns                              │
+	└────────────────────────────────────────────────────────────────────────┘
+	*/
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│			[3.3.1] Food-Dropdown                │
+		└────────────────────────────────────────────────┘
+		*/
+
+			.food-dropdown {
+				/* background-color: crimson !important; */
+				/* Auto layout */
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+			
+				width: 100%;
+				height: fit-content;
+			
+			
+				/* Inside auto layout */
+				flex: none;
+				align-self: stretch;
+				flex-grow: 0;
+			}
+			
+			.food-dropdown_button {
+				/* background-color: lightcoral !important; */
+				/* Auto layout */
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				padding: 0px 12px;
+				gap: 16px;
+			
+				width: 100%;
+				height: 56px;
+			
+				/* M3/read-only/dark/surface1 */
+				background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), var(--md-sys-color-surface);
+				border-radius: 4px 4px 0px 0px;
+			
+				/* Inside auto layout */
+				flex: none;
+				order: 0;
+				align-self: stretch;
+				flex-grow: 0;
+			}
+
+			/* Custom*/
+			.food-dropdown_button_text-area {
+				/* background-color: gray !important; */
+				/* Auto layout */
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 16px;
+
+				height: 100%;
+			
+				/* Inside auto layout */
+				flex: none;
+				order: 0;
+				flex-grow: 1;
+			}
+			
+			
+			.food-dropdown_content {
+				/* background-color: yellow !important; */
+				/*display: none !important;*/
+				/* Auto layout */
+				display: none;
+				flex-direction: row;
+				align-items: flex-start;
+				padding: 16px 0px 16px;
+				gap: 16px;
+			
+				width: 100%;
+				height: fit-content;
+			
+				/* Inside auto layout */
+				flex: none;
+				order: 1;
+				align-self: stretch;
+				flex-grow: 0;
+			}
+			
+			.food-dropdown_content_cards {
+				/* background-color: greenyellow !important; */
+				/* Auto layout */
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 16px;
+			
+				width: 50%;
+				height: fit-content;
+				
+				/* Inside auto layout */
+				/* [removed property "flex: none" from "Figma"] */
+				align-self: stretch;
+				flex-grow: 1;
+			}
+
+			/* ─────────── Open State ─────────── */
+				.food-dropdown.open .food-dropdown_button{
+					/* M3/read-only/dark/surface3 */
+					background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), var(--md-sys-color-surface);
+					/* M3/sys/dark/primary */
+					border-bottom: 2px solid var(--md-sys-color-primary);
+				}
+
+				.food-dropdown.open .food-dropdown_content {
+					display: flex;
+				}
+
+				.food-dropdown.open .food-dropdown_button span.rotary {
+					transform: rotate(180deg);
+					transition-duration: 500ms
+				}
+			
+		/*
+		┌────────────────────────────────────────────────┐
+		│			[3.3.2] Order-Dropdown               │
+		└────────────────────────────────────────────────┘
+		*/
+
+			/* No content at the moment. */
+
+
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│							[3.4] Cards                                  │
+	└────────────────────────────────────────────────────────────────────────┘
+	*/
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│			[3.4.1] Verical-Card                 │
+		└────────────────────────────────────────────────┘
+		*/
+
+			.card {	
+				/* background-color: blue !important; */
+				/* Auto layout */
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+			
+				width: 100%;
+				height: fit-content;
+			
+				/* M3/read-only/dark/surface1 */
+				background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), var(--md-sys-color-surface);
+				border-radius: 12px;
+			
+				/* Inside auto layout */
+				flex: none;
+				align-self: stretch;
+				flex-grow: 0;
+			}
+			
+			.card img {
+				width: 100%
+			}
+			
+			.card_headline {
+				/* background-color: green !important; */
+				/* Auto layout */
+				flex-direction: column;
+				align-items: flex-start;
+				padding: 16px 16px 8px;
+				width: 100%;
+				height: fit-content;
+			
+				/* Inside auto layout */
+				flex: none;
+				order: 1;
+				align-self: stretch;
+				flex-grow: 0;
+			}
+			
+			.card_actions {
+				/* background-color: blueviolet !important; */
+				/* Auto layout */
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				padding: 8px 16px 16px;
+			
+				width: 100%;
+				height: 64px;
+			
+				/* Inside auto layout */
+				flex: none;
+				order: 2;
+				align-self: stretch;
+				flex-grow: 0;
+			}
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│			[3.4.2] Horizontal-Card              │ 
+		└────────────────────────────────────────────────┘
+		*/
+
+			/* No content at the moment. */
+		
+		/*
+		┌────────────────────────────────────────────────┐
+		│			 [3.4.3] Expanded-Card               │
+		└────────────────────────────────────────────────┘
+		*/
+
+			/* No content at the moment. */
+
+		
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│							[3.5] Pop-Ups                                │
+	└────────────────────────────────────────────────────────────────────────┘
+	*/
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│			[3.5.1] Activity-Popup               │
+		└────────────────────────────────────────────────┘
+		*/
+
+			/* No content at the moment. */
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│			 [3.5.2] State-Popup                 │
+		└────────────────────────────────────────────────┘
+		Notes goes here */
+
+			/* No content at the moment. */
+		
+		/*
+		┌────────────────────────────────────────────────┐
+		│			 [3.5.3] Alert-Popup                 │
+		└────────────────────────────────────────────────┘
+		Notes goes here */
+
+			/* No content at the moment. */
+
+		
+	/*
+	┌────────────────────────────────────────────────────────────────────────┐
+	│							[3.6] Buttons                                │
+	└────────────────────────────────────────────────────────────────────────┘
+	*/
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│			  [3.6.1] Text-Button                │
+		└────────────────────────────────────────────────┘
+		*/
+
+			.text-button {
+				/* Auto layout */
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding: 10px 24px;
+				gap: 10px;
+			
+				width: fit-content;
+				height: 40px;
+			
+				/* M3/sys/dark/primary */
+				background-color: var(--md-sys-color-primary);
+				border-radius: 100px;
+			
+				/* Inside auto layout */
+				flex: none;
+				order: 0;
+				flex-grow: 0;
+			}
+
+			.text-button p.button {
+				color: black;
+			}
+
+			.text-button.active p.button {
+				color: var(--md-sys-color-on-primary)
+			}
+
+			.text-button:hover p.button {
+				color: var(--md-sys-color-on-primary)
+			}
+			
+		/*
+		┌────────────────────────────────────────────────┐
+		│		 	   [3.6.2] Fav-Button                │
+		└────────────────────────────────────────────────┘
+		*/
+
+			.fav-button {
+				/* Auto layout */
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+			
+				width: 36px;
+				height: 36px;
+			
+				/* M3/ref/tertiary/tertiary80 */
+				background-color: var(--md-sys-color-tertiary);
+				border-radius: 100px;
+			
+				/* Inside auto layout */
+				flex: none;
+				order: 1;
+				flex-grow: 0;
+			}
+
+			.fav-button span {
+				color: var(--md-sys-color-on-surface);
+			}
+
+			.fav-button.active span {
+				color: var(--md-sys-color-on-tertiary);
+			}
+		
+		/*
+		┌────────────────────────────────────────────────┐
+		│			  [3.6.3] Icon-Button                │
+		└────────────────────────────────────────────────┘
+		*/
+
+			/* No content at the moment. */
+
+		/*
+		┌────────────────────────────────────────────────┐
+		│			  [3.6.4] Popup-Button               │
+		└────────────────────────────────────────────────┘
+		*/
+
+			/* No content at the moment. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                           [9] Others                                           │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+Nonclassifiable CSS CSS */
+
+	/* No content at the moment. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                       [10] Experimental                                        │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘
+Testing Code */
+
+/* End of the Document */

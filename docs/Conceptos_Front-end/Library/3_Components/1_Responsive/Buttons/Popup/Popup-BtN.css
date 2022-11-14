@@ -1,0 +1,94 @@
+/* Popup-BtN | DLM: 16/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Popup-BtN {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		padding: 10px 12px;
+		gap: 8px;
+	
+		width: fit-content;
+		height: fit-content;
+	
+		border-radius: 100px;
+		
+		/* Inside auto layout */
+		flex: none;
+		
+	}
+	
+	.Popup-BtN p {
+		color: var(--md-sys-color-primary);
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: danger (abreviation) ───────────*/
+	/* Notes goes here. */
+		.Popup-BtN.danger p {
+			color: var(--md-sys-color-error);
+		}
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled ───────────*/
+	.Popup-BtN.disabled p {
+		opacity: 0.60;
+	}
+
+	/*─────────── Status: On-Hover ───────────*/
+	.Popup-BtN.hvr {
+		/* M3/read-only/dark/primary/opacity-0.08 */
+		background: rgba(208, 188, 255, 0.08);
+	}
+
+	/*─────────── Status: After-Click ───────────*/
+	.Popup-BtN.afc {
+		/* M3/read-only/dark/primary/opacity-0.12 */
+		background: rgba(208, 188, 255, 0.12);
+
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+
+		
+/* New section goes up here. */
+/* End of the document. */

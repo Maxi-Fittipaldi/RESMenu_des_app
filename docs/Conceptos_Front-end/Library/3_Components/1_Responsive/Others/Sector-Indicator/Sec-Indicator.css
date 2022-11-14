@@ -1,0 +1,31 @@
+/* Sec-Indicator.css | DLM: 16/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+Notes goes here. */
+
+	.Sec-Indicator {  /* Named "confirmation dialog" in Figma */
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 24px;
+	
+		width: 100%;
+		height: fit-content;
+		gap: 16px;
+	
+		/* M3/read-only/dark/surface5 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.14), rgba(208, 188, 255, 0.14)), #1C1B1F;
+		backdrop-filter: blur(4px);
+		/* Note: backdrop-filter has minimal browser support */
+		border-radius: 12px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+
+
+		
+/* New section goes up here. */
+/* End of the document. */

@@ -1,0 +1,80 @@
+/* pedido.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   This file includes a specific sub-page Structure and Overlays.
+
+   ί Dictionary:
+   {1} = Structure;
+   {2} = Overlays;
+   {3} = Others.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Structure														 │
+└────────────────────────────────────────────────────────────────────────┘
+    Notes goes here. */
+
+	.list {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		width: 100%;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none
+	}
+
+	.list-item {
+		/* Auto layout */
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 0px;
+		gap: 16px;
+		
+		width: 100%;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none
+	}
+
+	.list-item .horiz-card {
+		flex-grow: 1;
+	}
+
+	.list-item .Icon-BtN {
+		flex-shrink: 0;
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Overlays														 │
+└────────────────────────────────────────────────────────────────────────┘
+    Notes goes here. */
+
+	.Icon-BtN {
+		background-color: var(--md-sys-color-error);
+	}
+
+	/*─────────── Status: On-Hover ───────────*/
+	.Icon-BtN.hvr span {
+		color: var(--md-sys-color-on-error);
+	}
+
+	.Nav-Dialog.collapsed .Nav-Dialog_item#Cost {
+		display: flex;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} Others															 │
+└────────────────────────────────────────────────────────────────────────┘
+    Notes goes here. */
+
+    /* Code goes here. */
+
+
+/* End of the document. */

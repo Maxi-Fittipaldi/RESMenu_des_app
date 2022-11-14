@@ -1,0 +1,113 @@
+/* Basic-List.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+	.Basic-List { /* named "lista" in figma */
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		padding: 8px;
+		gap: 12px;
+	
+		width: fit-content;
+		height: fit-content;
+	
+		/* M3/read-only/dark/surface2 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), #1C1B1F;
+	
+		/* Inside auto layout */
+		flex: none;			
+	}	
+
+	.Basic-List_item { /* named "frame 5" in figma */
+		/* Auto layout */
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		padding: 4px 8px;
+		gap: 8px;
+	
+		width: 100%;
+		height: fit-content;
+
+		/* M3/read-only/dark/surface3 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), #1C1B1F;
+	
+		/* Inside auto layout */
+		flex: none;				
+	}
+
+	.Basic-List_item_info {
+		/* Auto layout */
+		display: flex;
+		flex-direction: row;
+		gap: 8px;
+
+		width: fit-content;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+	
+	/*─────────── Status: On-Hover (hvr) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/*─────────── Status: After-Click (afc) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: Glow ───────────*/
+	/* It makes an item outstands from the rest with a different BG-color. */
+		.Basic-List_item.Gblaze {
+			/* M3/sys/dark/secondary-container */
+			background: var(--md-sys-color-secondary-container);
+		}
+
+/* New section goes up here. */
+/* End of the document. */

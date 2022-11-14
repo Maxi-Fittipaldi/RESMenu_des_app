@@ -10,19 +10,16 @@ CREATE TABLE usuarios (
     apellido VARCHAR(50) NOT NULL,
     password VARCHAR(64) NOT NULL,
     estado ENUM("pendiente","verificado","terminado") DEFAULT "pendiente",
-    rol ENUM("cliente","staff","admin") DEFAULT "cliente",
+    rol ENUM("sin_rol","chef","cajero","admin") DEFAULT "sin_rol",
     PRIMARY KEY(id)
 )ENGINE = InnoDB;
 
 CREATE TABLE cabeceraTransaccion(
     id INT(11) NOT NULL AUTO_INCREMENT,
-    usuario_id INT(11) NOT NULL,
-    nro_mesa INT(3) NOT NULL,
-    estado ENUM("completado","pendiente","cancelado") DEFAULT "pendiente",
+    cliente_id VARCHAR(64) NOT NULL,
+    estado ENUM("completado","en_proceso","pendiente","cancelado") DEFAULT "pendiente",
     fecha datetime DEFAULT current_timestamp,
-    PRIMARY KEY(id),
-    CONSTRAINT fk_usuario_id FOREIGN KEY (usuario_id)
-    REFERENCES usuarios(id)
+    PRIMARY KEY(id)
 ) ENGINE = InnoDB;
 
 CREATE TABLE productos(
@@ -46,8 +43,6 @@ CREATE TABLE detalleTransaccion(
     cantidad INT(2) DEFAULT 1,
     monto DOUBLE(11,2) NOT NULL,
     estado VARCHAR(10) NOT NULL,
-    ranking INT(1) DEFAULT 5,
-    comentarios VARCHAR(150) DEFAULT "No se ofrecieron comentarios",
     PRIMARY KEY(cabecera_id, producto_id),
     CONSTRAINT fk_cabecera_id FOREIGN KEY(cabecera_id)
     REFERENCES cabeceraTransaccion(id),
@@ -73,3 +68,9 @@ CREATE TABLE localesProductos(
     CONSTRAINT fk_local_id FOREIGN KEY(local_id)
     REFERENCES locales(id)
 )ENGINE = InnoDB;
+
+-- admin account
+INSERT INTO usuarios
+            (email,nombre,apellido,password,estado,rol)
+VALUES('admin@email.com','Admin','Adm','5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5','verificado','admin')
+-- pass = 12345
