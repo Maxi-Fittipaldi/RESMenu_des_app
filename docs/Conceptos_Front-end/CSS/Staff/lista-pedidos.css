@@ -1,0 +1,57 @@
+/* lista-pedidos.css | DLM: 7/11/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   This file includes a specific sub-page Structure and Overlays.
+
+   ί Dictionary:
+   {1} = Structure;
+   {2} = Overlays;
+   {3} = Others.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Structure														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+   article {
+      flex-direction: row;
+      padding: 32px;
+      gap: 48px;
+   }
+
+   .half-list {
+      /* Auto layout */
+      background-color: red;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      width: calc(50% - 48px);
+      height: 100%;
+
+      /* Inside auto layout */
+      flex: none;
+      flex-grow: 1;
+   }
+
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Overlays														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/* Code goes here. */
+
+	
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} Others															 │
+└────────────────────────────────────────────────────────────────────────┘
+    Notes goes here. */
+    
+
+
+	/* Code goes here. */
+
+
+/* End of the document. */

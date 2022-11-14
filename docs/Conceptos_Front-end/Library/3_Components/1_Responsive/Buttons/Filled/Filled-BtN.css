@@ -1,0 +1,106 @@
+/* Filled-BtN.css | DLM: 15/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Filled-BtN {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		padding: 10px 24px;
+		gap: 8px;
+		
+		width: fit-content;
+		height: 40px;
+	
+		/* M3/sys/dark/primary */
+		background-color: var(--md-sys-color-primary);
+		border-radius: 100px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	.Filled-BtN span {
+		display: none;
+		color: var(--md-sys-color-inverse-on-surface);
+	}
+
+	.Filled-BtN p {
+		max-height: 20px;
+		overflow: hidden;
+		color: var(--md-sys-color-inverse-on-surface);
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: Icon (icon) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	.Filled-BtN.icon {
+		padding: 10px 24px 10px 16px;
+	}
+
+	.Filled-BtN.icon span {
+		display: inline-block;
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled ───────────*/
+	.Filled-BtN.disabled {
+		background-color: var(--md-sys-color-inverse-on-surface)
+	}
+
+	.Filled-BtN.disabled p, .Filled-BtN.disabled span {
+		color: var(--md-sys-color-on-surface)
+	}
+
+	/*─────────── Status: On-Hover ───────────*/
+	.Filled-BtN.hvr p {
+		color: var(--md-sys-color-on-primary)
+	}
+
+	.Filled-BtN.hvr span {
+		color: var(--md-sys-color-on-primary)
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+
+
+/* New section goes up here. */
+/* End of the document. */

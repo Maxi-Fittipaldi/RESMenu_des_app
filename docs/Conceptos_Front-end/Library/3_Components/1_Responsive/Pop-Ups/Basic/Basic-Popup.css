@@ -1,0 +1,43 @@
+/* Basic-Popup.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+Notes goes here. */
+
+	.Basic-Popup {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		padding: 24px;
+		gap: 16px;
+	
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.14), rgba(208, 188, 255, 0.14)), #1C1B1F;
+		border-radius: 12px;
+	
+		width: fit-content; 
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;
+		flex-shrink: 1;
+		
+	}
+	
+	.Basic-Popup_actions {
+		/* Auto layout */
+		display: flex;
+		justify-content: flex-end;
+		gap: 32px;
+	
+		width: 100%; 
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1;
+	}
+
+
+
+/* New section goes up here. */
+/* End of the document. */

@@ -1,0 +1,103 @@
+<!-- elaboracion.html | DLM: 10/10/2022 | No License.
+     Replicated from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Elaboración</title>
+  <!-- Metas: -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="resmenu,menú,restaurante">
+  <meta name="description" content="Sitio Web para un Restaurante">
+  <meta name="author" content="BACK-END: Maximiliano Fittipaldi, Nicolas Lopez y Ezequiel Milich.
+  FRONT-END: Matias Font, Rosario Hernandez, Pilar Costa, Fernando Hsiao, Julieta Orda y Sol Corbelini.">
+  <meta name="robots" content="index">
+  <!-- CSS: -->
+  <link rel="stylesheet" type="text/css" href="../../Library/Master.css">
+  <link rel="stylesheet" type="text/css" href="../../CSS/Clients/elaboracion.css">
+  <!-- Activate just for experiments:-->
+  <!-- <link rel="stylesheet" type="text/css" href="../Library/4_Others/4.1_Experimental.css"> -->
+  <!-- Icon pack from Google Fonts: -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Page .ico: -->
+  <link rel="icon" href="../../Media/logo.ico">
+</head>
+
+<body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body. -->
+  <article>
+    <div class="Sec-Indicator">
+      <p class="small-headline">Elaboración</p>
+      <p class="medium-body"> 
+        Muchas gracias por su compra.
+        Su pedido esta siendo elaborado, puede presentarse a la caja si tiene algun inconviente.
+      </p>
+    </div>
+    <div class="Basic-DDL open" id="Basic-DDL"> <!-- Remove "open" class to collapse the Basic-DDL. -->
+      <div class="Basic-DDL_button" id="Basic-DDL_button">
+        <span class="material-icons-outlined">brunch_dining</span>     
+        <p class="filter_button_text-area large-body">Platos Principales</p>
+        <span class="material-icons-round rotary">expand_more</span> 
+      </div>
+      <div class="Basic-DDL_content">
+        <div class="Basic-List">
+          <div class="Basic-List_item ablaze"> <!-- First item goes with the class "ablaze", which means "iluminado" due to it serves as a guide. -->
+            <p class="medium-body grow">Producto</p>
+            <div class="Basic-List_item_info">
+              <p class="medium-body">Cant</p>
+              <p class="medium-body">Precio.</p>
+            </div>
+          </div>
+          <div class="Basic-List_item">
+            <p class="medium-body grow">Producto</p>
+            <div class="Basic-List_item_info">
+              <p class="medium-body">Cant</p>
+              <p class="medium-body">Precio.</p>
+            </div>
+          </div>
+          <div class="Basic-List_item">
+            <p class="medium-body grow">Producto</p>
+            <div class="Basic-List_item_info">
+              <p class="medium-body">Cant</p>
+              <p class="medium-body">Precio.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Experimental Section: -->
+      <!-- Code goes here. -->
+    <!-- End Of Section. -->
+  </article>
+  <header>
+    <div class="Nav-Dialog"> <!-- Add "collapsed" class to close it. -->
+      <div class="Nav-Dialog_state-indicator">
+        <span class="material-icons-round rotary">expand_more</span> 
+      </div>
+      <div class="Nav-Dialog_item" id="orderID">
+        <div class="Nav-Dialog_item_text">
+          <span class="material-icons-round">tag</span> 
+          <p class="large-label">Número de Orden</p>
+        </div>
+        <p class="large-label">0930-01</p>
+      </div>
+      <div class="Nav-Dialog_item" id="DeliveryTime">
+        <div class="Nav-Dialog_item_text">
+          <span class="material-icons-round">hourglass_top</span> 
+          <p class="large-label">Hora de Entrega Aproximada</p>
+        </div>
+        <p class="large-label">9:55</p>
+      </div>
+    </div>
+    <nav class="Mobile-Nav back" id="Mobile-Nav">
+      <div class="Mobile-Nav_item">
+        <span class="material-icons-round">arrow_back_ios_new</span> 
+        <p class="large-label">Volver</p>
+      </div>
+    </nav>
+  </header>
+  <script src="../../JS/experimental.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+Nota: Configuracion platillos
+Al buscar entre cartas, estas apareceran con los parametros deshabilitados en un tono mas gris
+A la vez, el boton de borrary confirmar se reemplazaran por 1 de editar en la parte superior.
+Al apretar el boton de +, se va a abrir  la configuracion de un platillo con el mismo estilo que en la imagen.

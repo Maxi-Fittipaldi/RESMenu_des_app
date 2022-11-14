@@ -1,0 +1,88 @@
+/* Search-box.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Search-Box {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		padding: 12px 34px 12px 8px;
+		gap: 10px;
+
+		width: fit-content;
+		height: fit-content;
+
+		/* M3/sys/dark/inverse-surface token=md.sys.color.inverse-surface*/
+		background: var(--md-sys-color-inverse-surface);
+		border-radius: 100px;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.Search-Box p {
+		color: var(--md-sys-color-inverse-on-surface)
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Notes goes here. */
+		/*Code goes here./
+
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+	
+	/*─────────── Status: On-Hover (hvr) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/*─────────── Status: Active ───────────*/
+	.Search-Box.active {
+		border: 2px solid var(--md-sys-color-primary);
+		border-radius: 100px;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+/* New section goes up here. */
+/* End of the document. */

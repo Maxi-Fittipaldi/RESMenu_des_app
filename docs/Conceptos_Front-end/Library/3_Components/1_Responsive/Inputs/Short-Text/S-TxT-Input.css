@@ -1,0 +1,278 @@
+/* S-Input.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.S-TxT-Input {
+		/* Auto layout */
+		/* Delete line below after test. */
+		min-width: 210px;
+		display: flex;
+		align-items: center;
+		padding: 8px 12px 8px 16px;
+		gap: 8px;
+		width: fit-content;
+		min-height: 56px;
+		height: fit-content;
+
+		/* M3/read-only/dark/surface1 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), #1C1B1F;
+		/* M3/sys/dark/outline*/
+
+		border-radius: 4px 4px 0px 0px;
+		border-bottom: 1px solid #938F99;
+		color: #CAC4D0;
+   
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.S-TxT-Input span {
+		color: rgba(202, 196, 208, 1);
+		display: none;
+	}
+
+	.S-TxT-Input_text-field {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+
+		width: fit-content;
+		height: fit-content;
+
+		border-radius: 4px 4px 0px 0px;
+
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1;
+	}
+
+	.S-TxT-Input_text-field span {
+		display: none;
+	}
+
+	.S-TxT-Input_text-field p.active {
+		color: var(--md-sys-color-outline);
+		display: none;
+	}	
+
+	.S-TxT-Input_text-field p {
+		color: var(--md-sys-color-outline);
+	}	
+
+
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: Span+ (splus) ───────────*/
+	/* Extra span in the left. */
+		.s-TxT-Input.splus span#left {
+			display: inline-block;
+		}
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Notes goes here. */
+		.S-TxT-Input.dis .S-TxT-Input_text-field p{
+			color: var(--md-sys-color-outline)
+		}
+
+
+
+
+	
+	/*─────────── Status: Error (error) ───────────*/
+	/* Notes goes here. */
+		.S-TxT-Input.error {
+			border-bottom: 2px solid #F2B8B5;
+			
+		}
+
+		.S-TxT-Input.error .S-TxT-Input_text-field p.active {
+			display: flex;
+			color: #F2B8B5;
+		}
+
+		.S-TxT-Input.error .S-TxT-Input_text-field p.error {
+			color: #F2B8B5;
+		}
+
+		.S-TxT-Input.error span {
+			color: #E46962;
+			display: flex;
+		}
+
+		.S-TxT-Input.error .S-TxT-Input_text-field p.grow {
+			color: #CAC4D0;
+		}
+
+	/*─────────── Status: Final-Error (final-error) ───────────*/
+	/* Notes goes here. */
+		.S-TxT-Input.final-error {
+			border-bottom: 1px solid #F2B8B5;
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+		}
+
+		.S-TxT-Input.final-error span {
+			color: #E46962;
+			display: flex;
+		}
+
+		/*─────────── Status: default 2 (deaf) ───────────*/
+	/* Notes goes here. */
+
+		.S-TxT-Input.deaf {
+			border-bottom: 1px solid #938F99;
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+		}
+
+		.S-TxT-Input.deaf span.deaf {
+			display: flex;
+		}
+
+		.S-TxT-Input.deaf .S-TxT-Input_text-field p.active {
+			display: flex;
+		}
+
+		.S-TxT-Input.deaf .S-TxT-Input_text-field p.grow {
+			color: #CAC4D0;
+		}
+
+		/*─────────── Status: default 2 (deaf-dis) ───────────*/
+	/* Notes goes here. */
+
+		.S-TxT-Input.deaf-dis {
+			border-bottom: none;
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+			opacity: 0.6;
+		}
+		.S-TxT-Input.deaf-dis span.deaf {
+			display: none;
+		}
+
+		.S-TxT-Input.deaf-dis .S-TxT-Input_text-field p.active {
+			display: flex;
+		}
+
+		
+		
+
+		/*─────────── Status: default 2 (deaf-hover) ───────────*/
+	/* Notes goes here. */
+		.S-TxT-Input.deaf-hover {
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), #1C1B1F;
+			border-bottom: 1px solid #E6E1E5;
+		}
+
+		.S-TxT-Input.deaf-hover span.deaf {
+			display: flex;
+			color: #F2B8B5;
+		}
+
+		.S-TxT-Input.deaf-hover .S-TxT-Input_text-field p.active {
+			display: flex;
+		}
+
+		.S-TxT-Input.deaf-hover .S-TxT-Input_text-field p.grow {
+			color: #CAC4D0;
+		}
+
+		
+	
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Active (active) ───────────*/
+	/* Mandatory aclaration here. */
+
+		.S-TxT-Input.active {
+			border-bottom: 1px solid #D0BCFF;
+		}
+
+		.S-TxT-Input.active span {
+			display: flex;
+		}
+
+		.S-TxT-Input.active .S-TxT-Input_text-field p.active {
+			color: var(--md-sys-color-outline);
+			display: flex;
+			color: #D0BCFF;
+		}	
+
+		.S-TxT-Input.active .S-TxT-Input_text-field p.grow{
+			color: #CAC4D0;
+		}	
+
+
+
+	/*─────────── Status: Active-icon (active-i) ───────────*/
+	/* Mandatory aclaration here. */
+		.S-TxT-Input.active-i {
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), #1C1B1F;
+			border-bottom: 2px solid #D0BCFF;;
+		}
+
+		.S-TxT-Input.active-i span#left {
+			display: none;
+		}
+
+		.S-TxT-Input.active-i span {
+			display: flex;
+		} 
+
+		.S-TxT-Input.active-i .S-TxT-Input_text-field p.active {
+			display: flex;
+			color: #D0BCFF;
+		}
+
+		.S-TxT-Input.active-i .S-TxT-Input_text-field p.grow {
+			color: #CAC4D0;
+		}
+
+
+
+
+
+
+
+	/*─────────── Variant: var_name (hover) ───────────*/
+	/* Mandatory aclaration here. */
+
+		.S-TxT-Input.hover {
+			border-bottom: 1px solid #E6E1E5;
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), #1C1B1F;
+		}
+
+		.S-TxT-Input.hover .S-TxT-Input_text-field p {
+			color: #CAC4D0;
+		}
+
+
+
+/* New section goes up here. */
+/* End of the document. */

@@ -1,0 +1,171 @@
+/* 1.2_Fonts.css | DLM: 23/9/2022 | No License
+More info about typography in: https://m3.material.io/styles/typography/overview
+
+ί Dictionary
+	{1} = Typography
+	{2} = Icons
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Typography														 │
+└────────────────────────────────────────────────────────────────────────┘
+	More about typography in: https://m3.material.io/styles/typography/overview */
+
+	/* Installs Roboto font*/
+	@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+	/* Default Style*/
+	p, a {
+		display: flex;
+		overflow-x: hidden;
+
+		font-family: Roboto;
+		color: var(--md-sys-color-on-surface);
+
+		flex: none;
+		flex-shrink: 1;
+	}
+		
+	.small-body, .caption {
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: 0.4px;
+		/* Custom Override of MD guidelines: */
+		color: var(--md-sys-color-on-surface-variant);
+	}
+
+	.medium-body, .body2 {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: 0.25px;
+		/* Custom Ovr: */
+		color: var(--md-sys-color-on-surface-variant);
+	}
+
+	.large-body, .body1 {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.5px;
+	}
+
+	/* Custom text-type not included in MD*/
+	.small-label, .note {
+		font-weight: 500;
+		font-size: 11px;
+		line-height: 16px;
+		letter-spacing: 0.5px;
+		/* Custom Ovr: */
+		color: var(--md-sys-color-on-surface-variant);
+	}
+
+	.medium-label, .overline {
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 16px;
+		letter-spacing: 0.5px;
+		/* Custom Ovr: */
+		color: var(--md-sys-color-on-surface-variant);
+	}
+
+	.large-label, .button {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: 0.1px;
+		/* Custom Ovr: */
+		color: var(--md-sys-color-on-surface-variant);
+	}
+			
+	.small-title, .subhead2 {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: 0.1px;
+	}
+
+	.medium-title, .subhead1 {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.15px;
+	}
+
+	/* Our headlines are -20% smaller than MD's ones*/
+		.large-title, .headline4 {
+			font-weight: 400;
+			font-size: 22px;
+			line-height: 28px;
+			letter-spacing: 0px;
+		}
+
+		.small-headline, .headline3 {
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 32px;
+			letter-spacing: 0px;
+		}
+
+		.medium-headline, .headline2 {
+			font-weight: 400;
+			font-size: 28px;
+			line-height: 36px;
+			letter-spacing: 0px;
+		}
+
+		.large-headline, .headline1 {
+			font-weight: 400;
+			font-size: 32px;
+			line-height: 40px;
+			letter-spacing: 0px;
+		}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Icons															 │
+└────────────────────────────────────────────────────────────────────────┘
+	More about icons in: https://m3.material.io/styles/icons/overview */
+
+	/* Default (Medium size) */
+	span {
+		/* M3/read-only/dark/surface1 */
+		font-family: 'Material Icons';
+		font-weight: normal;
+		font-style: normal;
+		font-size: 24px;  /* Preferred icon size */
+		display: flex;
+		line-height: 1;
+		text-transform: none;
+		letter-spacing: normal;
+		word-wrap: normal;
+		white-space: nowrap;
+		direction: ltr;
+		color: var(--md-sys-color-outline);
+
+		/* Support for all WebKit browsers. */
+		-webkit-font-smoothing: antialiased;
+		/* Support for Safari and Chrome. */
+		text-rendering: optimizeLegibility;
+		/* Support for Firefox. */
+		-moz-osx-font-smoothing: grayscale;
+		/* Support for IE. */
+		font-feature-settings: 'liga';
+	}
+
+	/* Custom Settings */ 
+		span {
+			flex-shrink: 0;
+		}
+		
+		/* Small size*/
+		span.small {
+			font-size: 18px;
+		}
+
+
+/* New fonts goes up here. */
+
+
+/* End of the document. */

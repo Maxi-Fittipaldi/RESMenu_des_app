@@ -1,0 +1,134 @@
+/* List-Popup.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+   Notes goes here. */
+
+	.List-Popup {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		padding: 24px;
+		gap: 12px;
+
+		width: 75%;
+		height: fit-content;
+
+		background: #302D38;
+		border-radius: 24px;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.List-Popup_state {
+		/* Auto layout */
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding: 8px;
+		gap: 16px;
+
+		width: 100%;
+		height: fit-content;
+
+		background: #302D38;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.List-Popup_state .Icon-BtN {
+		background-color: var(--md-sys-color-error);
+	}
+
+	.List-Popup_state_info {
+		/* Auto layout */
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0px;
+		gap: 10px;
+
+		width: fit-content;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.List-Popup_state_info_item {
+		/* Auto layout */
+
+		display: flex;
+		padding: 8px 24px;
+
+		width: fit-content;
+		height: fit-content;
+
+		/* M3/sys/dark/secondary */
+		background: #CCC2DC;
+		border-radius: 8px;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.List-Popup .List-Popup_state .List-Popup_state_info .List-Popup_state_info_item p {
+		color: #332D41;
+	}
+
+	.List-Popup .List-Popup_state .big-icon-button {	
+		background: #EC928E;
+	}
+
+	.List-Popup_list {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		padding: 8px;
+		gap: 12px;
+
+		width: 100%;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.List-Popup_list_item {
+		/* Auto layout */
+		display: flex;
+		padding: 4px 8px;
+		gap: 16px;
+
+		width: 100%;
+		height: fit-content;
+
+		/* M3/sys/dark/secondary-container */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.14), rgba(208, 188, 255, 0.14)), #1C1B1F;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.List-Popup_list_item p#large {
+		flex-grow: 1;
+	}
+
+	.List-Popup .List-Popup_list .List-Popup_list_item#selected_product  {
+		/* M3/sys/dark/secondary-container */
+		background: var(--md-sys-color-secondary-container);
+	}
+
+	.List-Popup_actions {
+		/* Auto layout */
+		display: flex;
+		justify-content: flex-end;
+		flex-wrap: wrap;
+		gap: 32px;
+
+		width: 100%;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+	}

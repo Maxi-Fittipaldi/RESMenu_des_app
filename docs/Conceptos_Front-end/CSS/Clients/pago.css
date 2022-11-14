@@ -1,0 +1,37 @@
+/* pago.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   This file includes a specific sub-page Structure and Overlays.
+
+   ί Dictionary:
+   {1} = Structure;
+   {2} = Overlays;
+   {3} = Others;
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Structure														 │
+└────────────────────────────────────────────────────────────────────────┘
+    Notes goes here. */
+
+    /* Code goes here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Overlays														 │
+└────────────────────────────────────────────────────────────────────────┘
+    Notes goes here. */
+
+	.Nav-Dialog.collapsed .Nav-Dialog_item#Cost {
+		display: flex;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} Others															 │
+└────────────────────────────────────────────────────────────────────────┘
+    Notes goes here. */
+
+    /* Code goes here. */
+
+
+/* End of the document. */

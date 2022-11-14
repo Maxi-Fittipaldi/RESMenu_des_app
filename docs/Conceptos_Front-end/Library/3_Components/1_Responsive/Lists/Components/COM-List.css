@@ -1,0 +1,61 @@
+/* COM-list.css | DLM: 15/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+Notes goes here. */
+
+.COM-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 16px;
+
+	min-width: fit-content;
+	height: fit-content;
+
+	/* Inside auto layout */
+	flex: none;
+}
+
+.COM-list_item {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	
+	min-width: fit-content;
+	height: fit-content;
+
+	background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+	border-radius: 4px;
+
+	/* Inside auto layout */
+	flex: none;
+	align-self: stretch;
+}
+
+.COM-list_item_container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	padding: 8px;
+	gap: 16px;
+
+	width: calc(33.3% - 10.66px); 
+	height: fit-content;
+
+	/* M3/read-only/dark/surface1 */
+	background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+
+	/* Inside auto layout */
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
+.COM-list_item_container p {
+	flex-shrink: 0;
+}
+
+
+/* New section goes up here. */
+/* End of the document. */

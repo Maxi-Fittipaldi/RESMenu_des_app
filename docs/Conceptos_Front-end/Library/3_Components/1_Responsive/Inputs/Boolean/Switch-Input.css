@@ -1,0 +1,115 @@
+/* Switch-Input.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/* Code goes here. */
+
+
+	.Switch-Input {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		padding: 0px 3px;
+
+		width: 40px;
+		height: 24px;
+
+		/* M3/sys/dark/surface-variant */
+		background: var(--md-sys-color-surface-variant);
+
+		/* M3/sys/dark/outline token=md.sys.color.outline */
+		border: 1px solid var(--md-sys-color-outline);
+		border-radius: 100px;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.Switch-Input_indicator {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		
+		width: 16px;
+		height: 16px;
+
+		/* M3/sys/dark/outline token=md.sys.color.outline */
+		background: var(--md-sys-color-outline);;
+		border-radius: 100px;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+	
+	/*─────────── Status: On-Hover (hvr) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+		.Switch-Input#hover.hvr {
+			background: #49454F;
+		}
+		.Switch-Input .Switch-Input_indicator#hover.hvr {
+			background: #CAC4D0;
+		}
+
+	/*─────────── Status: After-Click (afc) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+		.Switch-Input#active.active {
+			background: #D0BCFF;
+			justify-content: flex-end;
+			border-color: #D0BCFF;
+		}
+		.Switch-Input .Switch-Input_indicator#active.active {
+			background: #381E72;
+		}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+/* New section goes up here. */
+/* End of the document. */

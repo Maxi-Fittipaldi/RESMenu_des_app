@@ -1,0 +1,47 @@
+/* 1.3_Elevation.css | DLM: 23/9/2022 | No License
+More about Color Palettes in: https://m3.material.io/styles/color/overview
+
+ί Dictionary
+	{1} = Shadows
+	{2} = Surfaces
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Shadows															 │
+└────────────────────────────────────────────────────────────────────────┘
+	More about shadows in: https://material.io/archive/guidelines/material-design/elevation-shadows.html
+	Shadows are actually from MD 2.0
+	Aren't fully addapted at the moment. */
+
+	/* Umbra, Penumbra, Ambient.
+	x y blur spread color. */
+	.material {
+		--md-sys-shadow-1DP: 0 0 2px 0 var(--md-sys-color-shadow-umbra), 0 2px 2px 0 var(--md-sys-color-shadow-penumbra), 0 1px 3px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-2DP: 0 0 4px 0 var(--md-sys-color-shadow-umbra), 0 3px 4px 0 var(--md-sys-color-shadow-penumbra), 0 1px 5px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-3DP: 0 3px 3px 0 var(--md-sys-color-shadow-umbra), 0 3px 4px 0 var(--md-sys-color-shadow-penumbra), 0 1px 8px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-4DP: 0 2px 4px 0 var(--md-sys-color-shadow-umbra), 0 4px 5px 0 var(--md-sys-color-shadow-penumbra), 0 1px 10px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-6DP: 0 6px 10px 0 var(--md-sys-color-shadow-umbra), 0 1px 18px 0 var(--md-sys-color-shadow-penumbra), 0 3px 5px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-8DP: 0 8px 10px 1px var(--md-sys-color-shadow-umbra), 0 3px 14px 3px var(--md-sys-color-shadow-penumbra), 0 4px 15px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-9DP: 0 9px 12px 1px var(--md-sys-color-shadow-umbra), 0 3px 16px 2px var(--md-sys-color-shadow-penumbra), 0 5px 6px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-12DP: 0 12px 17px 2px var(--md-sys-color-shadow-umbra), 0 5px 22px 4px var(--md-sys-color-shadow-penumbra), 0 7px 8px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-16DP: 0 16px 24px 2px var(--md-sys-color-shadow-umbra), 0 6px 30px 5px var(--md-sys-color-shadow-penumbra), 0 8px 10px 0 var(--md-sys-color-shadow-ambient);
+		--md-sys-shadow-24DP: 0 24px 38px 3px var(--md-sys-color-shadow-umbra), 0 9px 46px 8px var(--md-sys-color-shadow-penumbra), 0 11px 15px 0 var(--md-sys-color-shadow-ambient);
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Surfaces														 │
+└────────────────────────────────────────────────────────────────────────┘
+*/
+
+	/* The disabled class always lowers the opacity*, no exception. */
+	div.disabled, div.dis {
+		opacity: 60%;
+	}
+
+
+
+/* New elevations goes up here. */
+
+
+/* End of the document. */

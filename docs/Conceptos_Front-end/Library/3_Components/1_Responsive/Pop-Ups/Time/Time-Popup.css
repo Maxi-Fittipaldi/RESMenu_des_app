@@ -1,0 +1,143 @@
+/* Time-Popup.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Clock {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 24px 36px 48px;
+		gap: 4px;
+		width: fit-content;
+		height: fit-content;
+
+		/* M3/sys/dark/secondary-container */
+
+		background: var(--md-sys-color-secondary-container);
+		border-radius: 48px;
+
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 0;
+	}
+
+	.Clock_headline {
+		/* Auto layout */
+		display: flex;
+		min-width: fit-content;
+		height: fit-content;
+		justify-content: center;
+		gap: 16px;
+
+		width: 100%;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.Clock_headline p {
+		text-align: center;
+	}
+
+	.Clock_content {
+		/* Auto layout */
+		display: flex;
+		gap: 16px;
+		width: fit-content;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 0;
+	}
+
+	.Clock_content_input {
+		/* Auto layout */
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 16px 24px 16px 24px;
+		gap: 8px;
+
+		width: fit-content;
+		height: fit-content;
+
+		/* M3/sys/dark/primary */
+		background: var(--md-sys-color-primary);
+		border-radius: 32px;
+
+		/* Inside auto layout */
+		flex-grow: 0;
+	}
+
+	.Clock_content_input p {
+		color: var(--md-sys-color-seconary);
+	}
+
+	.Clock_content_input p.large-body {
+		color: var(--md-sys-color-on-primary);
+	}
+
+
+	
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Notes goes here. */
+	
+		/**/
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+	
+	/*─────────── Status: On-Hover (hvr) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/*─────────── Status: After-Click (afc) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+/* New section goes up here. */
+/* End of the document. */

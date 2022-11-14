@@ -1,0 +1,29 @@
+/* Cards-Grid.css | DLM: 16/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+Notes goes here. */
+
+   .Cards-Grid {
+      /* Auto layout */
+      display: flex;
+      flex-wrap: wrap;
+      padding: 16px 0px 0px;
+      gap: 16px;
+
+      width: 100%;
+      height: fit-content;
+
+      /* Inside auto layout */
+      flex: none;
+      align-self: stretch;				
+   }
+
+   .Cards-Grid > * {
+      flex-grow: 1 !important; /* Can't quit it. */
+   }
+
+
+
+/* New section goes up here. */
+/* End of the document. */

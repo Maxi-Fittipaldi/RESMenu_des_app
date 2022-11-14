@@ -1,0 +1,133 @@
+/* Basic-DDL.css | DLM: 16/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Basic-DDL {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	
+		width: f;
+		height: fit-content;
+
+		border-radius: 4px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	.Basic-DDL_button {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		padding: 0px 12px;
+		gap: 16px;
+	
+		width: 100%;
+		min-height: 56px;
+	
+		/* M3/read-only/dark/surface1 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), var(--md-sys-color-surface);
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	.Basic-DDL_content {
+		/* Auto layout */
+		display: none;
+		flex-direction: column;
+	
+		width: 100%;
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: list (abreviation) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled ───────────*/
+		.Basic-DDL.disabled .Basic-DDL_button p {
+			color: var(--md-sys-color-outline);
+		}
+
+	/*─────────── Status: Open ───────────*/
+		.Basic-DDL.open .Basic-DDL_button{
+			/* M3/read-only/dark/surface2 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), #1C1B1F;
+			/* M3/sys/dark/primary */
+			border-bottom: 2px solid var(--md-sys-color-primary);
+		}
+
+		.Basic-DDL.open .Basic-DDL_button span.rotary {
+			color: var(--md-sys-color-on-surface-variant);
+			transform: rotate(180deg);
+			transition-duration: 500ms
+		}
+
+		.Basic-DDL.open .Basic-DDL_content {
+			display: flex;
+		}
+
+		/*─────────── Status: On-Hover ───────────*/
+		.Basic-DDL.hvr .Basic-DDL_button {
+			/* M3/read-only/dark/surface3 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), var(--md-sys-color-surface);
+		}
+		
+		.Basic-DDL.hvr .Basic-DDL_button p, .Basic-DDL.hvr .Basic-DDL_button span.rotary {
+			color: var(--md-sys-color-primary);
+		}
+
+	/*─────────── Status: Open-On-Hover ───────────*/
+		/* Just include "open" and "hover", both atributes to the html component */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: sts_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+
+		
+/* New section goes up here. */
+/* End of the document. */

@@ -1,0 +1,63 @@
+/* index.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   This file includes a specific sub-page Structure and Overlays.
+
+   ί Dictionary:
+   {1} = Structure;
+   {2} = Overlays;
+   {3} = Others.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Structure														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.filters-section {
+		/* Auto layout */
+		display: flex;
+		gap: 16px;
+
+		width: 100%;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.filters-section > * {
+		flex-grow: 1;
+	}
+
+	.products-list {
+		/* Auto layout of frame "List" */
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+
+		width: 100%;
+		height: fit-content;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Overlays														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/* Code goes here. */
+
+	
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} Others															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/* Code goes here. */
+
+
+/* End of the document. */

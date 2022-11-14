@@ -1,0 +1,96 @@
+/* Qty-Slider.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/* Code goes here. */
+	.Qty-Slider {
+		
+		/* Auto layout */
+		display: flex;
+		align-items: flex-start;
+		padding: 6px;
+		gap: 4px;
+		width: fit-content;
+		height: fit-content;
+
+		/* M3/read-only/dark/surface2 */
+
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), #1C1B1F;
+		border-radius: 100px;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.Qty-Slider span {
+		color: var(--md-sys-color-on-surface);
+	}
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Notes goes here. */
+		.Qty-Slider.dis span {
+			color: var(--md-sys-color-outline);
+		}
+	
+	/*─────────── Status: On-Hover (hvr) ───────────*/
+	/* Notes goes here. */
+		.Qty-Slider.hvr {
+			background: #4A4458;
+		}
+
+	/*─────────── Status: After-Click (afc) ───────────*/
+	/* Notes goes here. */
+		.Qty-Slider.afc {
+			background: var(--md-sys-color-secondary-container);
+		}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: On-click (afc) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+		.Qty-Slider.hvr span.afc{
+			color: var(--md-sys-color-primary);
+		}
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Mandatory aclaration here. */
+		/* Code goes here. */
+
+/* New section goes up here. */
+/* End of the document. */

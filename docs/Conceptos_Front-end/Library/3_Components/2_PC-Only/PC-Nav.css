@@ -1,0 +1,185 @@
+/* PC-Navbar.css | DLM: 10/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+		.PC-Navbar {
+			/* Auto layout */
+			display: flex;
+			flex-direction: column;
+			padding: 0px;
+			width: 100%;
+			height: fit-content;
+
+			/* Inside auto layout */
+			flex: none;
+		}
+
+		.PC-Navbar_upbar {
+			/* Auto layout */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0px 12px;
+			gap: 16px;
+			width: 100%;
+			height: fit-content;
+			
+			/* M3/read-only/dark/surface1 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+
+			/* Inside auto layout */
+			flex: none;
+		}
+
+		.PC-Navbar_upbar_item {
+			/* Auto layout */
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 14px 0px;
+			gap: 8px;
+			width: fit-content;
+			height: fit-content;
+
+			/* Inside auto layout */
+			flex: none;
+			flex-grow: 1;
+			flex-shrink: 1;
+		}
+		
+		.PC-Navbar_upbar_item_indicator, 
+		.PC-Navbar_config-options_item_indicator {
+			/* Auto layout */
+			display: flex;
+			flex-direction: column;
+			padding: 6px 12px;
+			gap: 10px;
+
+			width: fit-content;
+			height: fit-content;
+
+			border-radius: 20px;
+		}
+
+
+		.PC-Navbar_config-options {
+			/* Auto layout */
+			display: none;
+			flex-direction: column;
+			padding: 8px 0px;
+			gap: 10px;
+
+			width: calc(33.33% + 12px * 1.8); /* Replace with .js to use the same space as*/
+			height: fit-content;
+
+			/* M3/read-only/dark/surface2 */
+			background: linear-gradient(0deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)), #1C1B1F;
+
+			/* Inside auto layout */
+			flex: none;
+		}
+
+		.PC-Navbar_config-options_item {
+			/* Auto layout */
+			display: flex;
+			align-items: center;
+			padding: 8px 12px;
+			gap: 8px;
+
+			width: 100%;
+			height: fit-content;
+
+			/* M3/read-only/dark/surface5 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.14), rgba(208, 188, 255, 0.14)), #1C1B1F;
+
+			/* Inside auto layout */
+			flex: none;
+		}
+
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: var_name (abreviation) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Open ───────────*/
+		.PC-Navbar.open .PC-Navbar_config-options{
+			display: flex;
+		}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+	/*─────────── Sub-States for Upbar_item:  ───────────*/
+
+		/*─────────── Sub-Status: On-Hover (hvr) ───────────*/
+		/*It changes th color of the upbar item while hover. */
+			.PC-Navbar_upbar_item.hvr .PC-Navbar_upbar_item_indicator p,
+			.PC-Navbar_upbar_item.hvr span {
+					color: var(--md-sys-color-primary);
+			}
+
+		/*─────────── Sub-Status: On-Hove#sign-out (hvr) ───────────*/
+		/* It changes color of #sign-out icon while hover. */
+			.PC-Navbar_upbar_item#sign-out.hvr .PC-Navbar_upbar_item_indicator p,
+			.PC-Navbar_upbar_item#sign-out.hvr span {
+					color: var(--md-sys-color-error);
+			}
+
+		/*─────────── Sub-Status: Acive ───────────*/
+		/* It pops up with a different background color while its the current page. */
+			.PC-Navbar_upbar_item.active .PC-Navbar_upbar_item_indicator{
+				background: var(--md-sys-color-secondary-container)
+			}
+		
+	/*─────────── Sub-States for Config-Options:  ───────────*/
+		/*─────────── Sub-Status: On-Hover (hvr) ───────────*/
+		/*it changes color and background color while hover*/
+			.PC-Navbar_config-options_item.hvr span, 
+			.PC-Navbar_config-options_item.hvr .PC-Navbar_config-options_item_indicator p  {
+				color: var(--md-sys-color-primary);
+			}
+
+		/*─────────── Sub-Status: active ───────────*/
+		/*it changes color while item is active*/
+			.PC-Navbar_config-options_item.active span, 
+			.PC-Navbar_config-options_item.active .PC-Navbar_config-options_item_indicator p  {
+				color: var(--md-sys-color-primary);
+			}
+
+			.PC-Navbar_config-options_item.active .PC-Navbar_config-options_item_indicator {
+				background: var(--md-sys-color-secondary-container)
+			}
+
+
+
+/* New section goes up here. */
+/* End of the document. */

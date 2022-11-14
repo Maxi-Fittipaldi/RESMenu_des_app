@@ -1,0 +1,188 @@
+/* Basic-DDL.css | DLM: 16/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = Variants;
+   {3} = States;
+   {4} = Sub States/Variants.
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Inputs-DDL {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	
+		width: 100%;
+		height: fit-content;
+
+		border-radius: 4px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	.Inputs-DDL_button {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		padding: 0px 12px;
+		gap: 16px;
+	
+		width: 100%;
+		min-height: 56px;
+	
+		/* M3/read-only/dark/surface1 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), var(--md-sys-color-surface);
+		border-radius: 4px 4px 0px 0px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	.Inputs-DDL_content {
+		/* Auto layout */
+		display: none;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 2px;
+
+		width: 100%;
+		height: fit-content;
+		border-radius: 0px 0px 4px 4px;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.Inputs-DDL_content_item {
+		/* Auto layout */
+		display: flex;
+		align-items: center;
+		padding: 8px 12px;
+		gap: 8px;
+		width: 100%;
+		height: fit-content;
+
+		/* M3/read-only/dark/surface1 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1F;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+	.Inputs-DDL_content_item_example {
+		
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+
+		width: fit-content;
+		height: 56px; 
+
+		/* M3/read-only/dark/surface2 */
+		background: #000000;
+
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1;
+	}
+
+	.Inputs-DDL_content_item_icons {
+		/* Auto layout */
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: fit-content;
+		height: 100%;
+
+		/* Inside auto layout */
+		flex: none;
+	}
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} Variants														 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Variant: list (abreviation) ───────────*/
+	/* Notes goes here. */
+		/* Code goes here. */
+
+	/* New variants goes up here. */
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{3} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled ───────────*/
+		/*done*/
+
+	/*─────────── Status: Open ───────────*/
+		.Inputs-DDL#state.open .Inputs-DDL_Button{
+			/* M3/read-only/dark/surface2 */
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.08), rgba(208, 188, 255, 0.08)), #1C1B1F;
+			/*M3/sys/dark/primary */
+			border-bottom: 2px solid var(--md-sys-color-primary);
+			
+		}
+
+		.Inputs-DDL#state.open .Inputs-DDL_content {
+			display: flex;
+		}
+
+		/*─────────── Status: On-Hover ───────────*/
+		.Inputs-DDL#state.hvr .Inputs-DDL_Button{
+			/* M3/read-only/dark/surface3 */
+			border-bottom: 2px solid var(--md-sys-color-primary);
+			background: linear-gradient(0deg, rgba(208, 188, 255, 0.11), rgba(208, 188, 255, 0.11)), #1C1B1F;
+		}
+
+		.Inputs-DDL#state.hvr .Inputs-DDL_content {
+			display: flex;
+		}
+		
+
+
+	/*─────────── Status: Open-On-Hover ───────────*/
+		/* Just include "open" and "hover", both atributes to the html component */
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{4} Sub States/Variants											     │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: On_hover (hvr) ───────────*/
+	/* Hover for icons. */
+		.Inputs-DDL .Inputs-DDL_content .Inputs-DDL_content_Item .Inputs-DDL_content_Item_Icons span.hvr,
+		.Inputs-DDL .Inputs-DDL_content .Inputs-DDL_content_Item span#danger.hvr   {
+			color: var(--md-sys-color-on-surface);
+		}
+
+
+	/*─────────── Variant: Active ───────────*/
+	/* Active icons style. */
+		.Inputs-DDL span.active {
+			color: var(--md-sys-color-primary);
+		}
+		
+		.Inputs-DDL span#danger.active {
+			color: var(--md-sys-color-error);
+		}
+
+		
+/* New section goes up here. */
+/* End of the document. */

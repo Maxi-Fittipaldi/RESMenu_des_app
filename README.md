@@ -15,7 +15,7 @@ Un proyecto de pedido de comidas en un restaurante.
 - [x] modificar usuario (0.3)
 - [x] verificación por mail (0.2)
 - [x] ruta _orders_ (pedidos pendientes y marcarlos como completados) (0.4)
-- [ ] SCSS (diseños exportados de figma)
+- [x] SCSS (diseños exportados de figma en docs)
 
 ### Otras tags:
 Para arreglos de errores importantes, se utilizarán tags intermedias
@@ -93,4 +93,5 @@ principal:
 ```
 sass --watch static/SASS/index.scss static/CSS/index.css
 ```
-# resmenu_des_app
+# Documentación
+Para más información, busque la información necesaria en la [carpeta de documentación](/docs).

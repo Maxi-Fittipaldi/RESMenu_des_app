@@ -1,0 +1,136 @@
+/* Expanded-Card.css | DLM: 16/10/2022 | No License.
+   Code extracted from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu
+   MD guidelines for components in: https://m3.material.io/components.
+
+   ί Dictionary:
+   {1} = Default;
+   {2} = States;
+
+┌────────────────────────────────────────────────────────────────────────┐
+│	{1} Default															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	.Expand-Card {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
+		height: 100%;
+	
+		/* M3/read-only/dark/surface1 */
+		background: linear-gradient(0deg, rgba(208, 188, 255, 0.05), rgba(208, 188, 255, 0.05)), #1C1B1E;
+		border-radius: 12px;
+	
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	
+	.Expand-Card_media {
+		background-color: var(--md-sys-color-outline);
+		width: 100%;
+		height: 352px;
+	}
+	
+	.Expand-Card_content {
+		display: flex;
+		flex-direction: column;
+		padding: 16px;
+		gap: 12px;
+
+		width: 100%;
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;
+		flex-grow: 1;
+	}
+	
+	.Expand-Card_content_headline {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	
+		width: 100%;
+		height: fit-content;
+		gap: 12px;
+	
+		/* Inside auto layout */
+		flex: none;				
+	}
+	
+	.Expand-Card_content_info {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 8px;
+	
+		width: 100%;
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;				
+	}
+	
+	.Expand-Card_content_info_category {
+		/* Auto layout */
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	
+		width: fit-content;
+		height: fit-content;
+		
+		/* Inside auto layout */
+		flex: none;
+	}
+	
+	.Expand-Card_content_info_filter {
+		/* Auto layout */
+		display: flex;
+		gap: 4px;
+
+		width: fit-content;
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;				
+	}
+	
+	.Expand-Card_content_info_filter span {
+		color: var(--md-sys-color-on-surface);
+	}
+	
+	.Expand-Card_action-box {
+		/* Auto layout */
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px 16px 16px;
+		gap: 16px;
+
+		width: 100%;
+		height: fit-content;
+	
+		/* Inside auto layout */
+		flex: none;				
+	}	
+
+
+/*
+┌────────────────────────────────────────────────────────────────────────┐
+│	{2} States															 │
+└────────────────────────────────────────────────────────────────────────┘
+	Notes goes here. */
+
+	/*─────────── Status: Disabled (dis) ───────────*/
+	/* Must be done with backend. */
+		/* It should change the "Añadir" button to a disabled one. */
+
+
+		
+/* New section goes up here. */
+/* End of the document. */

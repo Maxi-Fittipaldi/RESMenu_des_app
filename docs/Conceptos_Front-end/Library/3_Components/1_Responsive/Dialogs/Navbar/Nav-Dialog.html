@@ -1,0 +1,85 @@
+<!-- Nav-Dialog.html | DLM: 15/10/2022 | No License.
+Replicated from: https://www.figma.com/file/wKV4IxZlOoIXKtQOHwL0r9/ResMenu -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Nav-Dialog</title>
+	<!-- Meta: -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS: -->
+	<link rel="stylesheet" type="text/css" href="../../../../Master.css">
+	<!-- Activate just for experiments:-->
+	<!-- <link rel="stylesheet" type="text/css" href="../Library/4_Others/4.1_Experimental.css"> -->
+	<!-- Icon pack from Google Fonts: -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Page .ico: -->
+	<link rel="icon" href="../../../../../Media/component.ico">
+</head>
+
+<body class="material dark"> <!-- Loads Material Design Theme CSS vars for the entire body. -->
+	<article>
+		<!-- Component starts here: -->
+			<!-- This component GOES in HEADER-->
+			<div class="Nav-Dialog"> <!-- Add "collapsed" class to close it. -->
+				<div class="Nav-Dialog_state-indicator">
+					<span class="material-icons-round rotary">expand_more</span> 
+				</div>
+				<div class="Nav-Dialog_item" id="Gift">
+					<div class="Nav-Dialog_item_text">
+						<span class="material-icons-round">redeem</span> 
+						<p class="large-label">¡Un regalito!</p>
+					</div>
+					<p class="large-label">10% dto para tu próximo pedido.</p>
+				</div>
+				<div class="Nav-Dialog_item" id="orderID">
+					<div class="Nav-Dialog_item_text">
+						<span class="material-icons-round">tag</span> 
+						<p class="large-label">Número de Orden</p>
+					</div>
+					<p class="large-label">0930-01</p>
+				</div>
+				<div class="Nav-Dialog_item" id="DeliveryTime">
+					<div class="Nav-Dialog_item_text">
+						<span class="material-icons-round">hourglass_top</span> 
+						<p class="large-label">Hora de Entrega Aproximada</p>
+					</div>
+					<p class="large-label">9:55</p>
+				</div>
+				<div class="Nav-Dialog_item" id="Discount">
+					<div class="Nav-Dialog_item_text">
+						<span class="material-icons-round">sell</span> 
+						<p class="large-label"p>Descuento:</p>
+					</div>
+					<p class="large-label"p>15%</p>
+				</div>
+				<div class="Nav-Dialog_item" id="Cost">
+					<div class="Nav-Dialog_item_text">
+						<span class="material-icons-round">payments</span> 
+						<p class="large-label">Costo Total del Pedido</p>
+					</div>
+					<p class="large-label">$2450</p>
+				</div>
+				<div class="Nav-Dialog_actions">
+					<button class="Filled-BtN" id="Cancel">
+						<p class="button">
+							Borrar
+						</p>
+					</button>
+					<button class="Filled-BtN" id="Cancel">
+						<p class="button">
+							Continuar
+						</p>
+					</button>
+				</div>
+			</div>
+		<!-- Component ends here. -->
+
+		<!-- Experimental Section: -->
+			<!-- Code goes here. -->
+		<!-- End Of Section. -->
+	</article>
+	<script src="../../../../../JS/experimental.js"></script>
+</body>
+</html>
