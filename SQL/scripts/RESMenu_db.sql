@@ -68,3 +68,9 @@ CREATE TABLE localesProductos(
     CONSTRAINT fk_local_id FOREIGN KEY(local_id)
     REFERENCES locales(id)
 )ENGINE = InnoDB;
+
+-- admin account
+INSERT INTO usuarios
+            (email,nombre,apellido,password,estado,rol)
+VALUES('admin@email.com','Admin','Adm','5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5','verificado','admin')
+-- pass = 12345

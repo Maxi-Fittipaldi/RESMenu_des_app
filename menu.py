@@ -27,6 +27,11 @@ def menu():
         productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
         session["order?"] = False
     else:
+        cabeceraTransaccion = db.session.execute("""
+        SELECT id, fecha, estado FROM cabeceraTransaccion
+        WHERE cliente_id = :cid
+        AND estado = 'pendiente' or estado = 'en_proceso'
+        """, {"cid": session["cid"]})
         productos = db.session.execute("""
         SELECT 
 ct.id,
@@ -53,7 +58,7 @@ p.estado AS pEstado
         AND ct.estado = 'pendiente' or ct.estado = 'en_proceso'
         """,{"cid":session["cid"]})
         session["order?"] = True
-    return render_template("menu.html",productos=productos, session=session)
+    return render_template("menu.html",productos=productos, session=session,CT=cabeceraTransaccion)
 
 @bp.route("/menu/commit",methods=["POST"])
 @login_required

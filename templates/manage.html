@@ -23,12 +23,12 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/profile">Perfil</a>
         </li>
-        {% if session["rol"] == "chef" or session["rol"] == "admin" %}
+        {% if session["rol"] == "chef" %}
         <li class="nav-item">
           <a class="nav-link" href="/chef/orders">Órdenes en proceso</a>
         </li>
         {% endif %}
-        {% if session["rol"] == "cajero" or session["rol"] == "admin" %}
+        {% if session["rol"] == "cajero" %}
         <li class="nav-item">
           <a class="nav-link" href="/cashier/orders">Órdenes pendientes</a>
         </li>
@@ -38,7 +38,10 @@
         </li>
         {% if session["rol"] == "admin"%}
         <li class="nav-item">
-          <a class="nav-link " href="/admin/manage">Todas las órdenes</a>
+          <a class="nav-link" aria-current="page" href="/admin/orders">Gestionar órdenes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/admin">Panel de admin</a>
         </li>
         {% endif %}
       </ul>

@@ -92,7 +92,12 @@
     <div class="list-dropdown open">
       <div class="list-dropdown_button">
         <span class="material-icons-round">list_alt</span>
-        <p class="list-dropdown_button_text-area large-body"> Tu orden </p>
+        <p class="list-dropdown_button_text-area large-body">
+          Tu orden ||
+          {% for x in CT %}
+            Nro de orden: {{x.id}} ||
+            fecha: {{x.fecha}}
+          {% endfor %}</p>
         <span class="material-icons-round rotary">expand_more</span>
       </div>
       

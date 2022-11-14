@@ -29,12 +29,11 @@ def select():
     productos = db.session.execute("SELECT * FROM productos")
     return render_template("manage.html", productos=productos)
 
-@bp.route("/manage/insert", methods=['GET','POST'])
+@bp.route("/manage/insert", methods=['POST'])
 @staff_login_required
 @verif_required
 @admin_required
 def insert():
-    if request.method == "POST":
         productoNombre = request.form["nombre"]
         productoPrecio = request.form["precio"]
         productoCantidad = request.form["cantidad"]
@@ -58,9 +57,6 @@ def insert():
         except:
                 flash("Ocurrió un error en la inserción", "error")
         return redirect("/manage")
-    else:
-        productos = db.session.execute("SELECT * FROM productos")
-        return render_template('index.html',productos=productos)
 @bp.route("/manage/remove/<int:id>")
 @staff_login_required
 @verif_required

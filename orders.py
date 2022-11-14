@@ -97,7 +97,6 @@ def chef_update(id):
 
 @bp.route("/admin/orders")
 @staff_login_required
-@verif_required
 @admin_required
 def admin_orders():
     dTrans = db.session.execute("""
@@ -121,8 +120,7 @@ p.precio
     return render_template("orders.html", dTrans=dTrans, cTrans=cTrans, session=session)
 
 @bp.route("/admin/orders/update/<int:id>", methods=["POST"])
-@login_required
-@verif_required
+@staff_login_required
 @admin_required
 def admin_update(id):
     estado = request.form["estado"]
