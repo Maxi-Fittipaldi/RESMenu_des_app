@@ -26,6 +26,7 @@ def menu():
                 flash("Orden lista. Por favor, pase a retirarla","success")
         productos = db.session.execute("SELECT * FROM productos WHERE estado='visible'")
         session["order?"] = False
+        return render_template("menu.html",productos=productos, session=session)
     else:
         cabeceraTransaccion = db.session.execute("""
         SELECT id, fecha, estado FROM cabeceraTransaccion
@@ -58,7 +59,7 @@ p.estado AS pEstado
         AND ct.estado = 'pendiente' or ct.estado = 'en_proceso'
         """,{"cid":session["cid"]})
         session["order?"] = True
-    return render_template("menu.html",productos=productos, session=session,CT=cabeceraTransaccion)
+        return render_template("menu.html",productos=productos, session=session,CT=cabeceraTransaccion)
 
 @bp.route("/menu/commit",methods=["POST"])
 @login_required
